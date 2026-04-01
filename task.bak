@@ -1,8 +1,8 @@
-# Garuda Web Application - Clickable Prototype
+# nots Web Application - Clickable Prototype
 
 ## Planning
-- [x] Read and analyze DB schema (Garuda)
-- [x] Extract and analyze Garuda SOW document
+- [x] Read and analyze DB schema (nots)
+- [x] Extract and analyze nots SOW document
 - [x] Review existing codebase structure
 - [x] Write implementation plan
 - [x] Get user approval on plan

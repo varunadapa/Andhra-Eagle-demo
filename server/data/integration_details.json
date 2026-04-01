@@ -70,7 +70,7 @@
     ]
   },
   "2": {
-    "system": "Garuda",
+    "system": "nots",
     "description": "Drug Offenders Profiling, Analysis and Monitoring System — Andhra Pradesh Police's dedicated drug offender database with 360° profiling and interrogation reports.",
     "columns": [
       "Person ID",

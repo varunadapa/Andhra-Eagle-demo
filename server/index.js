@@ -110,7 +110,7 @@ app.post('/api/chat', async (req, res) => {
   try {
     const crimes = readJSON('crimes').slice(0, 5); // Basic context length limitation
     const accuseds = readJSON('accuseds').slice(0, 5);
-    const systemPrompt = "You are Garuda AI, a highly intelligent criminal analysis system. Answer the user strictly using the context below. Format all responses clearly using Markdown and Tables.\n\nContext:\n" + JSON.stringify({ crimes, accuseds });
+    const systemPrompt = "You are nots AI, a highly intelligent criminal analysis system. Answer the user strictly using the context below. Format all responses clearly using Markdown and Tables.\n\nContext:\n" + JSON.stringify({ crimes, accuseds });
 
     const messages = [
       { role: 'system', content: systemPrompt },
@@ -130,4 +130,4 @@ app.post('/api/chat', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Garuda running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`nots running on http://localhost:${PORT}`));

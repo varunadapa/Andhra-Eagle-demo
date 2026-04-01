@@ -1,5 +1,5 @@
 /* ============================================
-   Garuda Design System — Premium Dark Theme
+   nots Design System — Premium Dark Theme
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -15,7 +15,8 @@
   --bg-glass-hover: rgba(255, 255, 255, 0.06);
 
   /* Accent Colors */
-  --accent-cyan: #bd9d1e; /* Gold Secondary */
+  --accent-cyan: #bd9d1e;
+  /* Gold Secondary */
   --accent-blue: #01300d;
   --accent-purple: #8b5cf6;
   --accent-teal: #14b8a6;
@@ -32,7 +33,8 @@
   --gradient-sidebar: #01300d;
 
   /* Text */
-  --text-primary: #ffffff; /* Pure White */
+  --text-primary: #ffffff;
+  /* Pure White */
   --text-secondary: #a7f3d0;
   --text-muted: #6b7280;
   --text-accent: #bd9d1e;
@@ -84,7 +86,8 @@
   --text-accent: #bd9d1e;
 
   /* Borders */
-  --border-color: #e2e8f0; /* Soft Gray Border for contrast */
+  --border-color: #e2e8f0;
+  /* Soft Gray Border for contrast */
   --border-accent: rgba(189, 157, 30, 0.4);
 
   /* Shadows */
@@ -149,7 +152,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg-primary); /* Solid color instead of gradient */
+  background: var(--bg-primary);
+  /* Solid color instead of gradient */
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -277,8 +281,10 @@ body::before {
 }
 
 .nav-item.active {
-  background: rgba(189, 157, 30, 0.15); /* Gold transparent background */
-  color: var(--accent-cyan); /* Gold color */
+  background: rgba(189, 157, 30, 0.15);
+  /* Gold transparent background */
+  color: var(--accent-cyan);
+  /* Gold color */
   font-weight: 600;
 }
 
@@ -293,8 +299,10 @@ body::before {
 }
 
 .light-theme .nav-item.active {
-  background: rgba(189, 157, 30, 0.15); /* Gold transparent background */
-  color: #bd9d1e; /* Gold color */
+  background: rgba(189, 157, 30, 0.15);
+  /* Gold transparent background */
+  color: #bd9d1e;
+  /* Gold color */
   /* Sidebar uses Gold accent for active state in light theme */
 }
 
@@ -339,7 +347,8 @@ body::before {
   border-radius: 10px;
   font-size: 0.7rem;
   font-weight: 600;
-  background: rgba(189, 157, 30, 0.15); /* Gold transparent background */
+  background: rgba(189, 157, 30, 0.15);
+  /* Gold transparent background */
   color: var(--accent-cyan);
 }
 
@@ -396,6 +405,7 @@ body::before {
 /* ---- Main Content ---- */
 .main-content {
   flex: 1;
+  min-width: 0; /* Prevents flex blowout */
   margin-left: var(--sidebar-width);
   min-height: 100vh;
 }
@@ -553,16 +563,19 @@ body::before {
 /* ---- Cards ---- */
 .card {
   background: var(--gradient-card);
-  border: 1px solid #e2e8f0; /* Visible border in light theme */
+  border: 1px solid #e2e8f0;
+  /* Visible border in light theme */
   border-radius: var(--radius-md);
   padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow */
   transition: all var(--transition-normal);
 }
 
 .card:hover {
   border-color: var(--border-accent);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Stronger shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Stronger shadow on hover */
 }
 
 .card-header {
@@ -585,7 +598,8 @@ body::before {
 
 .stat-card {
   background: var(--gradient-card);
-  border: 1px solid #e2e8f0; /* Visible border in light theme */
+  border: 1px solid #e2e8f0;
+  /* Visible border in light theme */
   border-radius: var(--radius-md);
   padding: 20px;
   display: flex;
@@ -593,13 +607,15 @@ body::before {
   gap: 16px;
   transition: all var(--transition-normal);
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow */
 }
 
 .stat-card:hover {
   transform: translateY(-2px);
   border-color: var(--border-accent);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Stronger shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Stronger shadow on hover */
 }
 
 .stat-icon {
@@ -744,6 +760,7 @@ body::before {
   font-size: 0.85rem;
   font-weight: 600;
   display: flex;
+  min-width: 0; /* Prevents flex blowout */
   white-space: nowrap;
   box-shadow: var(--shadow-md);
 }
@@ -782,16 +799,19 @@ body::before {
   display: flex;
   flex-direction: column;
   background: var(--bg-card);
-  border: 1px solid #e2e8f0; /* Visible border in light theme */
+  border: 1px solid #e2e8f0;
+  /* Visible border in light theme */
   border-radius: var(--radius-md);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   min-height: 160px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow */
 }
 
 .stat-card2:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Stronger shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Stronger shadow on hover */
   border-color: var(--border-accent);
 }
 
@@ -859,11 +879,13 @@ body::before {
 }
 
 .district-mini-card {
-  border: 1px solid #e2e8f0; /* Visible border in light theme */
+  border: 1px solid #e2e8f0;
+  /* Visible border in light theme */
   border-radius: 8px;
   padding: 12px;
   background: var(--bg-glass);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow */
 }
 
 /* ---- Tables ---- */
@@ -1912,7 +1934,9 @@ body::before {
 }
 
 @media (max-width: 1440px) {
-  .grid-4, .stats-grid {
+
+  .grid-4,
+  .stats-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -1920,19 +1944,25 @@ body::before {
   .stat-value {
     font-size: 1.5rem;
   }
+
   .stat-value-large {
     font-size: 1.45rem;
   }
-  .card, .stat-card {
+
+  .card,
+  .stat-card {
     padding: 16px;
   }
+
   .page-title {
     font-size: 1.2rem;
   }
 }
 
 @media (max-width: 1200px) {
-  .grid-4, .stats-grid {
+
+  .grid-4,
+  .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -2041,7 +2071,7 @@ body::before {
   }
 }
 
-/* === Garuda AI ASSISTANT (Premium Interface) === */
+/* === nots AI ASSISTANT (Premium Interface) === */
 .ai-chat-container {
   display: flex;
   flex-direction: column;

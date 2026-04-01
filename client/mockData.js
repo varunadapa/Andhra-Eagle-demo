@@ -315,7 +315,7 @@ window.MOCK_DATA = {
       "class_classification": "Commercial Quantity",
       "io_name": "Inspector P. Venkatesh",
       "io_rank": "Inspector",
-      "brief_facts": "Based on intelligence inputs from Garuda analytics, a raid was conducted at a farmhouse in Rushikonda. 2,500 MDMA tablets (500g) and 100g of cocaine were seized. Three accused including a foreign national were arrested. The investigation revealed an international drug supply chain operating through encrypted messaging apps.",
+      "brief_facts": "Based on intelligence inputs from nots analytics, a raid was conducted at a farmhouse in Rushikonda. 2,500 MDMA tablets (500g) and 100g of cocaine were seized. Three accused including a foreign national were arrested. The investigation revealed an international drug supply chain operating through encrypted messaging apps.",
       "no_of_accused": 4,
       "accused_details": [
         {
@@ -475,7 +475,7 @@ window.MOCK_DATA = {
       "class_classification": "Commercial Quantity",
       "io_name": "SI Lakshmi Narayana",
       "io_rank": "Sub Inspector",
-      "brief_facts": "Acting on information from Garuda's automated conflict alert, officers intercepted a cargo truck at Tenali toll plaza. 250 Kg of Ganja was found concealed among vegetable crates. The consignment was traced to Vizag through RTA vehicle records integrated with Garuda.",
+      "brief_facts": "Acting on information from nots's automated conflict alert, officers intercepted a cargo truck at Tenali toll plaza. 250 Kg of Ganja was found concealed among vegetable crates. The consignment was traced to Vizag through RTA vehicle records integrated with nots.",
       "no_of_accused": 5,
       "accused_details": [
         {
@@ -537,7 +537,7 @@ window.MOCK_DATA = {
       "class_classification": "Heinous",
       "io_name": "Inspector D. Srinivas",
       "io_rank": "Inspector",
-      "brief_facts": "Accused persons attacked the victim with lethal weapons near One Town GPO over a property dispute. Victim succumbed to injuries at Osmania General Hospital. CCTV footage and CDR analysis through Garuda helped identify all accused.",
+      "brief_facts": "Accused persons attacked the victim with lethal weapons near One Town GPO over a property dispute. Victim succumbed to injuries at Osmania General Hospital. CCTV footage and CDR analysis through nots helped identify all accused.",
       "no_of_accused": 2,
       "accused_details": [
         {
@@ -1011,7 +1011,7 @@ window.MOCK_DATA = {
       ]
     },
     "2": {
-      "system": "Garuda",
+      "system": "nots",
       "description": "Drug Offenders Profiling, Analysis and Monitoring System — Andhra Pradesh Police's dedicated drug offender database with 360° profiling and interrogation reports.",
       "columns": [
         "Person ID",
@@ -1627,7 +1627,7 @@ window.MOCK_DATA = {
     },
     {
       "id": 2,
-      "system": "Garuda",
+      "system": "Narcotics",
       "department": "Andhra Pradesh Police",
       "type": "State",
       "status": "connected",

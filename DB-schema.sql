@@ -81,7 +81,7 @@ CREATE TYPE public.source_field_enum AS ENUM (
     'FIR_COPY',
     'MEDIA',
     'INTERROGATION_REPORT',
-    'Garuda_DATA',
+    'nots_DATA',
     'IDENTITY_DETAILS',
     'MO_MEDIA',
     'uploadChargeSheet'
@@ -221,8 +221,8 @@ BEGIN
         v_path := '/interrogations/media/' || p_file_id::TEXT;
     ELSIF p_source_type = 'interrogation' AND p_source_field = 'INTERROGATION_REPORT' THEN
         v_path := '/interrogations/interrogationreport/' || p_file_id::TEXT;
-    ELSIF p_source_type = 'interrogation' AND p_source_field = 'Garuda_DATA' THEN
-        v_path := '/interrogations/Garudadata/' || p_file_id::TEXT;
+    ELSIF p_source_type = 'interrogation' AND p_source_field = 'nots_DATA' THEN
+        v_path := '/interrogations/notsdata/' || p_file_id::TEXT;
     
     -- NEW APIs
     ELSIF p_source_type = 'mo_seizures' AND p_source_field = 'MO_MEDIA' THEN
@@ -1161,7 +1161,7 @@ ALTER TABLE public.charge_sheet_updates OWNER TO dev_dopamas;
 -- Name: TABLE charge_sheet_updates; Type: COMMENT; Schema: public; Owner: dev_dopamas
 --
 
-COMMENT ON TABLE public.charge_sheet_updates IS 'Stores charge sheet update records from Garuda API. Each record represents a charge sheet update with its status and court filing information.';
+COMMENT ON TABLE public.charge_sheet_updates IS 'Stores charge sheet update records from nots API. Each record represents a charge sheet update with its status and court filing information.';
 
 
 --
@@ -1398,7 +1398,7 @@ COMMENT ON COLUMN public.files.source_type IS 'Type of source: crime, interrogat
 -- Name: COLUMN files.source_field; Type: COMMENT; Schema: public; Owner: dev_dopamas
 --
 
-COMMENT ON COLUMN public.files.source_field IS 'Field name from source: FIR_COPY, MEDIA, INTERROGATION_REPORT, Garuda_DATA, IDENTITY_DETAILS';
+COMMENT ON COLUMN public.files.source_field IS 'Field name from source: FIR_COPY, MEDIA, INTERROGATION_REPORT, nots_DATA, IDENTITY_DETAILS';
 
 
 --
@@ -1612,7 +1612,7 @@ CREATE MATERIALIZED VIEW public.criminal_profiles_mv AS
            FROM (public.accused a_drug
              JOIN public.brief_facts_drug bfd ON (((bfd.crime_id)::text = (a_drug.crime_id)::text)))
           WHERE ((a_drug.person_id)::text = (p.person_id)::text)) AS "associatedDrugs",
-    ARRAY[]::text[] AS "GarudaLinks",
+    ARRAY[]::text[] AS "notsLinks",
     NULL::text AS counselled,
     ARRAY[]::text[] AS "socialMedia",
     NULL::text AS "RTAData",
@@ -1912,7 +1912,7 @@ ALTER TABLE public.fsl_case_property OWNER TO dev_dopamas;
 -- Name: TABLE fsl_case_property; Type: COMMENT; Schema: public; Owner: dev_dopamas
 --
 
-COMMENT ON TABLE public.fsl_case_property IS 'Main table storing case property records from Garuda API';
+COMMENT ON TABLE public.fsl_case_property IS 'Main table storing case property records from nots API';
 
 
 --
@@ -2160,26 +2160,26 @@ COMMENT ON TABLE public.ir_defence_counsel IS 'Defence counsel information for e
 
 --
 -- TOC entry 265 (class 1259 OID 1397857)
--- Name: ir_Garuda_links; Type: TABLE; Schema: public; Owner: dev_dopamas
+-- Name: ir_nots_links; Type: TABLE; Schema: public; Owner: dev_dopamas
 --
 
-CREATE TABLE public.ir_Garuda_links (
+CREATE TABLE public.ir_nots_links (
     id integer NOT NULL,
     interrogation_report_id character varying(50) NOT NULL,
     phone_number character varying(20),
-    Garuda_data text[]
+    nots_data text[]
 );
 
 
-ALTER TABLE public.ir_Garuda_links OWNER TO dev_dopamas;
+ALTER TABLE public.ir_nots_links OWNER TO dev_dopamas;
 
 --
 -- TOC entry 4468 (class 0 OID 0)
 -- Dependencies: 265
--- Name: TABLE ir_Garuda_links; Type: COMMENT; Schema: public; Owner: dev_dopamas
+-- Name: TABLE ir_nots_links; Type: COMMENT; Schema: public; Owner: dev_dopamas
 --
 
-COMMENT ON TABLE public.ir_Garuda_links IS 'Garuda links for each IR record. One record per phone number with Garuda data.';
+COMMENT ON TABLE public.ir_nots_links IS 'nots links for each IR record. One record per phone number with nots data.';
 
 
 --
@@ -2663,8 +2663,8 @@ CREATE MATERIALIZED VIEW public.firs_mv AS
                           WHERE ((p2.person_id)::text = (dc.defence_counsel_person_id)::text)
                          LIMIT 1))), '[]'::jsonb) AS "coalesce"
                    FROM public.ir_defence_counsel dc
-                  WHERE ((dc.interrogation_report_id)::text = (ir.interrogation_report_id)::text)), 'GarudaLinks', ( SELECT COALESCE(jsonb_agg(jsonb_build_object('id', dl.id, 'phoneNumber', dl.phone_number, 'GarudaData', dl.Garuda_data)), '[]'::jsonb) AS "coalesce"
-                   FROM public.ir_Garuda_links dl
+                  WHERE ((dc.interrogation_report_id)::text = (ir.interrogation_report_id)::text)), 'notsLinks', ( SELECT COALESCE(jsonb_agg(jsonb_build_object('id', dl.id, 'phoneNumber', dl.phone_number, 'notsData', dl.nots_data)), '[]'::jsonb) AS "coalesce"
+                   FROM public.ir_nots_links dl
                   WHERE ((dl.interrogation_report_id)::text = (ir.interrogation_report_id)::text)), 'familyHistory', ( SELECT COALESCE(jsonb_agg(jsonb_build_object('id', fh.id, 'personId', fh.person_id, 'relation', fh.relation, 'familyMemberPeculiarity', fh.family_member_peculiarity, 'criminalBackground', fh.criminal_background, 'isAlive', fh.is_alive, 'familyStayTogether', fh.family_stay_together, 'value', ( SELECT p2.full_name
                            FROM public.persons p2
                           WHERE ((p2.person_id)::text = (fh.person_id)::text)
@@ -2875,10 +2875,10 @@ ALTER SEQUENCE public.ir_defence_counsel_id_seq OWNED BY public.ir_defence_couns
 
 --
 -- TOC entry 264 (class 1259 OID 1397856)
--- Name: ir_Garuda_links_id_seq; Type: SEQUENCE; Schema: public; Owner: dev_dopamas
+-- Name: ir_nots_links_id_seq; Type: SEQUENCE; Schema: public; Owner: dev_dopamas
 --
 
-CREATE SEQUENCE public.ir_Garuda_links_id_seq
+CREATE SEQUENCE public.ir_nots_links_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -2887,15 +2887,15 @@ CREATE SEQUENCE public.ir_Garuda_links_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ir_Garuda_links_id_seq OWNER TO dev_dopamas;
+ALTER SEQUENCE public.ir_nots_links_id_seq OWNER TO dev_dopamas;
 
 --
 -- TOC entry 4487 (class 0 OID 0)
 -- Dependencies: 264
--- Name: ir_Garuda_links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dev_dopamas
+-- Name: ir_nots_links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dev_dopamas
 --
 
-ALTER SEQUENCE public.ir_Garuda_links_id_seq OWNED BY public.ir_Garuda_links.id;
+ALTER SEQUENCE public.ir_nots_links_id_seq OWNED BY public.ir_nots_links.id;
 
 
 --
@@ -3638,10 +3638,10 @@ ALTER TABLE ONLY public.ir_defence_counsel ALTER COLUMN id SET DEFAULT nextval('
 
 --
 -- TOC entry 3851 (class 2604 OID 1397860)
--- Name: ir_Garuda_links id; Type: DEFAULT; Schema: public; Owner: dev_dopamas
+-- Name: ir_nots_links id; Type: DEFAULT; Schema: public; Owner: dev_dopamas
 --
 
-ALTER TABLE ONLY public.ir_Garuda_links ALTER COLUMN id SET DEFAULT nextval('public.ir_Garuda_links_id_seq'::regclass);
+ALTER TABLE ONLY public.ir_nots_links ALTER COLUMN id SET DEFAULT nextval('public.ir_nots_links_id_seq'::regclass);
 
 
 --
@@ -4073,11 +4073,11 @@ ALTER TABLE ONLY public.ir_defence_counsel
 
 --
 -- TOC entry 4019 (class 2606 OID 1397864)
--- Name: ir_Garuda_links ir_Garuda_links_pkey; Type: CONSTRAINT; Schema: public; Owner: dev_dopamas
+-- Name: ir_nots_links ir_nots_links_pkey; Type: CONSTRAINT; Schema: public; Owner: dev_dopamas
 --
 
-ALTER TABLE ONLY public.ir_Garuda_links
-    ADD CONSTRAINT ir_Garuda_links_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.ir_nots_links
+    ADD CONSTRAINT ir_nots_links_pkey PRIMARY KEY (id);
 
 
 --
@@ -5292,10 +5292,10 @@ CREATE INDEX idx_ir_defence_counsel_ir ON public.ir_defence_counsel USING btree 
 
 --
 -- TOC entry 4017 (class 1259 OID 1397930)
--- Name: idx_ir_Garuda_links_ir; Type: INDEX; Schema: public; Owner: dev_dopamas
+-- Name: idx_ir_nots_links_ir; Type: INDEX; Schema: public; Owner: dev_dopamas
 --
 
-CREATE INDEX idx_ir_Garuda_links_ir ON public.ir_Garuda_links USING btree (interrogation_report_id);
+CREATE INDEX idx_ir_nots_links_ir ON public.ir_nots_links USING btree (interrogation_report_id);
 
 
 --
@@ -5812,11 +5812,11 @@ ALTER TABLE ONLY public.ir_defence_counsel
 
 --
 -- TOC entry 4229 (class 2606 OID 1397865)
--- Name: ir_Garuda_links ir_Garuda_links_ir_fkey; Type: FK CONSTRAINT; Schema: public; Owner: dev_dopamas
+-- Name: ir_nots_links ir_nots_links_ir_fkey; Type: FK CONSTRAINT; Schema: public; Owner: dev_dopamas
 --
 
-ALTER TABLE ONLY public.ir_Garuda_links
-    ADD CONSTRAINT ir_Garuda_links_ir_fkey FOREIGN KEY (interrogation_report_id) REFERENCES public.interrogation_reports(interrogation_report_id) ON DELETE CASCADE;
+ALTER TABLE ONLY public.ir_nots_links
+    ADD CONSTRAINT ir_nots_links_ir_fkey FOREIGN KEY (interrogation_report_id) REFERENCES public.interrogation_reports(interrogation_report_id) ON DELETE CASCADE;
 
 
 --

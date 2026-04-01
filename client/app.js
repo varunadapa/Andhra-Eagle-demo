@@ -1,5 +1,5 @@
 /* ============================================
-   Garuda — Main Application JS
+   nots — Main Application JS
    ============================================ */
 
 const API = '';
@@ -94,7 +94,7 @@ function navigate(page, subData) {
     profiles: 'Criminal Profiles', chargesheets: 'Chargesheets',
     interrogations: 'Interrogation Reports', seizures: 'Drug Seizures & Properties',
     integrations: 'Database Integrations', networks: 'Network Intelligence',
-    'Garuda-ai': 'NOTS Intelligence',
+    'nots-ai': 'NOTS Intelligence',
     firDetail: 'FIR Detail', profileDetail: 'Criminal Profile', irDetail: 'Interrogation Report',
     integrationDetail: 'Integration Detail', networkDetail: 'Network Analysis'
   };
@@ -105,7 +105,7 @@ function navigate(page, subData) {
     profiles: renderProfiles, chargesheets: renderChargesheets,
     interrogations: renderInterrogations, seizures: renderSeizures,
     integrations: renderIntegrations, networks: renderNetworks,
-    'Garuda-ai': renderGarudaAI,
+    'nots-ai': rendernotsAI,
     firDetail: () => renderFIRDetail(subData),
     profileDetail: () => renderProfileDetail(subData),
     irDetail: () => renderIRDetail(subData),
@@ -474,7 +474,7 @@ function renderFIRDetail(crimeId) {
   html += `<div style="display:flex;gap:10px;margin-top:16px">
     <button class="btn btn-primary" onclick="alert('Opening FIR copy PDF...')"><i class="fas fa-file-pdf"></i> View FIR Copy</button>
     <button class="btn btn-ghost" onclick="alert('Generating Interrogation Report...')"><i class="fas fa-print"></i> Generate IR</button>
-    <button class="btn btn-ghost" onclick="alert('Opening Garuda Link Analysis...')"><i class="fas fa-project-diagram"></i> Link Analysis</button>
+    <button class="btn btn-ghost" onclick="alert('Opening nots Link Analysis...')"><i class="fas fa-project-diagram"></i> Link Analysis</button>
     <button class="btn btn-ghost" onclick="alert('Drafting Unocross email...')"><i class="fas fa-envelope"></i> Unocross Draft</button>
   </div>`;
 
@@ -1101,7 +1101,7 @@ function initTheme() {
   if (!themeBtn || !themeIcon) return;
 
   // Check localStorage or system preference
-  const savedTheme = localStorage.getItem('Garuda-theme');
+  const savedTheme = localStorage.getItem('nots-theme');
   const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 
   let isLight = true; // Default to white theme
@@ -1122,18 +1122,18 @@ function initTheme() {
     if (isLight) {
       document.body.classList.add('light-theme');
       themeIcon.classList.replace('fa-sun', 'fa-moon');
-      localStorage.setItem('Garuda-theme', 'light');
+      localStorage.setItem('nots-theme', 'light');
     } else {
       document.body.classList.remove('light-theme');
       themeIcon.classList.replace('fa-moon', 'fa-sun');
-      localStorage.setItem('Garuda-theme', 'dark');
+      localStorage.setItem('nots-theme', 'dark');
     }
   });
 }
 
-// === Garuda AI ASSISTANT ===
+// === nots AI ASSISTANT ===
 let chatHistory = [];
-function renderGarudaAI() {
+function rendernotsAI() {
   const content = $('#page-content');
   const hasHistory = chatHistory.length > 0;
 
@@ -1195,7 +1195,7 @@ window.sendChatMessage = async function () {
 
   input.value = '';
   chatHistory.push({ role: 'user', content: text });
-  renderGarudaAI();
+  rendernotsAI();
 
   const msgContainer = $('#ai-chat-messages');
   const typingDiv = document.createElement('div');
@@ -1216,7 +1216,7 @@ window.sendChatMessage = async function () {
     chatHistory.push({ role: 'assistant', content: "Connection error." });
   }
 
-  renderGarudaAI();
+  rendernotsAI();
 };
 
 init();
