@@ -1911,15 +1911,32 @@ body::before {
   opacity: 1;
 }
 
-@media (max-width: 1200px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1440px) {
+  .grid-4, .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .stats-grid {
+  /* Reduce font sizes and paddings for better density on laptops */
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  .stat-value-large {
+    font-size: 1.45rem;
+  }
+  .card, .stat-card {
+    padding: 16px;
+  }
+  .page-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid-4, .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 
 @media (max-width: 900px) {
   #btn-sidebar-toggle {
