@@ -1,9 +1,9 @@
 window.MOCK_DATA = {
   "accuseds": [
     {
-      "accused_id": "ACC-HYD-26-001",
-      "crime_id": "CR-HYD-2026-0142",
-      "person_id": "PER-HYD-00142",
+      "accused_id": "ACC-VSP-26-001",
+      "crime_id": "CR-VSP-2026-0142",
+      "person_id": "PER-VSP-00142",
       "accused_code": "A1",
       "full_name": "Mohammed Sharif",
       "alias": "Sharfu",
@@ -13,8 +13,8 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": 34,
       "gender": "Male",
-      "district": "Hyderabad",
-      "ps_name": "Banjara Hills",
+      "district": "Visakhapatnam",
+      "ps_name": "Dwaraka Nagar",
       "fir_num": "142/2026",
       "acts_sections": "Sec 20(b)(ii)(C), 29 NDPS Act",
       "drug_type": [
@@ -24,9 +24,9 @@ window.MOCK_DATA = {
       "role_in_crime": "Main peddler who procured 12 Kg Ganja from Visakhapatnam"
     },
     {
-      "accused_id": "ACC-HYD-26-002",
-      "crime_id": "CR-HYD-2026-0098",
-      "person_id": "PER-HYD-00234",
+      "accused_id": "ACC-VSP-26-002",
+      "crime_id": "CR-VSP-2026-0098",
+      "person_id": "PER-VSP-00234",
       "accused_code": "A1",
       "full_name": "Sameer Khan",
       "alias": "Sam, Party King",
@@ -36,8 +36,8 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": 29,
       "gender": "Male",
-      "district": "Hyderabad",
-      "ps_name": "Jubilee Hills",
+      "district": "Visakhapatnam",
+      "ps_name": "MVP Colony",
       "fir_num": "98/2026",
       "acts_sections": "Sec 21(c), 27A, 29 NDPS Act; Sec 120B IPC",
       "drug_type": [
@@ -48,9 +48,9 @@ window.MOCK_DATA = {
       "role_in_crime": "Organizer/kingpin of the drug network operating through encrypted apps"
     },
     {
-      "accused_id": "ACC-HYD-26-003",
-      "crime_id": "CR-HYD-2026-0142",
-      "person_id": "PER-HYD-00345",
+      "accused_id": "ACC-VSP-26-003",
+      "crime_id": "CR-VSP-2026-0142",
+      "person_id": "PER-VSP-00345",
       "accused_code": "A2",
       "full_name": "Ravi Kumar",
       "alias": "Ravi",
@@ -60,8 +60,8 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": 28,
       "gender": "Male",
-      "district": "Hyderabad",
-      "ps_name": "Banjara Hills",
+      "district": "Visakhapatnam",
+      "ps_name": "Dwaraka Nagar",
       "fir_num": "142/2026",
       "acts_sections": "Sec 20(b)(ii)(C), 29 NDPS Act",
       "drug_type": [
@@ -71,9 +71,9 @@ window.MOCK_DATA = {
       "role_in_crime": "Driver of the vehicle used to transport 12 Kg Ganja"
     },
     {
-      "accused_id": "ACC-CYB-26-004",
-      "crime_id": "CR-CYB-2026-0234",
-      "person_id": "PER-CYB-00456",
+      "accused_id": "ACC-VJA-26-004",
+      "crime_id": "CR-VJA-2026-0234",
+      "person_id": "PER-VJA-00456",
       "accused_code": "A1",
       "full_name": "Anil Deshmukh",
       "alias": "Anil Bhai",
@@ -83,8 +83,8 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": 42,
       "gender": "Male",
-      "district": "Cyberabad",
-      "ps_name": "Madhapur",
+      "district": "Vijayawada",
+      "ps_name": "Governorpet",
       "fir_num": "234/2026",
       "acts_sections": "Sec 22(c), 25A, 29 NDPS Act",
       "drug_type": [
@@ -94,9 +94,9 @@ window.MOCK_DATA = {
       "role_in_crime": "Main peddler in heroin distribution network in IT corridor"
     },
     {
-      "accused_id": "ACC-RCK-26-005",
-      "crime_id": "CR-RCK-2026-0067",
-      "person_id": "PER-RCK-00567",
+      "accused_id": "ACC-GNT-26-005",
+      "crime_id": "CR-GNT-2026-0067",
+      "person_id": "PER-GNT-00567",
       "accused_code": "A4",
       "full_name": "Lakshman Rao",
       "alias": "Laxman Anna, Boss",
@@ -106,19 +106,19 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": 52,
       "gender": "Male",
-      "district": "Rachakonda",
-      "ps_name": "LB Nagar",
+      "district": "Guntur",
+      "ps_name": "Brodipet",
       "fir_num": "67/2026",
       "acts_sections": "Sec 20(b)(ii)(C), 25A NDPS Act",
       "drug_type": [
         "GANJA"
       ],
       "no_of_crimes": 8,
-      "role_in_crime": "Kingpin organizing large-scale ganja trafficking from AP to Telangana"
+      "role_in_crime": "Kingpin organizing large-scale ganja trafficking from AP to Andhra Pradesh"
     },
     {
-      "accused_id": "ACC-HYD-26-006",
-      "crime_id": "CR-HYD-2026-0142",
+      "accused_id": "ACC-VSP-26-006",
+      "crime_id": "CR-VSP-2026-0142",
       "person_id": null,
       "accused_code": "A3",
       "full_name": "Venkat Reddy",
@@ -129,8 +129,8 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": null,
       "gender": "Male",
-      "district": "Hyderabad",
-      "ps_name": "Banjara Hills",
+      "district": "Visakhapatnam",
+      "ps_name": "Dwaraka Nagar",
       "fir_num": "142/2026",
       "acts_sections": "Sec 20(b)(ii)(C), 29 NDPS Act",
       "drug_type": [
@@ -140,9 +140,9 @@ window.MOCK_DATA = {
       "role_in_crime": "Supplier based in Visakhapatnam — yet to be identified fully"
     },
     {
-      "accused_id": "ACC-HYD-25-007",
-      "crime_id": "CR-HYD-2025-2341",
-      "person_id": "PER-HYD-00678",
+      "accused_id": "ACC-VSP-25-007",
+      "crime_id": "CR-VSP-2025-2341",
+      "person_id": "PER-VSP-00678",
       "accused_code": "A1",
       "full_name": "Rajendra Prasad",
       "alias": "Raju",
@@ -152,8 +152,8 @@ window.MOCK_DATA = {
       "is_ccl": false,
       "age": 38,
       "gender": "Male",
-      "district": "Hyderabad",
-      "ps_name": "Abids",
+      "district": "Visakhapatnam",
+      "ps_name": "One Town",
       "fir_num": "2341/2025",
       "acts_sections": "Sec 302, 307, 120B IPC",
       "drug_type": [],
@@ -163,14 +163,14 @@ window.MOCK_DATA = {
   ],
   "chargesheets": [
     {
-      "id": "CS-HYD-26-001",
-      "crime_id": "CR-HYD-2026-0098",
+      "id": "CS-VSP-26-001",
+      "crime_id": "CR-VSP-2026-0098",
       "chargesheet_no": "42/2026",
       "chargesheet_date": "2026-03-01T00:00:00",
       "chargesheet_type": "Final",
-      "court_name": "IV Additional Sessions Judge, Nampally",
+      "court_name": "IV Additional Sessions Judge, Visakhapatnam",
       "fir_num": "98/2026",
-      "ps_name": "Jubilee Hills",
+      "ps_name": "MVP Colony",
       "is_esigned": true,
       "accused_names": [
         "Sameer Khan",
@@ -194,14 +194,14 @@ window.MOCK_DATA = {
       "court_case_no": "SC 234/2026"
     },
     {
-      "id": "CS-HYD-25-002",
-      "crime_id": "CR-HYD-2025-1876",
+      "id": "CS-VSP-25-002",
+      "crime_id": "CR-VSP-2025-1876",
       "chargesheet_no": "1245/2025",
       "chargesheet_date": "2025-12-10T00:00:00",
       "chargesheet_type": "Final",
       "court_name": "II Addl. Chief Metropolitan Magistrate",
       "fir_num": "1876/2025",
-      "ps_name": "Musheerabad",
+      "ps_name": "Gajuwaka",
       "is_esigned": true,
       "accused_names": [
         "Ramesh Yadav"
@@ -216,14 +216,14 @@ window.MOCK_DATA = {
       "court_case_no": "CC 567/2025"
     },
     {
-      "id": "CS-HYD-25-003",
-      "crime_id": "CR-HYD-2025-2341",
+      "id": "CS-VSP-25-003",
+      "crime_id": "CR-VSP-2025-2341",
       "chargesheet_no": "1567/2025",
       "chargesheet_date": "2026-01-15T00:00:00",
       "chargesheet_type": "Final",
-      "court_name": "I Additional Sessions Judge, Nampally",
+      "court_name": "I Additional Sessions Judge, Visakhapatnam",
       "fir_num": "2341/2025",
-      "ps_name": "Abids",
+      "ps_name": "One Town",
       "is_esigned": true,
       "accused_names": [
         "Rajendra Prasad",
@@ -249,10 +249,10 @@ window.MOCK_DATA = {
   ],
   "crimes": [
     {
-      "crime_id": "CR-HYD-2026-0142",
-      "ps_code": "PS-HYD-BH",
-      "ps_name": "Banjara Hills",
-      "dist_name": "Hyderabad",
+      "crime_id": "CR-VSP-2026-0142",
+      "ps_code": "PS-VSP-BH",
+      "ps_name": "Dwaraka Nagar",
+      "dist_name": "Visakhapatnam",
       "fir_num": "142/2026",
       "fir_reg_num": "FIR-2026-BH-142",
       "fir_type": "NDPS",
@@ -265,7 +265,7 @@ window.MOCK_DATA = {
       "class_classification": "Commercial Quantity",
       "io_name": "SI Rajesh Kumar",
       "io_rank": "Sub Inspector",
-      "brief_facts": "On 20.03.2026, acting on credible intelligence, the SHO along with staff conducted a vehicle check near Jubilee Hills Check Post. During checking of a white Innova bearing TS-09-EF-4521, the team found 12 Kg of Ganja concealed in a specially modified compartment in the boot of the vehicle. The accused Mohammed Sharif and Ravi Kumar were apprehended. Upon interrogation, the accused revealed procuring the contraband from Visakhapatnam and intended to distribute in Hyderabad city.",
+      "brief_facts": "On 20.03.2026, acting on credible intelligence, the SHO along with staff conducted a vehicle check near MVP Colony Check Post. During checking of a white Innova bearing TS-09-EF-4521, the team found 12 Kg of Ganja concealed in a specially modified compartment in the boot of the vehicle. The accused Mohammed Sharif and Ravi Kumar were apprehended. Upon interrogation, the accused revealed procuring the contraband from Visakhapatnam and intended to distribute in Visakhapatnam city.",
       "no_of_accused": 3,
       "accused_details": [
         {
@@ -299,10 +299,10 @@ window.MOCK_DATA = {
       "disposal_details": null
     },
     {
-      "crime_id": "CR-HYD-2026-0098",
-      "ps_code": "PS-HYD-JH",
-      "ps_name": "Jubilee Hills",
-      "dist_name": "Hyderabad",
+      "crime_id": "CR-VSP-2026-0098",
+      "ps_code": "PS-VSP-JH",
+      "ps_name": "MVP Colony",
+      "dist_name": "Visakhapatnam",
       "fir_num": "98/2026",
       "fir_reg_num": "FIR-2026-JH-098",
       "fir_type": "NDPS",
@@ -315,7 +315,7 @@ window.MOCK_DATA = {
       "class_classification": "Commercial Quantity",
       "io_name": "Inspector P. Venkatesh",
       "io_rank": "Inspector",
-      "brief_facts": "Based on intelligence inputs from Garuda analytics, a raid was conducted at a farmhouse in Film Nagar. 2,500 MDMA tablets (500g) and 100g of cocaine were seized. Three accused including a foreign national were arrested. The investigation revealed an international drug supply chain operating through encrypted messaging apps.",
+      "brief_facts": "Based on intelligence inputs from Garuda analytics, a raid was conducted at a farmhouse in Rushikonda. 2,500 MDMA tablets (500g) and 100g of cocaine were seized. Three accused including a foreign national were arrested. The investigation revealed an international drug supply chain operating through encrypted messaging apps.",
       "no_of_accused": 4,
       "accused_details": [
         {
@@ -366,10 +366,10 @@ window.MOCK_DATA = {
       ]
     },
     {
-      "crime_id": "CR-HYD-2025-1876",
-      "ps_code": "PS-HYD-MK",
-      "ps_name": "Musheerabad",
-      "dist_name": "Hyderabad",
+      "crime_id": "CR-VSP-2025-1876",
+      "ps_code": "PS-VSP-MK",
+      "ps_name": "Gajuwaka",
+      "dist_name": "Visakhapatnam",
       "fir_num": "1876/2025",
       "fir_reg_num": "FIR-2025-MK-1876",
       "fir_type": "NDPS",
@@ -382,7 +382,7 @@ window.MOCK_DATA = {
       "class_classification": "Non-Commercial Quantity",
       "io_name": "ASI Srinivas Rao",
       "io_rank": "Asst Sub Inspector",
-      "brief_facts": "During routine patrol, the accused was found in possession of 2.5 Kg of Ganja near Musheerabad Railway Station. Accused admitted to purchasing from Andhra Pradesh border area for personal consumption and small-scale distribution.",
+      "brief_facts": "During routine patrol, the accused was found in possession of 2.5 Kg of Ganja near Gajuwaka Railway Station. Accused admitted to purchasing from Andhra Pradesh border area for personal consumption and small-scale distribution.",
       "no_of_accused": 1,
       "accused_details": [
         {
@@ -409,10 +409,10 @@ window.MOCK_DATA = {
       ]
     },
     {
-      "crime_id": "CR-CYB-2026-0234",
-      "ps_code": "PS-CYB-MD",
-      "ps_name": "Madhapur",
-      "dist_name": "Cyberabad",
+      "crime_id": "CR-VJA-2026-0234",
+      "ps_code": "PS-VJA-MD",
+      "ps_name": "Governorpet",
+      "dist_name": "Vijayawada",
       "fir_num": "234/2026",
       "fir_reg_num": "FIR-2026-MD-234",
       "fir_type": "NDPS",
@@ -425,7 +425,7 @@ window.MOCK_DATA = {
       "class_classification": "Commercial Quantity",
       "io_name": "Inspector K. Mahesh",
       "io_rank": "Inspector",
-      "brief_facts": "Intelligence-led operation targeting a heroin distribution network operating in the IT corridor. 500g of heroin worth ₹5 Crores was seized from a rented apartment in Kondapur. CDR analysis revealed connections to a Mumbai-based supplier. Two accused arrested, one absconding.",
+      "brief_facts": "Intelligence-led operation targeting a heroin distribution network operating in the IT corridor. 500g of heroin worth ₹5 Crores was seized from a rented apartment in Kanuru. CDR analysis revealed connections to a Mumbai-based supplier. Two accused arrested, one absconding.",
       "no_of_accused": 3,
       "accused_details": [
         {
@@ -459,10 +459,10 @@ window.MOCK_DATA = {
       "disposal_details": null
     },
     {
-      "crime_id": "CR-RCK-2026-0067",
-      "ps_code": "PS-RCK-LB",
-      "ps_name": "LB Nagar",
-      "dist_name": "Rachakonda",
+      "crime_id": "CR-GNT-2026-0067",
+      "ps_code": "PS-GNT-LB",
+      "ps_name": "Brodipet",
+      "dist_name": "Guntur",
       "fir_num": "67/2026",
       "fir_reg_num": "FIR-2026-LB-067",
       "fir_type": "NDPS",
@@ -475,7 +475,7 @@ window.MOCK_DATA = {
       "class_classification": "Commercial Quantity",
       "io_name": "SI Lakshmi Narayana",
       "io_rank": "Sub Inspector",
-      "brief_facts": "Acting on information from Garuda's automated conflict alert, officers intercepted a cargo truck at Hayathnagar toll plaza. 250 Kg of Ganja was found concealed among vegetable crates. The consignment was traced to Vizag through RTA vehicle records integrated with Garuda.",
+      "brief_facts": "Acting on information from Garuda's automated conflict alert, officers intercepted a cargo truck at Tenali toll plaza. 250 Kg of Ganja was found concealed among vegetable crates. The consignment was traced to Vizag through RTA vehicle records integrated with Garuda.",
       "no_of_accused": 5,
       "accused_details": [
         {
@@ -521,10 +521,10 @@ window.MOCK_DATA = {
       "disposal_details": null
     },
     {
-      "crime_id": "CR-HYD-2025-2341",
-      "ps_code": "PS-HYD-AB",
-      "ps_name": "Abids",
-      "dist_name": "Hyderabad",
+      "crime_id": "CR-VSP-2025-2341",
+      "ps_code": "PS-VSP-AB",
+      "ps_name": "One Town",
+      "dist_name": "Visakhapatnam",
       "fir_num": "2341/2025",
       "fir_reg_num": "FIR-2025-AB-2341",
       "fir_type": "IPC",
@@ -537,7 +537,7 @@ window.MOCK_DATA = {
       "class_classification": "Heinous",
       "io_name": "Inspector D. Srinivas",
       "io_rank": "Inspector",
-      "brief_facts": "Accused persons attacked the victim with lethal weapons near Abids GPO over a property dispute. Victim succumbed to injuries at Osmania General Hospital. CCTV footage and CDR analysis through Garuda helped identify all accused.",
+      "brief_facts": "Accused persons attacked the victim with lethal weapons near One Town GPO over a property dispute. Victim succumbed to injuries at Osmania General Hospital. CCTV footage and CDR analysis through Garuda helped identify all accused.",
       "no_of_accused": 2,
       "accused_details": [
         {
@@ -650,7 +650,7 @@ window.MOCK_DATA = {
     ],
     "districtWise": [
       {
-        "district": "Hyderabad",
+        "district": "Visakhapatnam",
         "firs": 3421,
         "accused": 5234,
         "arrested": 2145,
@@ -659,7 +659,7 @@ window.MOCK_DATA = {
         "severity": "High"
       },
       {
-        "district": "Cyberabad",
+        "district": "Vijayawada",
         "firs": 2876,
         "accused": 4123,
         "arrested": 1876,
@@ -668,7 +668,7 @@ window.MOCK_DATA = {
         "severity": "High"
       },
       {
-        "district": "Rachakonda",
+        "district": "Guntur",
         "firs": 2345,
         "accused": 3456,
         "arrested": 1543,
@@ -677,7 +677,7 @@ window.MOCK_DATA = {
         "severity": "Medium"
       },
       {
-        "district": "Warangal",
+        "district": "Tirupati",
         "firs": 1234,
         "accused": 1876,
         "arrested": 876,
@@ -686,7 +686,7 @@ window.MOCK_DATA = {
         "severity": "Low"
       },
       {
-        "district": "Khammam",
+        "district": "Kakinada",
         "firs": 987,
         "accused": 1432,
         "arrested": 654,
@@ -695,7 +695,7 @@ window.MOCK_DATA = {
         "severity": "Low"
       },
       {
-        "district": "Nalgonda",
+        "district": "Rajahmundry",
         "firs": 876,
         "accused": 1234,
         "arrested": 543,
@@ -713,7 +713,7 @@ window.MOCK_DATA = {
       },
       {
         "type": "ACCUSED_ARRESTED",
-        "text": "Wanted criminal Ravi Kumar arrested in Cyberabad",
+        "text": "Wanted criminal Ravi Kumar arrested in Vijayawada",
         "time": "45 min ago",
         "severity": "medium"
       },
@@ -749,7 +749,7 @@ window.MOCK_DATA = {
       },
       {
         "type": "CONFLICT_ALERT",
-        "text": "Conflict alert: 3 officers querying same crime number CR-HYD-2026-4521",
+        "text": "Conflict alert: 3 officers querying same crime number CR-VSP-2026-4521",
         "time": "7 hrs ago",
         "severity": "warning"
       }
@@ -765,49 +765,49 @@ window.MOCK_DATA = {
       {
         "name": "Mohammed Rafiq Khan",
         "alias": "Rafiq Bhai",
-        "district": "Hyderabad",
+        "district": "Visakhapatnam",
         "cases": 12,
         "reward": "₹5L",
         "badges": [
           "Drug Kingpin",
           "Interstate"
         ],
-        "personId": "PER-HYD-00142"
+        "personId": "PER-VSP-00142"
       },
       {
         "name": "Suresh Reddy",
         "alias": "SR",
-        "district": "Cyberabad",
+        "district": "Vijayawada",
         "cases": 8,
         "reward": "₹3L",
         "badges": [
           "Murder",
           "Armed"
         ],
-        "personId": "PER-CYB-00456"
+        "personId": "PER-VJA-00456"
       },
       {
         "name": "Vikram Singh",
         "alias": "Vicky",
-        "district": "Rachakonda",
+        "district": "Guntur",
         "cases": 6,
         "reward": "₹2L",
         "badges": [
           "Robbery"
         ],
-        "personId": "PER-RCK-00567"
+        "personId": "PER-GNT-00567"
       },
       {
         "name": "Abdul Wahab",
         "alias": "Wahab",
-        "district": "Warangal",
+        "district": "Tirupati",
         "cases": 9,
         "reward": "₹2.5L",
         "badges": [
           "Trafficking",
           "Network"
         ],
-        "personId": "PER-WGL-00123"
+        "personId": "PER-TPT-00123"
       }
     ],
     "recentSeizuresHighlight": [
@@ -816,7 +816,7 @@ window.MOCK_DATA = {
         "icon": "🌿",
         "quantity": "45 kg",
         "value": "₹13.5L",
-        "location": "Secunderabad",
+        "location": "Vizianagaram",
         "date": "Today, 11:30 AM",
         "status": "In Progress"
       },
@@ -825,7 +825,7 @@ window.MOCK_DATA = {
         "icon": "🚗",
         "quantity": "3 units",
         "value": "₹65L",
-        "location": "Cyberabad",
+        "location": "Vijayawada",
         "date": "Yesterday",
         "status": "Processed"
       },
@@ -834,7 +834,7 @@ window.MOCK_DATA = {
         "icon": "💍",
         "quantity": "2.6 kg",
         "value": "₹1.2Cr",
-        "location": "Banjara Hills",
+        "location": "Dwaraka Nagar",
         "date": "Mar 22",
         "status": "Processed"
       },
@@ -843,7 +843,7 @@ window.MOCK_DATA = {
         "icon": "💊",
         "quantity": "850 tabs",
         "value": "₹8.5L",
-        "location": "Warangal",
+        "location": "Tirupati",
         "date": "Mar 20",
         "status": "Processed"
       }
@@ -851,91 +851,91 @@ window.MOCK_DATA = {
   },
   "hierarchy": [
     {
-      "ps_code": "PS-HYD-BH",
-      "ps_name": "Banjara Hills",
-      "circle_name": "West Zone Circle",
+      "ps_code": "PS-VSP-BH",
+      "ps_name": "Dwaraka Nagar",
+      "circle_name": "Central Zone Circle",
       "sdpo_name": "SDPO West",
-      "dist_code": "HYD",
-      "dist_name": "Hyderabad",
-      "range_name": "Hyderabad Range",
-      "zone_name": "South Zone",
+      "dist_code": "VSP",
+      "dist_name": "Visakhapatnam",
+      "range_name": "Visakhapatnam Range",
+      "zone_name": "Coastal Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-HYD-JH",
-      "ps_name": "Jubilee Hills",
-      "circle_name": "West Zone Circle",
+      "ps_code": "PS-VSP-JH",
+      "ps_name": "MVP Colony",
+      "circle_name": "Central Zone Circle",
       "sdpo_name": "SDPO West",
-      "dist_code": "HYD",
-      "dist_name": "Hyderabad",
-      "range_name": "Hyderabad Range",
-      "zone_name": "South Zone",
+      "dist_code": "VSP",
+      "dist_name": "Visakhapatnam",
+      "range_name": "Visakhapatnam Range",
+      "zone_name": "Coastal Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-HYD-MK",
-      "ps_name": "Musheerabad",
+      "ps_code": "PS-VSP-MK",
+      "ps_name": "Gajuwaka",
       "circle_name": "Central Zone Circle",
       "sdpo_name": "SDPO Central",
-      "dist_code": "HYD",
-      "dist_name": "Hyderabad",
-      "range_name": "Hyderabad Range",
-      "zone_name": "South Zone",
+      "dist_code": "VSP",
+      "dist_name": "Visakhapatnam",
+      "range_name": "Visakhapatnam Range",
+      "zone_name": "Coastal Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-HYD-AB",
-      "ps_name": "Abids",
+      "ps_code": "PS-VSP-AB",
+      "ps_name": "One Town",
       "circle_name": "Central Zone Circle",
       "sdpo_name": "SDPO Central",
-      "dist_code": "HYD",
-      "dist_name": "Hyderabad",
-      "range_name": "Hyderabad Range",
-      "zone_name": "South Zone",
+      "dist_code": "VSP",
+      "dist_name": "Visakhapatnam",
+      "range_name": "Visakhapatnam Range",
+      "zone_name": "Coastal Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-CYB-MD",
-      "ps_name": "Madhapur",
+      "ps_code": "PS-VJA-MD",
+      "ps_name": "Governorpet",
       "circle_name": "IT Corridor Circle",
-      "sdpo_name": "SDPO Madhapur",
-      "dist_code": "CYB",
-      "dist_name": "Cyberabad",
-      "range_name": "Cyberabad Range",
-      "zone_name": "West Zone",
+      "sdpo_name": "SDPO Governorpet",
+      "dist_code": "VJA",
+      "dist_name": "Vijayawada",
+      "range_name": "Vijayawada Range",
+      "zone_name": "Central Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-RCK-LB",
-      "ps_name": "LB Nagar",
-      "circle_name": "LB Nagar Circle",
-      "sdpo_name": "SDPO LB Nagar",
-      "dist_code": "RCK",
-      "dist_name": "Rachakonda",
-      "range_name": "Rachakonda Range",
-      "zone_name": "East Zone",
+      "ps_code": "PS-GNT-LB",
+      "ps_name": "Brodipet",
+      "circle_name": "Brodipet Circle",
+      "sdpo_name": "SDPO Brodipet",
+      "dist_code": "GNT",
+      "dist_name": "Guntur",
+      "range_name": "Guntur Range",
+      "zone_name": "North Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-HYD-CH",
-      "ps_name": "Charminar",
-      "circle_name": "South Zone Circle",
+      "ps_code": "PS-VSP-CH",
+      "ps_name": "Arundelpet",
+      "circle_name": "Coastal Zone Circle",
       "sdpo_name": "SDPO South",
-      "dist_code": "HYD",
-      "dist_name": "Hyderabad",
-      "range_name": "Hyderabad Range",
-      "zone_name": "South Zone",
+      "dist_code": "VSP",
+      "dist_name": "Visakhapatnam",
+      "range_name": "Visakhapatnam Range",
+      "zone_name": "Coastal Zone",
       "adg_name": "ADG (L&O)"
     },
     {
-      "ps_code": "PS-CYB-GC",
-      "ps_name": "Gachibowli",
+      "ps_code": "PS-VJA-GC",
+      "ps_name": "Poranki",
       "circle_name": "IT Corridor Circle",
-      "sdpo_name": "SDPO Gachibowli",
-      "dist_code": "CYB",
-      "dist_name": "Cyberabad",
-      "range_name": "Cyberabad Range",
-      "zone_name": "West Zone",
+      "sdpo_name": "SDPO Poranki",
+      "dist_code": "VJA",
+      "dist_name": "Vijayawada",
+      "range_name": "Vijayawada Range",
+      "zone_name": "Central Zone",
       "adg_name": "ADG (L&O)"
     }
   ],
@@ -956,63 +956,63 @@ window.MOCK_DATA = {
           "142/2026",
           "20 Mar 2026",
           "8(c), 20, 22, 29 NDPS Act",
-          "Banjara Hills",
-          "Hyderabad",
+          "Dwaraka Nagar",
+          "Visakhapatnam",
           "Under Investigation"
         ],
         [
           "98/2026",
           "15 Feb 2026",
           "8(c), 21, 27A NDPS Act",
-          "Jubilee Hills",
-          "Hyderabad",
+          "MVP Colony",
+          "Visakhapatnam",
           "Chargesheet Filed"
         ],
         [
           "234/2026",
           "10 Mar 2026",
           "8(c), 20, 25 NDPS Act",
-          "Madhapur",
-          "Cyberabad",
+          "Governorpet",
+          "Vijayawada",
           "Under Investigation"
         ],
         [
           "67/2026",
           "22 Jan 2026",
           "8(c), 20, 22 NDPS Act",
-          "Hayathnagar",
-          "Rachakonda",
+          "Tenali",
+          "Guntur",
           "Under Trial"
         ],
         [
           "2341/2025",
           "20 Dec 2025",
           "379, 392 IPC",
-          "Kukatpally",
-          "Cyberabad",
+          "Mangalagiri",
+          "Vijayawada",
           "Chargesheet Filed"
         ],
         [
           "1456/2025",
           "30 Aug 2025",
           "8(c) NDPS + 420 IPC",
-          "Jubilee Hills",
-          "Hyderabad",
+          "MVP Colony",
+          "Visakhapatnam",
           "Under Trial"
         ],
         [
           "876/2025",
           "12 Jul 2025",
           "20, 22 NDPS Act",
-          "Toli Chowki",
-          "Hyderabad",
+          "Seethammadhara",
+          "Visakhapatnam",
           "Convicted"
         ]
       ]
     },
     "2": {
       "system": "Garuda",
-      "description": "Drug Offenders Profiling, Analysis and Monitoring System — Telangana Police's dedicated drug offender database with 360° profiling and interrogation reports.",
+      "description": "Drug Offenders Profiling, Analysis and Monitoring System — Andhra Pradesh Police's dedicated drug offender database with 360° profiling and interrogation reports.",
       "columns": [
         "Person ID",
         "Name",
@@ -1023,7 +1023,7 @@ window.MOCK_DATA = {
       ],
       "records": [
         [
-          "PER-HYD-00142",
+          "PER-VSP-00142",
           "Mohammed Sharif",
           "Sharfu",
           "GANJA, MDMA",
@@ -1031,7 +1031,7 @@ window.MOCK_DATA = {
           "Arrested"
         ],
         [
-          "PER-HYD-00234",
+          "PER-VSP-00234",
           "Sameer Khan",
           "Party King",
           "MDMA, COCAINE, LSD",
@@ -1039,7 +1039,7 @@ window.MOCK_DATA = {
           "Arrested"
         ],
         [
-          "PER-HYD-00345",
+          "PER-VSP-00345",
           "Ravi Kumar",
           "Ravi",
           "GANJA",
@@ -1047,7 +1047,7 @@ window.MOCK_DATA = {
           "Arrested"
         ],
         [
-          "PER-CYB-00456",
+          "PER-VJA-00456",
           "Anil Deshmukh",
           "Anil Bhai",
           "HEROIN, MDMA",
@@ -1055,7 +1055,7 @@ window.MOCK_DATA = {
           "Arrested"
         ],
         [
-          "PER-RCK-00567",
+          "PER-GNT-00567",
           "Lakshman Rao",
           "Laxman Anna",
           "GANJA",
@@ -1063,7 +1063,7 @@ window.MOCK_DATA = {
           "Absconding"
         ],
         [
-          "PER-HYD-00678",
+          "PER-VSP-00678",
           "Venkat Reddy",
           "—",
           "GANJA",
@@ -1071,7 +1071,7 @@ window.MOCK_DATA = {
           "Absconding"
         ],
         [
-          "PER-HYD-00789",
+          "PER-VSP-00789",
           "Rajendra Prasad",
           "Raju",
           "—",
@@ -1094,7 +1094,7 @@ window.MOCK_DATA = {
       "records": [
         [
           "CC 234/2026",
-          "Metropolitan Magistrate, Nampally",
+          "Metropolitan Magistrate, Visakhapatnam",
           "Anil Deshmukh",
           "8(c) NDPS",
           "15 Apr 2026",
@@ -1102,7 +1102,7 @@ window.MOCK_DATA = {
         ],
         [
           "CC 876/2025",
-          "Sessions Court, Hyderabad",
+          "Sessions Court, Visakhapatnam",
           "Mohammed Sharif",
           "20 NDPS",
           "22 Mar 2026",
@@ -1110,7 +1110,7 @@ window.MOCK_DATA = {
         ],
         [
           "CC 1234/2025",
-          "NDPS Special Court, Hyderabad",
+          "NDPS Special Court, Visakhapatnam",
           "Sameer Khan",
           "21, 27A NDPS",
           "05 Apr 2026",
@@ -1118,7 +1118,7 @@ window.MOCK_DATA = {
         ],
         [
           "CC 456/2024",
-          "Dist. Court, Rachakonda",
+          "Dist. Court, Guntur",
           "Lakshman Rao",
           "8(c), 20, 22 NDPS",
           "10 May 2026",
@@ -1126,7 +1126,7 @@ window.MOCK_DATA = {
         ],
         [
           "CC 789/2024",
-          "Sessions Court, Cyberabad",
+          "Sessions Court, Vijayawada",
           "Rajendra Prasad",
           "379, 392 IPC",
           "28 Mar 2026",
@@ -1147,7 +1147,7 @@ window.MOCK_DATA = {
       ],
       "records": [
         [
-          "TS 09 HZ 4521",
+          "AP 31 HZ 4521",
           "Mohammed Sharif",
           "Bajaj Auto RE",
           "MD2AAAZZZ7N14521",
@@ -1155,7 +1155,7 @@ window.MOCK_DATA = {
           "142/2026"
         ],
         [
-          "TS 07 EF 8876",
+          "AP 21 EF 8876",
           "Sameer Khan",
           "BMW X5 xDrive",
           "WBAJB0C55JB48876",
@@ -1171,7 +1171,7 @@ window.MOCK_DATA = {
           "67/2026"
         ],
         [
-          "TS 08 GH 5567",
+          "AP 37 GH 5567",
           "Anil Deshmukh",
           "Mercedes GLE",
           "WDC0G4KB5JF05567",
@@ -1179,7 +1179,7 @@ window.MOCK_DATA = {
           "234/2026"
         ],
         [
-          "TS 09 JK 3345",
+          "AP 31 JK 3345",
           "Ravi Kumar",
           "TVS Apache 200",
           "MD634KKAA7B03345",
@@ -1209,19 +1209,19 @@ window.MOCK_DATA = {
       ],
       "records": [
         [
-          "TS07 2018 0004521",
+          "AP21 2018 0004521",
           "Mohammed Sharif",
           "14 May 2038",
           "MCWG, LMV",
-          "Telangana",
+          "Andhra Pradesh",
           "Active"
         ],
         [
-          "TS07 2020 0008876",
+          "AP21 2020 0008876",
           "Sameer Khan",
           "22 Jan 2040",
           "MCWG, LMV, HMV",
-          "Telangana",
+          "Andhra Pradesh",
           "Active"
         ],
         [
@@ -1241,11 +1241,11 @@ window.MOCK_DATA = {
           "Active"
         ],
         [
-          "TS09 2022 0003345",
+          "AP31 2022 0003345",
           "Ravi Kumar",
           "10 Aug 2042",
           "MCWG",
-          "Telangana",
+          "Andhra Pradesh",
           "Active"
         ]
       ]
@@ -1266,7 +1266,7 @@ window.MOCK_DATA = {
           "9876543210",
           "9988776655",
           "4m 32s",
-          "Banjara Hills Tower-3",
+          "Dwaraka Nagar Tower-3",
           "23 Mar 2026 14:23",
           "Outgoing"
         ],
@@ -1274,7 +1274,7 @@ window.MOCK_DATA = {
           "9988776655",
           "9876543210",
           "2m 18s",
-          "Jubilee Hills Tower-1",
+          "MVP Colony Tower-1",
           "23 Mar 2026 11:45",
           "Incoming"
         ],
@@ -1282,7 +1282,7 @@ window.MOCK_DATA = {
           "9876543210",
           "8877665544",
           "6m 45s",
-          "Toli Chowki Tower-2",
+          "Seethammadhara Tower-2",
           "22 Mar 2026 22:10",
           "Outgoing"
         ],
@@ -1290,7 +1290,7 @@ window.MOCK_DATA = {
           "9000112233",
           "9876543210",
           "1m 05s",
-          "Hayathnagar Tower-1",
+          "Tenali Tower-1",
           "22 Mar 2026 19:30",
           "Incoming"
         ],
@@ -1298,7 +1298,7 @@ window.MOCK_DATA = {
           "9876543210",
           "7766554433",
           "12m 22s",
-          "Golconda Tower-1",
+          "Simhachalam Tower-1",
           "22 Mar 2026 16:15",
           "Outgoing"
         ],
@@ -1306,7 +1306,7 @@ window.MOCK_DATA = {
           "9112233445",
           "9988776655",
           "3m 40s",
-          "Kondapur Tower-4",
+          "Kanuru Tower-4",
           "21 Mar 2026 20:55",
           "Outgoing"
         ],
@@ -1314,7 +1314,7 @@ window.MOCK_DATA = {
           "9876543210",
           "9000112233",
           "8m 15s",
-          "Banjara Hills Tower-1",
+          "Dwaraka Nagar Tower-1",
           "21 Mar 2026 08:20",
           "Outgoing"
         ]
@@ -1337,7 +1337,7 @@ window.MOCK_DATA = {
           "17.4123",
           "78.4567",
           "23 Mar 2026 14:23:45",
-          "TS-HYD-BJH-003",
+          "AP-VSP-BJH-003",
           "15m"
         ],
         [
@@ -1345,7 +1345,7 @@ window.MOCK_DATA = {
           "17.4156",
           "78.4589",
           "23 Mar 2026 12:10:22",
-          "TS-HYD-BJH-001",
+          "AP-VSP-BJH-001",
           "22m"
         ],
         [
@@ -1353,7 +1353,7 @@ window.MOCK_DATA = {
           "17.4401",
           "78.3987",
           "23 Mar 2026 11:45:33",
-          "TS-HYD-JBH-001",
+          "AP-VSP-JBH-001",
           "18m"
         ],
         [
@@ -1361,7 +1361,7 @@ window.MOCK_DATA = {
           "17.3234",
           "78.5012",
           "22 Mar 2026 22:10:11",
-          "TS-RCK-HNR-001",
+          "AP-GNT-HNR-001",
           "35m"
         ],
         [
@@ -1369,7 +1369,7 @@ window.MOCK_DATA = {
           "17.4089",
           "78.4612",
           "22 Mar 2026 19:30:55",
-          "TS-HYD-TCK-002",
+          "AP-VSP-TCK-002",
           "12m"
         ],
         [
@@ -1377,7 +1377,7 @@ window.MOCK_DATA = {
           "17.4478",
           "78.3821",
           "22 Mar 2026 16:15:40",
-          "TS-CYB-KDP-004",
+          "AP-VJA-KDP-004",
           "20m"
         ]
       ]
@@ -1396,7 +1396,7 @@ window.MOCK_DATA = {
       "records": [
         [
           "XXXX4521",
-          "SBI, Banjara Hills",
+          "SBI, Dwaraka Nagar",
           "Mohammed Sharif",
           "Cash Deposit",
           "₹4,50,000",
@@ -1404,7 +1404,7 @@ window.MOCK_DATA = {
         ],
         [
           "XXXX8876",
-          "HDFC, Jubilee Hills",
+          "HDFC, MVP Colony",
           "Sameer Khan",
           "NEFT Received",
           "₹12,30,000",
@@ -1412,7 +1412,7 @@ window.MOCK_DATA = {
         ],
         [
           "XXXX1234",
-          "Indian Bank, Hayathnagar",
+          "Indian Bank, Tenali",
           "Lakshman Rao",
           "Cash Withdrawal",
           "₹8,00,000",
@@ -1420,7 +1420,7 @@ window.MOCK_DATA = {
         ],
         [
           "XXXX9876",
-          "Axis Bank, Kondapur",
+          "Axis Bank, Kanuru",
           "Anil Deshmukh",
           "UPI Transfer Out",
           "₹2,75,000",
@@ -1428,7 +1428,7 @@ window.MOCK_DATA = {
         ],
         [
           "XXXX5567",
-          "BOB, Toli Chowki",
+          "BOB, Seethammadhara",
           "Ravi Kumar",
           "Cash Deposit",
           "₹1,20,000",
@@ -1436,7 +1436,7 @@ window.MOCK_DATA = {
         ],
         [
           "XXXX8876",
-          "HDFC, Jubilee Hills",
+          "HDFC, MVP Colony",
           "Sameer Khan",
           "UPI Transfer In",
           "₹5,60,000",
@@ -1446,7 +1446,7 @@ window.MOCK_DATA = {
     },
     "9": {
       "system": "ePetty Cases",
-      "description": "Petty offence tracking system used by Telangana Police for minor offences, preventive actions, and history sheet entries.",
+      "description": "Petty offence tracking system used by Andhra Pradesh Police for minor offences, preventive actions, and history sheet entries.",
       "columns": [
         "Case No.",
         "Offence Type",
@@ -1457,50 +1457,50 @@ window.MOCK_DATA = {
       ],
       "records": [
         [
-          "EP-HYD-2026-0456",
+          "EP-VSP-2026-0456",
           "Drunk & Disorderly",
           "Ravi Kumar",
           "₹2,000",
-          "Kukatpally",
+          "Mangalagiri",
           "12 Mar 2026"
         ],
         [
-          "EP-HYD-2026-0321",
+          "EP-VSP-2026-0321",
           "Suspicious Loitering",
           "Mohammed Sharif",
           "Warning",
-          "Toli Chowki",
+          "Seethammadhara",
           "08 Mar 2026"
         ],
         [
-          "EP-CYB-2026-0187",
+          "EP-VJA-2026-0187",
           "Traffic Violation",
           "Anil Deshmukh",
           "₹5,000",
-          "Madhapur",
+          "Governorpet",
           "01 Mar 2026"
         ],
         [
-          "EP-HYD-2025-1234",
+          "EP-VSP-2025-1234",
           "Public Nuisance",
           "Venkat Reddy",
           "₹1,000",
-          "Banjara Hills",
+          "Dwaraka Nagar",
           "20 Dec 2025"
         ],
         [
-          "EP-RCK-2025-0987",
+          "EP-GNT-2025-0987",
           "Preventive Entry 110 CrPC",
           "Lakshman Rao",
           "Detained 24h",
-          "Hayathnagar",
+          "Tenali",
           "15 Nov 2025"
         ]
       ]
     },
     "10": {
-      "system": "SHE Teams Data",
-      "description": "Telangana SHE Teams data — gender-based safety enforcement, harassment complaints, and connected offender profiles.",
+      "system": "Disha Teams Data",
+      "description": "AP Disha Teams data — gender-based safety enforcement, harassment complaints, and connected offender profiles.",
       "columns": [
         "Complaint No.",
         "Type",
@@ -1511,34 +1511,34 @@ window.MOCK_DATA = {
       ],
       "records": [
         [
-          "SHE-HYD-2026-0089",
+          "DISHA-VSP-2026-0089",
           "Eve Teasing",
           "Venkat Reddy",
-          "Tank Bund",
+          "Beach Road",
           "Counseled & Warning",
           "10 Mar 2026"
         ],
         [
-          "SHE-HYD-2026-0045",
+          "DISHA-VSP-2026-0045",
           "Stalking",
           "Unknown Male",
-          "Jubilee Hills",
+          "MVP Colony",
           "FIR Registered",
           "25 Feb 2026"
         ],
         [
-          "SHE-CYB-2026-0023",
+          "DISHA-VJA-2026-0023",
           "Online Harassment",
           "Rajendra Prasad",
-          "Gachibowli",
+          "Poranki",
           "Booked u/s 354D IPC",
           "14 Feb 2026"
         ],
         [
-          "SHE-HYD-2025-0567",
+          "DISHA-VSP-2025-0567",
           "Harassment",
           "Sameer Khan",
-          "Banjara Hills",
+          "Dwaraka Nagar",
           "Counseled",
           "30 Nov 2025"
         ]
@@ -1553,7 +1553,7 @@ window.MOCK_DATA = {
     },
     "12": {
       "system": "Prison / Parole Records",
-      "description": "Telangana Prisons Department data — inmate records, conviction details, parole status, and release dates for incarcerated offenders.",
+      "description": "AP Prisons Department data — inmate records, conviction details, parole status, and release dates for incarcerated offenders.",
       "columns": [
         "Prisoner ID",
         "Name",
@@ -1564,34 +1564,34 @@ window.MOCK_DATA = {
       ],
       "records": [
         [
-          "CH-HYD-2024-0123",
+          "CH-VSP-2024-0123",
           "Mohammed Sharif",
           "NDPS 20 (Ganja 5Kg)",
-          "Chanchalguda Central Jail",
+          "Visakhapatnam Central Jail",
           "3 Years RI",
           "Parole Granted (Apr 2025)"
         ],
         [
-          "CH-WGL-2023-0456",
+          "CH-TPT-2023-0456",
           "Rajendra Prasad",
           "IPC 379, 392",
-          "Warangal District Jail",
+          "Tirupati District Jail",
           "2 Years RI",
           "Released on Bail"
         ],
         [
-          "CH-HYD-2023-0789",
+          "CH-VSP-2023-0789",
           "Sameer Khan",
           "NDPS 21 (MDMA 200g)",
-          "Chanchalguda Central Jail",
+          "Visakhapatnam Central Jail",
           "5 Years RI",
           "Not Eligible"
         ],
         [
-          "CH-RCK-2022-0234",
+          "CH-GNT-2022-0234",
           "Lakshman Rao",
           "NDPS 20, 22 (Ganja 450Kg)",
-          "Cherlapally Central Jail",
+          "Rajahmundry Central Jail",
           "10 Years RI",
           "Application Pending"
         ]
@@ -1616,7 +1616,7 @@ window.MOCK_DATA = {
     {
       "id": 1,
       "system": "CCTNS",
-      "department": "MHA / Telangana Police",
+      "department": "MHA / Andhra Pradesh Police",
       "type": "National/State",
       "status": "connected",
       "lastSync": "2026-03-23T17:00:00",
@@ -1628,7 +1628,7 @@ window.MOCK_DATA = {
     {
       "id": 2,
       "system": "Garuda",
-      "department": "Telangana Police",
+      "department": "Andhra Pradesh Police",
       "type": "State",
       "status": "connected",
       "lastSync": "2026-03-23T16:45:00",
@@ -1652,7 +1652,7 @@ window.MOCK_DATA = {
     {
       "id": 4,
       "system": "RTA Database",
-      "department": "Transport Dept. Telangana",
+      "department": "Transport Dept. Andhra Pradesh",
       "type": "State",
       "status": "connected",
       "lastSync": "2026-03-23T14:00:00",
@@ -1712,7 +1712,7 @@ window.MOCK_DATA = {
     {
       "id": 9,
       "system": "ePetty Cases",
-      "department": "Telangana Police",
+      "department": "Andhra Pradesh Police",
       "type": "State",
       "status": "connected",
       "lastSync": "2026-03-23T17:15:00",
@@ -1723,8 +1723,8 @@ window.MOCK_DATA = {
     },
     {
       "id": 10,
-      "system": "SHE Teams Data",
-      "department": "Telangana Police",
+      "system": "Disha Teams Data",
+      "department": "Andhra Pradesh Police",
       "type": "State",
       "status": "connected",
       "lastSync": "2026-03-23T11:00:00",
@@ -1748,7 +1748,7 @@ window.MOCK_DATA = {
     {
       "id": 12,
       "system": "Prison / Parole Records",
-      "department": "Telangana Prisons Dept.",
+      "department": "Andhra Pradesh Prisons Dept.",
       "type": "State",
       "status": "partial",
       "lastSync": "2026-03-21T08:00:00",
@@ -1784,12 +1784,12 @@ window.MOCK_DATA = {
   ],
   "interrogations": [
     {
-      "interrogation_report_id": "IR-HYD-2026-001",
-      "crime_id": "CR-HYD-2026-0142",
-      "person_id": "PER-HYD-00142",
+      "interrogation_report_id": "IR-VSP-2026-001",
+      "crime_id": "CR-VSP-2026-0142",
+      "person_id": "PER-VSP-00142",
       "person_name": "Mohammed Sharif",
       "fir_num": "142/2026",
-      "ps_name": "Banjara Hills",
+      "ps_name": "Dwaraka Nagar",
       "physical": {
         "beard": "Short Beard",
         "build": "Medium",
@@ -1843,7 +1843,7 @@ window.MOCK_DATA = {
         {
           "crimeHead": "NDPS",
           "crimeSubHead": "Ganja Trafficking",
-          "modusOperandi": "Procures from rural AP/Vizag, transports in modified vehicle compartments, distributes in Hyderabad via auto-rickshaw network"
+          "modusOperandi": "Procures from rural AP/Vizag, transports in modified vehicle compartments, distributes in Visakhapatnam via auto-rickshaw network"
         }
       ],
       "drug_details": [
@@ -1859,7 +1859,7 @@ window.MOCK_DATA = {
         {
           "bankName": "State Bank of India",
           "accountNumber": "XXXX3421",
-          "branchName": "Toli Chowki",
+          "branchName": "Seethammadhara",
           "upiId": "sharif@ybl"
         }
       ],
@@ -1875,24 +1875,24 @@ window.MOCK_DATA = {
           "crimeNum": "876/2025",
           "lawSection": "Sec 20(b) NDPS",
           "arrestDate": "2025-07-12",
-          "psCode": "PS-HYD-BH"
+          "psCode": "PS-VSP-BH"
         },
         {
           "crimeNum": "1234/2024",
           "lawSection": "Sec 20(b) NDPS",
           "arrestDate": "2024-09-05",
-          "psCode": "PS-HYD-MK"
+          "psCode": "PS-VSP-MK"
         }
       ],
       "date_created": "2026-03-21T10:00:00"
     },
     {
-      "interrogation_report_id": "IR-HYD-2026-002",
-      "crime_id": "CR-HYD-2026-0098",
-      "person_id": "PER-HYD-00234",
+      "interrogation_report_id": "IR-VSP-2026-002",
+      "crime_id": "CR-VSP-2026-0098",
+      "person_id": "PER-VSP-00234",
       "person_name": "Sameer Khan",
       "fir_num": "98/2026",
-      "ps_name": "Jubilee Hills",
+      "ps_name": "MVP Colony",
       "physical": {
         "beard": "Clean Shaven",
         "build": "Athletic",
@@ -1963,13 +1963,13 @@ window.MOCK_DATA = {
         {
           "bankName": "HDFC Bank",
           "accountNumber": "XXXX8765",
-          "branchName": "Jubilee Hills",
+          "branchName": "MVP Colony",
           "upiId": "sameer.events@hdfcbank"
         },
         {
           "bankName": "Axis Bank",
           "accountNumber": "XXXX4321",
-          "branchName": "Banjara Hills",
+          "branchName": "Dwaraka Nagar",
           "upiId": null
         }
       ],
@@ -1990,19 +1990,19 @@ window.MOCK_DATA = {
           "crimeNum": "1456/2025",
           "lawSection": "Sec 21(b) NDPS",
           "arrestDate": "2025-08-30",
-          "psCode": "PS-HYD-JH"
+          "psCode": "PS-VSP-JH"
         },
         {
           "crimeNum": "234/2025",
           "lawSection": "Sec 21(a) NDPS",
           "arrestDate": "2025-02-10",
-          "psCode": "PS-HYD-BH"
+          "psCode": "PS-VSP-BH"
         },
         {
           "crimeNum": "2345/2024",
           "lawSection": "Sec 22 NDPS",
           "arrestDate": "2024-11-15",
-          "psCode": "PS-CYB-MD"
+          "psCode": "PS-VJA-MD"
         }
       ],
       "date_created": "2026-02-16T14:00:00"
@@ -2011,10 +2011,10 @@ window.MOCK_DATA = {
   "networks": {
     "criminals": [
       {
-        "id": "PER-HYD-00142",
+        "id": "PER-VSP-00142",
         "name": "Mohammed Sharif",
         "alias": "Sharfu",
-        "gang": "Toli Chowki Ganja Network",
+        "gang": "Seethammadhara Ganja Network",
         "riskLevel": "high",
         "associates": [
           {
@@ -2023,7 +2023,7 @@ window.MOCK_DATA = {
             "relation": "Transporter",
             "sharedCases": 2,
             "status": "Arrested",
-            "personId": "PER-HYD-00345"
+            "personId": "PER-VSP-00345"
           },
           {
             "name": "Sameer Khan",
@@ -2031,7 +2031,7 @@ window.MOCK_DATA = {
             "relation": "Buyer / Distributor",
             "sharedCases": 1,
             "status": "Arrested",
-            "personId": "PER-HYD-00234"
+            "personId": "PER-VSP-00234"
           },
           {
             "name": "Lakshman Rao",
@@ -2039,7 +2039,7 @@ window.MOCK_DATA = {
             "relation": "Supplier (Upstream)",
             "sharedCases": 0,
             "status": "Absconding",
-            "personId": "PER-RCK-00567"
+            "personId": "PER-GNT-00567"
           },
           {
             "name": "Farooq Bhai",
@@ -2059,10 +2059,10 @@ window.MOCK_DATA = {
           }
         ],
         "gangProfile": {
-          "name": "Toli Chowki Ganja Network",
+          "name": "Seethammadhara Ganja Network",
           "leader": "Lakshman Rao (Laxman Anna)",
           "activeMembers": 12,
-          "territory": "Toli Chowki, Golconda, Banjara Hills, Mehdipatnam",
+          "territory": "Seethammadhara, Simhachalam, Dwaraka Nagar, Mehdipatnam",
           "primaryDrugs": [
             "GANJA",
             "MDMA"
@@ -2072,19 +2072,19 @@ window.MOCK_DATA = {
           "activityTimeline": [
             {
               "date": "Mar 2026",
-              "event": "Mohammed Sharif arrested with 2.5 Kg MDMA at Banjara Hills"
+              "event": "Mohammed Sharif arrested with 2.5 Kg MDMA at Dwaraka Nagar"
             },
             {
               "date": "Jan 2026",
-              "event": "Ganja consignment (450 Kg) seized at Hayathnagar — originated from AP"
+              "event": "Ganja consignment (450 Kg) seized at Tenali — originated from AP"
             },
             {
               "date": "Aug 2025",
-              "event": "Sameer Khan arrested at rave party with 200g MDMA at Jubilee Hills"
+              "event": "Sameer Khan arrested at rave party with 200g MDMA at MVP Colony"
             },
             {
               "date": "Jul 2025",
-              "event": "Mohammed Sharif arrested with 12 Kg Ganja at Toli Chowki"
+              "event": "Mohammed Sharif arrested with 12 Kg Ganja at Seethammadhara"
             },
             {
               "date": "Mar 2025",
@@ -2103,7 +2103,7 @@ window.MOCK_DATA = {
             "called": "9988776655",
             "calledName": "Sameer Khan",
             "duration": "4m 32s",
-            "tower": "Banjara Hills T-3",
+            "tower": "Dwaraka Nagar T-3",
             "date": "23 Mar 2026 14:23",
             "type": "Outgoing"
           },
@@ -2113,7 +2113,7 @@ window.MOCK_DATA = {
             "called": "9876543210",
             "calledName": "Mohammed Sharif",
             "duration": "2m 18s",
-            "tower": "Jubilee Hills T-1",
+            "tower": "MVP Colony T-1",
             "date": "23 Mar 2026 11:45",
             "type": "Incoming"
           },
@@ -2123,7 +2123,7 @@ window.MOCK_DATA = {
             "called": "8877665544",
             "calledName": "Ravi Kumar",
             "duration": "6m 45s",
-            "tower": "Toli Chowki T-2",
+            "tower": "Seethammadhara T-2",
             "date": "22 Mar 2026 22:10",
             "type": "Outgoing"
           },
@@ -2133,7 +2133,7 @@ window.MOCK_DATA = {
             "called": "9876543210",
             "calledName": "Mohammed Sharif",
             "duration": "1m 05s",
-            "tower": "Hayathnagar T-1",
+            "tower": "Tenali T-1",
             "date": "22 Mar 2026 19:30",
             "type": "Incoming"
           },
@@ -2143,7 +2143,7 @@ window.MOCK_DATA = {
             "called": "7766554433",
             "calledName": "Farooq Bhai",
             "duration": "12m 22s",
-            "tower": "Golconda T-1",
+            "tower": "Simhachalam T-1",
             "date": "22 Mar 2026 16:15",
             "type": "Outgoing"
           },
@@ -2153,7 +2153,7 @@ window.MOCK_DATA = {
             "called": "9000112233",
             "calledName": "Lakshman Rao",
             "duration": "8m 15s",
-            "tower": "Banjara Hills T-1",
+            "tower": "Dwaraka Nagar T-1",
             "date": "21 Mar 2026 08:20",
             "type": "Outgoing"
           },
@@ -2163,7 +2163,7 @@ window.MOCK_DATA = {
             "called": "9199887766",
             "calledName": "Unknown",
             "duration": "0m 45s",
-            "tower": "Toli Chowki T-2",
+            "tower": "Seethammadhara T-2",
             "date": "20 Mar 2026 23:55",
             "type": "Outgoing"
           },
@@ -2183,7 +2183,7 @@ window.MOCK_DATA = {
             "called": "9988776655",
             "calledName": "Sameer Khan",
             "duration": "5m 55s",
-            "tower": "Banjara Hills T-3",
+            "tower": "Dwaraka Nagar T-3",
             "date": "19 Mar 2026 15:40",
             "type": "Outgoing"
           },
@@ -2193,7 +2193,7 @@ window.MOCK_DATA = {
             "called": "7766554433",
             "calledName": "Farooq Bhai",
             "duration": "9m 30s",
-            "tower": "Golconda T-1",
+            "tower": "Simhachalam T-1",
             "date": "18 Mar 2026 21:05",
             "type": "Outgoing"
           }
@@ -2265,10 +2265,10 @@ window.MOCK_DATA = {
         ]
       },
       {
-        "id": "PER-HYD-00234",
+        "id": "PER-VSP-00234",
         "name": "Sameer Khan",
         "alias": "Party King",
-        "gang": "Jubilee Hills Party Circuit",
+        "gang": "MVP Colony Party Circuit",
         "riskLevel": "critical",
         "associates": [
           {
@@ -2277,7 +2277,7 @@ window.MOCK_DATA = {
             "relation": "Supplier",
             "sharedCases": 1,
             "status": "Arrested",
-            "personId": "PER-HYD-00142"
+            "personId": "PER-VSP-00142"
           },
           {
             "name": "Anil Deshmukh",
@@ -2285,7 +2285,7 @@ window.MOCK_DATA = {
             "relation": "Inter-state Link",
             "sharedCases": 0,
             "status": "Arrested",
-            "personId": "PER-CYB-00456"
+            "personId": "PER-VJA-00456"
           },
           {
             "name": "DJ Vikram",
@@ -2313,10 +2313,10 @@ window.MOCK_DATA = {
           }
         ],
         "gangProfile": {
-          "name": "Jubilee Hills Party Circuit",
+          "name": "MVP Colony Party Circuit",
           "leader": "Sameer Khan (Party King)",
           "activeMembers": 8,
-          "territory": "Jubilee Hills, Banjara Hills, Film Nagar, Gachibowli",
+          "territory": "MVP Colony, Dwaraka Nagar, Rushikonda, Poranki",
           "primaryDrugs": [
             "MDMA",
             "COCAINE",
@@ -2327,11 +2327,11 @@ window.MOCK_DATA = {
           "activityTimeline": [
             {
               "date": "Feb 2026",
-              "event": "Sameer Khan arrested with 500g Cocaine at Banjara Hills farmhouse party"
+              "event": "Sameer Khan arrested with 500g Cocaine at Dwaraka Nagar farmhouse party"
             },
             {
               "date": "Nov 2025",
-              "event": "3 consumers arrested at Film Nagar rave; trail leads to Sameer Khan"
+              "event": "3 consumers arrested at Rushikonda rave; trail leads to Sameer Khan"
             },
             {
               "date": "Aug 2025",
@@ -2339,11 +2339,11 @@ window.MOCK_DATA = {
             },
             {
               "date": "Jun 2024",
-              "event": "DJ Vikram identified as key distributor at Jubilee Hills clubs"
+              "event": "DJ Vikram identified as key distributor at MVP Colony clubs"
             },
             {
               "date": "Dec 2023",
-              "event": "First FIR against Sameer Khan at Jubilee Hills PS"
+              "event": "First FIR against Sameer Khan at MVP Colony PS"
             }
           ]
         },
@@ -2354,7 +2354,7 @@ window.MOCK_DATA = {
             "called": "9876543210",
             "calledName": "Mohammed Sharif",
             "duration": "2m 18s",
-            "tower": "Jubilee Hills T-1",
+            "tower": "MVP Colony T-1",
             "date": "23 Mar 2026 11:45",
             "type": "Outgoing"
           },
@@ -2364,7 +2364,7 @@ window.MOCK_DATA = {
             "called": "9112233445",
             "calledName": "Anil Deshmukh",
             "duration": "7m 44s",
-            "tower": "Banjara Hills T-2",
+            "tower": "Dwaraka Nagar T-2",
             "date": "22 Mar 2026 20:30",
             "type": "Outgoing"
           },
@@ -2374,7 +2374,7 @@ window.MOCK_DATA = {
             "called": "8866554433",
             "calledName": "DJ Vikram",
             "duration": "11m 22s",
-            "tower": "Jubilee Hills T-3",
+            "tower": "MVP Colony T-3",
             "date": "22 Mar 2026 18:15",
             "type": "Outgoing"
           },
@@ -2384,7 +2384,7 @@ window.MOCK_DATA = {
             "called": "7755443322",
             "calledName": "Priya Reddy",
             "duration": "15m 05s",
-            "tower": "Film Nagar T-1",
+            "tower": "Rushikonda T-1",
             "date": "21 Mar 2026 22:40",
             "type": "Outgoing"
           },
@@ -2394,7 +2394,7 @@ window.MOCK_DATA = {
             "called": "8899001122",
             "calledName": "Kiran Naidu",
             "duration": "4m 30s",
-            "tower": "Gachibowli T-2",
+            "tower": "Poranki T-2",
             "date": "21 Mar 2026 14:20",
             "type": "Outgoing"
           }
@@ -2448,7 +2448,7 @@ window.MOCK_DATA = {
   },
   "persons": [
     {
-      "person_id": "PER-HYD-00142",
+      "person_id": "PER-VSP-00142",
       "full_name": "Mohammed Sharif",
       "alias": "Sharfu",
       "name": "Mohammed",
@@ -2465,13 +2465,13 @@ window.MOCK_DATA = {
       "nationality": "Indian",
       "domicile_classification": "Local",
       "phone_number": "9876543210",
-      "present_district": "Hyderabad",
-      "present_locality_village": "Toli Chowki",
-      "present_area_mandal": "Golconda",
-      "present_state_ut": "Telangana",
+      "present_district": "Visakhapatnam",
+      "present_locality_village": "Seethammadhara",
+      "present_area_mandal": "Simhachalam",
+      "present_state_ut": "Andhra Pradesh",
       "present_pin_code": "500008",
-      "present_address": "H.No 4-5-123, Toli Chowki, Golconda, Hyderabad, Telangana, 500008",
-      "permanent_address": "H.No 4-5-123, Toli Chowki, Golconda, Hyderabad, Telangana, 500008",
+      "present_address": "H.No 4-5-123, Seethammadhara, Simhachalam, Visakhapatnam, Andhra Pradesh, 500008",
+      "permanent_address": "H.No 4-5-123, Seethammadhara, Simhachalam, Visakhapatnam, Andhra Pradesh, 500008",
       "no_of_crimes": 4,
       "arrest_count": 3,
       "associated_drugs": [
@@ -2480,22 +2480,22 @@ window.MOCK_DATA = {
       ],
       "crimes": [
         {
-          "id": "CR-HYD-2026-0142",
+          "id": "CR-VSP-2026-0142",
           "firNumber": "142/2026",
           "crimeRegDate": "2026-03-20"
         },
         {
-          "id": "CR-HYD-2025-0876",
+          "id": "CR-VSP-2025-0876",
           "firNumber": "876/2025",
           "crimeRegDate": "2025-07-12"
         },
         {
-          "id": "CR-HYD-2024-1234",
+          "id": "CR-VSP-2024-1234",
           "firNumber": "1234/2024",
           "crimeRegDate": "2024-09-05"
         },
         {
-          "id": "CR-HYD-2023-0456",
+          "id": "CR-VSP-2023-0456",
           "firNumber": "456/2023",
           "crimeRegDate": "2023-03-18"
         }
@@ -2521,14 +2521,14 @@ window.MOCK_DATA = {
         },
         {
           "identityType": "Driving License",
-          "identityNumber": "TS07-2018-XXXXXX"
+          "identityNumber": "AP21-2018-XXXXXX"
         }
       ],
       "associates": [
         {
           "name": "Ravi Kumar",
           "alias": "Ravi",
-          "gang": "Toli Chowki Network",
+          "gang": "Seethammadhara Network",
           "relation": "Transporter",
           "sharedCases": 2,
           "status": "Arrested"
@@ -2536,7 +2536,7 @@ window.MOCK_DATA = {
         {
           "name": "Sameer Khan",
           "alias": "Party King",
-          "gang": "Jubilee Hills Circuit",
+          "gang": "MVP Colony Circuit",
           "relation": "Buyer / Distributor",
           "sharedCases": 1,
           "status": "Arrested"
@@ -2544,7 +2544,7 @@ window.MOCK_DATA = {
         {
           "name": "Lakshman Rao",
           "alias": "Laxman Anna",
-          "gang": "Toli Chowki Network",
+          "gang": "Seethammadhara Network",
           "relation": "Upstream Supplier",
           "sharedCases": 0,
           "status": "Absconding"
@@ -2552,7 +2552,7 @@ window.MOCK_DATA = {
         {
           "name": "Farooq Bhai",
           "alias": "FB",
-          "gang": "Toli Chowki Network",
+          "gang": "Seethammadhara Network",
           "relation": "Hawala / Money Handler",
           "sharedCases": 1,
           "status": "Absconding"
@@ -2573,7 +2573,7 @@ window.MOCK_DATA = {
           "called": "9988776655",
           "calledName": "Sameer Khan",
           "duration": "4m 32s",
-          "tower": "Banjara Hills T-3",
+          "tower": "Dwaraka Nagar T-3",
           "date": "23 Mar 2026 14:23",
           "type": "Outgoing"
         },
@@ -2583,7 +2583,7 @@ window.MOCK_DATA = {
           "called": "9876543210",
           "calledName": "Self",
           "duration": "2m 18s",
-          "tower": "Jubilee Hills T-1",
+          "tower": "MVP Colony T-1",
           "date": "23 Mar 2026 11:45",
           "type": "Incoming"
         },
@@ -2593,7 +2593,7 @@ window.MOCK_DATA = {
           "called": "8877665544",
           "calledName": "Ravi Kumar",
           "duration": "6m 45s",
-          "tower": "Toli Chowki T-2",
+          "tower": "Seethammadhara T-2",
           "date": "22 Mar 2026 22:10",
           "type": "Outgoing"
         },
@@ -2603,7 +2603,7 @@ window.MOCK_DATA = {
           "called": "9876543210",
           "calledName": "Self",
           "duration": "1m 05s",
-          "tower": "Hayathnagar T-1",
+          "tower": "Tenali T-1",
           "date": "22 Mar 2026 19:30",
           "type": "Incoming"
         },
@@ -2613,7 +2613,7 @@ window.MOCK_DATA = {
           "called": "7766554433",
           "calledName": "Farooq Bhai",
           "duration": "12m 22s",
-          "tower": "Golconda T-1",
+          "tower": "Simhachalam T-1",
           "date": "22 Mar 2026 16:15",
           "type": "Outgoing"
         },
@@ -2623,7 +2623,7 @@ window.MOCK_DATA = {
           "called": "9000112233",
           "calledName": "Lakshman Rao",
           "duration": "8m 15s",
-          "tower": "Banjara Hills T-1",
+          "tower": "Dwaraka Nagar T-1",
           "date": "21 Mar 2026 08:20",
           "type": "Outgoing"
         },
@@ -2643,7 +2643,7 @@ window.MOCK_DATA = {
           "called": "9988776655",
           "calledName": "Sameer Khan",
           "duration": "5m 55s",
-          "tower": "Banjara Hills T-3",
+          "tower": "Dwaraka Nagar T-3",
           "date": "19 Mar 2026 15:40",
           "type": "Outgoing"
         }
@@ -2651,7 +2651,7 @@ window.MOCK_DATA = {
       "financial_intel": [
         {
           "account": "XXXX4521",
-          "bank": "SBI, Banjara Hills",
+          "bank": "SBI, Dwaraka Nagar",
           "type": "Cash Deposit",
           "amount": "₹4,50,000",
           "date": "19 Mar 2026",
@@ -2659,7 +2659,7 @@ window.MOCK_DATA = {
         },
         {
           "account": "XXXX4521",
-          "bank": "SBI, Banjara Hills",
+          "bank": "SBI, Dwaraka Nagar",
           "type": "UPI Transfer Out",
           "amount": "₹75,000",
           "date": "17 Mar 2026",
@@ -2667,7 +2667,7 @@ window.MOCK_DATA = {
         },
         {
           "account": "XXXX4521",
-          "bank": "SBI, Banjara Hills",
+          "bank": "SBI, Dwaraka Nagar",
           "type": "Cash Deposit",
           "amount": "₹2,30,000",
           "date": "12 Mar 2026",
@@ -2675,7 +2675,7 @@ window.MOCK_DATA = {
         },
         {
           "account": "XXXX7890",
-          "bank": "BOB, Toli Chowki",
+          "bank": "BOB, Seethammadhara",
           "type": "NEFT Received",
           "amount": "₹6,00,000",
           "date": "08 Mar 2026",
@@ -2684,14 +2684,14 @@ window.MOCK_DATA = {
       ],
       "vehicles": [
         {
-          "regNo": "TS 09 HZ 4521",
+          "regNo": "AP 31 HZ 4521",
           "vehicle": "Bajaj Auto RE",
           "chassis": "MD2AAAZZZ7N14521",
           "insurance": "Valid (2027)",
           "linkedFir": "142/2026"
         },
         {
-          "regNo": "TS 08 AB 9900",
+          "regNo": "AP 37 AB 9900",
           "vehicle": "Hero Splendor Plus",
           "chassis": "MBLJH1XXXXXXXX",
           "insurance": "Expired",
@@ -2700,7 +2700,7 @@ window.MOCK_DATA = {
       ]
     },
     {
-      "person_id": "PER-HYD-00234",
+      "person_id": "PER-VSP-00234",
       "full_name": "Sameer Khan",
       "alias": "Sam, Party King",
       "name": "Sameer",
@@ -2717,13 +2717,13 @@ window.MOCK_DATA = {
       "nationality": "Indian",
       "domicile_classification": "Local",
       "phone_number": "9988776655",
-      "present_district": "Hyderabad",
-      "present_locality_village": "Jubilee Hills",
-      "present_area_mandal": "Jubilee Hills",
-      "present_state_ut": "Telangana",
+      "present_district": "Visakhapatnam",
+      "present_locality_village": "MVP Colony",
+      "present_area_mandal": "MVP Colony",
+      "present_state_ut": "Andhra Pradesh",
       "present_pin_code": "500033",
-      "present_address": "Flat 502, Lake View Apartments, Jubilee Hills, Hyderabad, Telangana, 500033",
-      "permanent_address": "H.No 12-3-456, Banjara Hills, Hyderabad, Telangana, 500034",
+      "present_address": "Flat 502, Lake View Apartments, MVP Colony, Visakhapatnam, Andhra Pradesh, 500033",
+      "permanent_address": "H.No 12-3-456, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh, 500034",
       "no_of_crimes": 6,
       "arrest_count": 4,
       "associated_drugs": [
@@ -2733,32 +2733,32 @@ window.MOCK_DATA = {
       ],
       "crimes": [
         {
-          "id": "CR-HYD-2026-0098",
+          "id": "CR-VSP-2026-0098",
           "firNumber": "98/2026",
           "crimeRegDate": "2026-02-15"
         },
         {
-          "id": "CR-HYD-2025-1456",
+          "id": "CR-VSP-2025-1456",
           "firNumber": "1456/2025",
           "crimeRegDate": "2025-08-30"
         },
         {
-          "id": "CR-HYD-2025-0234",
+          "id": "CR-VSP-2025-0234",
           "firNumber": "234/2025",
           "crimeRegDate": "2025-02-10"
         },
         {
-          "id": "CR-HYD-2024-2345",
+          "id": "CR-VSP-2024-2345",
           "firNumber": "2345/2024",
           "crimeRegDate": "2024-11-15"
         },
         {
-          "id": "CR-HYD-2024-0789",
+          "id": "CR-VSP-2024-0789",
           "firNumber": "789/2024",
           "crimeRegDate": "2024-06-22"
         },
         {
-          "id": "CR-HYD-2023-1890",
+          "id": "CR-VSP-2023-1890",
           "firNumber": "1890/2023",
           "crimeRegDate": "2023-12-01"
         }
@@ -2791,7 +2791,7 @@ window.MOCK_DATA = {
         {
           "name": "Mohammed Sharif",
           "alias": "Sharfu",
-          "gang": "Toli Chowki Network",
+          "gang": "Seethammadhara Network",
           "relation": "Supplier",
           "sharedCases": 1,
           "status": "Arrested"
@@ -2836,7 +2836,7 @@ window.MOCK_DATA = {
           "called": "9876543210",
           "calledName": "Mohammed Sharif",
           "duration": "2m 18s",
-          "tower": "Jubilee Hills T-1",
+          "tower": "MVP Colony T-1",
           "date": "23 Mar 2026 11:45",
           "type": "Outgoing"
         },
@@ -2846,7 +2846,7 @@ window.MOCK_DATA = {
           "called": "9112233445",
           "calledName": "Anil Deshmukh",
           "duration": "7m 44s",
-          "tower": "Banjara Hills T-2",
+          "tower": "Dwaraka Nagar T-2",
           "date": "22 Mar 2026 20:30",
           "type": "Outgoing"
         },
@@ -2856,7 +2856,7 @@ window.MOCK_DATA = {
           "called": "8866554433",
           "calledName": "DJ Vikram",
           "duration": "11m 22s",
-          "tower": "Jubilee Hills T-3",
+          "tower": "MVP Colony T-3",
           "date": "22 Mar 2026 18:15",
           "type": "Outgoing"
         },
@@ -2866,7 +2866,7 @@ window.MOCK_DATA = {
           "called": "7755443322",
           "calledName": "Priya Reddy",
           "duration": "15m 05s",
-          "tower": "Film Nagar T-1",
+          "tower": "Rushikonda T-1",
           "date": "21 Mar 2026 22:40",
           "type": "Outgoing"
         },
@@ -2876,7 +2876,7 @@ window.MOCK_DATA = {
           "called": "8899001122",
           "calledName": "Kiran Naidu",
           "duration": "4m 30s",
-          "tower": "Gachibowli T-2",
+          "tower": "Poranki T-2",
           "date": "21 Mar 2026 14:20",
           "type": "Outgoing"
         }
@@ -2884,7 +2884,7 @@ window.MOCK_DATA = {
       "financial_intel": [
         {
           "account": "XXXX8876",
-          "bank": "HDFC, Jubilee Hills",
+          "bank": "HDFC, MVP Colony",
           "type": "NEFT Received",
           "amount": "₹12,30,000",
           "date": "14 Mar 2026",
@@ -2892,7 +2892,7 @@ window.MOCK_DATA = {
         },
         {
           "account": "XXXX8876",
-          "bank": "HDFC, Jubilee Hills",
+          "bank": "HDFC, MVP Colony",
           "type": "UPI Transfer In",
           "amount": "₹5,60,000",
           "date": "08 Mar 2026",
@@ -2900,7 +2900,7 @@ window.MOCK_DATA = {
         },
         {
           "account": "XXXX8876",
-          "bank": "HDFC, Jubilee Hills",
+          "bank": "HDFC, MVP Colony",
           "type": "Cash Withdrawal",
           "amount": "₹3,00,000",
           "date": "05 Mar 2026",
@@ -2909,7 +2909,7 @@ window.MOCK_DATA = {
       ],
       "vehicles": [
         {
-          "regNo": "TS 07 EF 8876",
+          "regNo": "AP 21 EF 8876",
           "vehicle": "BMW X5 xDrive",
           "chassis": "WBAJB0C55JB48876",
           "insurance": "Valid (2026)",
@@ -2918,7 +2918,7 @@ window.MOCK_DATA = {
       ]
     },
     {
-      "person_id": "PER-HYD-00345",
+      "person_id": "PER-VSP-00345",
       "full_name": "Ravi Kumar",
       "alias": "Ravi",
       "name": "Ravi",
@@ -2935,13 +2935,13 @@ window.MOCK_DATA = {
       "nationality": "Indian",
       "domicile_classification": "Local",
       "phone_number": "8877665544",
-      "present_district": "Hyderabad",
-      "present_locality_village": "Kukatpally",
-      "present_area_mandal": "Kukatpally",
-      "present_state_ut": "Telangana",
+      "present_district": "Visakhapatnam",
+      "present_locality_village": "Mangalagiri",
+      "present_area_mandal": "Mangalagiri",
+      "present_state_ut": "Andhra Pradesh",
       "present_pin_code": "500072",
-      "present_address": "H.No 6-7-89, KPHB Colony, Kukatpally, Hyderabad, Telangana, 500072",
-      "permanent_address": "Sathupalli, Khammam, Telangana, 507303",
+      "present_address": "H.No 6-7-89, KPHB Colony, Mangalagiri, Visakhapatnam, Andhra Pradesh, 500072",
+      "permanent_address": "Sathupalli, Kakinada, Andhra Pradesh, 507303",
       "no_of_crimes": 2,
       "arrest_count": 2,
       "associated_drugs": [
@@ -2949,12 +2949,12 @@ window.MOCK_DATA = {
       ],
       "crimes": [
         {
-          "id": "CR-HYD-2026-0142",
+          "id": "CR-VSP-2026-0142",
           "firNumber": "142/2026",
           "crimeRegDate": "2026-03-20"
         },
         {
-          "id": "CR-HYD-2024-0567",
+          "id": "CR-VSP-2024-0567",
           "firNumber": "567/2024",
           "crimeRegDate": "2024-04-18"
         }
@@ -2981,7 +2981,7 @@ window.MOCK_DATA = {
       ]
     },
     {
-      "person_id": "PER-CYB-00456",
+      "person_id": "PER-VJA-00456",
       "full_name": "Anil Deshmukh",
       "alias": "Anil Bhai",
       "name": "Anil",
@@ -2998,12 +2998,12 @@ window.MOCK_DATA = {
       "nationality": "Indian",
       "domicile_classification": "Interstate - Maharashtra",
       "phone_number": "9112233445",
-      "present_district": "Cyberabad",
-      "present_locality_village": "Kondapur",
+      "present_district": "Vijayawada",
+      "present_locality_village": "Kanuru",
       "present_area_mandal": "Serilingampally",
-      "present_state_ut": "Telangana",
+      "present_state_ut": "Andhra Pradesh",
       "present_pin_code": "500084",
-      "present_address": "Flat 1201, Phoenix Towers, Kondapur, Cyberabad, Telangana, 500084",
+      "present_address": "Flat 1201, Phoenix Towers, Kanuru, Vijayawada, Andhra Pradesh, 500084",
       "permanent_address": "A/P Paithan, Aurangabad, Maharashtra, 431107",
       "no_of_crimes": 3,
       "arrest_count": 2,
@@ -3013,12 +3013,12 @@ window.MOCK_DATA = {
       ],
       "crimes": [
         {
-          "id": "CR-CYB-2026-0234",
+          "id": "CR-VJA-2026-0234",
           "firNumber": "234/2026",
           "crimeRegDate": "2026-03-10"
         },
         {
-          "id": "CR-CYB-2025-1234",
+          "id": "CR-VJA-2025-1234",
           "firNumber": "1234/2025",
           "crimeRegDate": "2025-06-15"
         },
@@ -3058,7 +3058,7 @@ window.MOCK_DATA = {
       ]
     },
     {
-      "person_id": "PER-RCK-00567",
+      "person_id": "PER-GNT-00567",
       "full_name": "Lakshman Rao",
       "alias": "Laxman Anna, Boss",
       "name": "Lakshman",
@@ -3075,12 +3075,12 @@ window.MOCK_DATA = {
       "nationality": "Indian",
       "domicile_classification": "Interstate - Andhra Pradesh",
       "phone_number": "9000112233",
-      "present_district": "Rachakonda",
-      "present_locality_village": "Hayathnagar",
-      "present_area_mandal": "Hayathnagar",
-      "present_state_ut": "Telangana",
+      "present_district": "Guntur",
+      "present_locality_village": "Tenali",
+      "present_area_mandal": "Tenali",
+      "present_state_ut": "Andhra Pradesh",
       "present_pin_code": "501505",
-      "present_address": "Survey No 234, Hayathnagar, Rachakonda, Telangana, 501505",
+      "present_address": "Survey No 234, Tenali, Guntur, Andhra Pradesh, 501505",
       "permanent_address": "Rajahmundry, East Godavari, Andhra Pradesh, 533101",
       "no_of_crimes": 8,
       "arrest_count": 5,
@@ -3089,17 +3089,17 @@ window.MOCK_DATA = {
       ],
       "crimes": [
         {
-          "id": "CR-RCK-2026-0067",
+          "id": "CR-GNT-2026-0067",
           "firNumber": "67/2026",
           "crimeRegDate": "2026-01-22"
         },
         {
-          "id": "CR-RCK-2025-0456",
+          "id": "CR-GNT-2025-0456",
           "firNumber": "456/2025",
           "crimeRegDate": "2025-05-10"
         },
         {
-          "id": "CR-RCK-2025-0123",
+          "id": "CR-GNT-2025-0123",
           "firNumber": "123/2025",
           "crimeRegDate": "2025-01-15"
         },
@@ -3114,7 +3114,7 @@ window.MOCK_DATA = {
           "crimeRegDate": "2024-03-11"
         },
         {
-          "id": "CR-RCK-2023-1567",
+          "id": "CR-GNT-2023-1567",
           "firNumber": "1567/2023",
           "crimeRegDate": "2023-11-20"
         },
@@ -3124,7 +3124,7 @@ window.MOCK_DATA = {
           "crimeRegDate": "2023-06-05"
         },
         {
-          "id": "CR-RCK-2022-0345",
+          "id": "CR-GNT-2022-0345",
           "firNumber": "345/2022",
           "crimeRegDate": "2022-09-14"
         }
@@ -3157,34 +3157,34 @@ window.MOCK_DATA = {
   ],
   "seizures": [
     {
-      "mo_seizure_id": "MO-HYD-26-001",
-      "crime_id": "CR-HYD-2026-0142",
+      "mo_seizure_id": "MO-VSP-26-001",
+      "crime_id": "CR-VSP-2026-0142",
       "seq_no": "1",
       "type": "Narcotic Drug",
       "sub_type": "Ganja",
       "description": "12 Kg Ganja in compressed bricks",
       "seized_from": "Modified boot compartment of Innova TS-09-EF-4521",
       "seized_at": "2026-03-20T10:45:00",
-      "seized_by": "SHO Banjara Hills",
-      "pos_district": "Hyderabad",
-      "pos_city": "Jubilee Hills"
+      "seized_by": "SHO Dwaraka Nagar",
+      "pos_district": "Visakhapatnam",
+      "pos_city": "MVP Colony"
     },
     {
-      "mo_seizure_id": "MO-HYD-26-002",
-      "crime_id": "CR-HYD-2026-0142",
+      "mo_seizure_id": "MO-VSP-26-002",
+      "crime_id": "CR-VSP-2026-0142",
       "seq_no": "2",
       "type": "Vehicle",
       "sub_type": "Car",
       "description": "Toyota Innova TS-09-EF-4521 (White) — used for transport",
-      "seized_from": "Jubilee Hills Check Post",
+      "seized_from": "MVP Colony Check Post",
       "seized_at": "2026-03-20T10:45:00",
-      "seized_by": "SHO Banjara Hills",
-      "pos_district": "Hyderabad",
-      "pos_city": "Jubilee Hills"
+      "seized_by": "SHO Dwaraka Nagar",
+      "pos_district": "Visakhapatnam",
+      "pos_city": "MVP Colony"
     },
     {
-      "mo_seizure_id": "MO-HYD-26-003",
-      "crime_id": "CR-HYD-2026-0142",
+      "mo_seizure_id": "MO-VSP-26-003",
+      "crime_id": "CR-VSP-2026-0142",
       "seq_no": "3",
       "type": "Mobile Phone",
       "sub_type": "Smartphone",
@@ -3192,25 +3192,25 @@ window.MOCK_DATA = {
       "seized_from": "A1 Mohammed Sharif",
       "seized_at": "2026-03-20T11:00:00",
       "seized_by": "SI Rajesh Kumar",
-      "pos_district": "Hyderabad",
-      "pos_city": "Banjara Hills"
+      "pos_district": "Visakhapatnam",
+      "pos_city": "Dwaraka Nagar"
     },
     {
-      "mo_seizure_id": "MO-HYD-26-004",
-      "crime_id": "CR-HYD-2026-0098",
+      "mo_seizure_id": "MO-VSP-26-004",
+      "crime_id": "CR-VSP-2026-0098",
       "seq_no": "1",
       "type": "Narcotic Drug",
       "sub_type": "MDMA Tablets",
       "description": "2,500 MDMA tablets — Multicolored with skull logo",
-      "seized_from": "Farmhouse at Film Nagar",
+      "seized_from": "Farmhouse at Rushikonda",
       "seized_at": "2026-02-15T14:30:00",
       "seized_by": "Inspector P. Venkatesh",
-      "pos_district": "Hyderabad",
-      "pos_city": "Film Nagar"
+      "pos_district": "Visakhapatnam",
+      "pos_city": "Rushikonda"
     },
     {
-      "mo_seizure_id": "MO-HYD-26-005",
-      "crime_id": "CR-HYD-2026-0098",
+      "mo_seizure_id": "MO-VSP-26-005",
+      "crime_id": "CR-VSP-2026-0098",
       "seq_no": "2",
       "type": "Narcotic Drug",
       "sub_type": "Cocaine",
@@ -3218,51 +3218,51 @@ window.MOCK_DATA = {
       "seized_from": "A1 Sameer Khan personal locker",
       "seized_at": "2026-02-15T15:00:00",
       "seized_by": "Inspector P. Venkatesh",
-      "pos_district": "Hyderabad",
-      "pos_city": "Film Nagar"
+      "pos_district": "Visakhapatnam",
+      "pos_city": "Rushikonda"
     },
     {
-      "mo_seizure_id": "MO-CYB-26-006",
-      "crime_id": "CR-CYB-2026-0234",
+      "mo_seizure_id": "MO-VJA-26-006",
+      "crime_id": "CR-VJA-2026-0234",
       "seq_no": "1",
       "type": "Narcotic Drug",
       "sub_type": "Heroin",
       "description": "500g Brown Sugar / Heroin",
-      "seized_from": "Rented apartment at Kondapur",
+      "seized_from": "Rented apartment at Kanuru",
       "seized_at": "2026-03-10T18:00:00",
       "seized_by": "Inspector K. Mahesh",
-      "pos_district": "Cyberabad",
-      "pos_city": "Kondapur"
+      "pos_district": "Vijayawada",
+      "pos_city": "Kanuru"
     },
     {
-      "mo_seizure_id": "MO-RCK-26-007",
-      "crime_id": "CR-RCK-2026-0067",
+      "mo_seizure_id": "MO-GNT-26-007",
+      "crime_id": "CR-GNT-2026-0067",
       "seq_no": "1",
       "type": "Narcotic Drug",
       "sub_type": "Ganja",
       "description": "250 Kg Ganja in gunny bags concealed in vegetable crates",
-      "seized_from": "Cargo truck at Hayathnagar toll plaza",
+      "seized_from": "Cargo truck at Tenali toll plaza",
       "seized_at": "2026-01-22T11:30:00",
       "seized_by": "SI Lakshmi Narayana",
-      "pos_district": "Rachakonda",
-      "pos_city": "Hayathnagar"
+      "pos_district": "Guntur",
+      "pos_city": "Tenali"
     },
     {
-      "mo_seizure_id": "MO-RCK-26-008",
-      "crime_id": "CR-RCK-2026-0067",
+      "mo_seizure_id": "MO-GNT-26-008",
+      "crime_id": "CR-GNT-2026-0067",
       "seq_no": "2",
       "type": "Vehicle",
       "sub_type": "Truck",
       "description": "Tata LPT 1613 AP-05-TX-7890 — Cargo truck",
-      "seized_from": "Hayathnagar toll plaza",
+      "seized_from": "Tenali toll plaza",
       "seized_at": "2026-01-22T11:30:00",
       "seized_by": "SI Lakshmi Narayana",
-      "pos_district": "Rachakonda",
-      "pos_city": "Hayathnagar"
+      "pos_district": "Guntur",
+      "pos_city": "Tenali"
     },
     {
-      "mo_seizure_id": "MO-HYD-26-009",
-      "crime_id": "CR-CYB-2026-0234",
+      "mo_seizure_id": "MO-VSP-26-009",
+      "crime_id": "CR-VJA-2026-0234",
       "seq_no": "2",
       "type": "Cash",
       "sub_type": "Indian Currency",
@@ -3270,8 +3270,8 @@ window.MOCK_DATA = {
       "seized_from": "Anil Deshmukh — personal possession",
       "seized_at": "2026-03-10T18:15:00",
       "seized_by": "Inspector K. Mahesh",
-      "pos_district": "Cyberabad",
-      "pos_city": "Kondapur"
+      "pos_district": "Vijayawada",
+      "pos_city": "Kanuru"
     }
   ]
 };

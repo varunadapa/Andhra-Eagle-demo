@@ -2,7 +2,7 @@
   {
     "id": 1,
     "system": "CCTNS",
-    "department": "MHA / Telangana Police",
+    "department": "MHA / Andhra Pradesh Police",
     "type": "National/State",
     "status": "connected",
     "lastSync": "2026-03-23T17:00:00",
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "system": "Garuda",
-    "department": "Telangana Police",
+    "department": "Andhra Pradesh Police",
     "type": "State",
     "status": "connected",
     "lastSync": "2026-03-23T16:45:00",
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "system": "RTA Database",
-    "department": "Transport Dept. Telangana",
+    "department": "Transport Dept. Andhra Pradesh",
     "type": "State",
     "status": "connected",
     "lastSync": "2026-03-23T14:00:00",
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "system": "ePetty Cases",
-    "department": "Telangana Police",
+    "department": "Andhra Pradesh Police",
     "type": "State",
     "status": "connected",
     "lastSync": "2026-03-23T17:15:00",
@@ -109,8 +109,8 @@
   },
   {
     "id": 10,
-    "system": "SHE Teams Data",
-    "department": "Telangana Police",
+    "system": "Disha Teams Data",
+    "department": "Andhra Pradesh Police",
     "type": "State",
     "status": "connected",
     "lastSync": "2026-03-23T11:00:00",
@@ -134,7 +134,7 @@
   {
     "id": 12,
     "system": "Prison / Parole Records",
-    "department": "Telangana Prisons Dept.",
+    "department": "Andhra Pradesh Prisons Dept.",
     "type": "State",
     "status": "partial",
     "lastSync": "2026-03-21T08:00:00",

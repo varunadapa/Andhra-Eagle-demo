@@ -15,63 +15,63 @@
         "142/2026",
         "20 Mar 2026",
         "8(c), 20, 22, 29 NDPS Act",
-        "Banjara Hills",
-        "Hyderabad",
+        "Dwaraka Nagar",
+        "Visakhapatnam",
         "Under Investigation"
       ],
       [
         "98/2026",
         "15 Feb 2026",
         "8(c), 21, 27A NDPS Act",
-        "Jubilee Hills",
-        "Hyderabad",
+        "MVP Colony",
+        "Visakhapatnam",
         "Chargesheet Filed"
       ],
       [
         "234/2026",
         "10 Mar 2026",
         "8(c), 20, 25 NDPS Act",
-        "Madhapur",
-        "Cyberabad",
+        "Governorpet",
+        "Vijayawada",
         "Under Investigation"
       ],
       [
         "67/2026",
         "22 Jan 2026",
         "8(c), 20, 22 NDPS Act",
-        "Hayathnagar",
-        "Rachakonda",
+        "Tenali",
+        "Guntur",
         "Under Trial"
       ],
       [
         "2341/2025",
         "20 Dec 2025",
         "379, 392 IPC",
-        "Kukatpally",
-        "Cyberabad",
+        "Mangalagiri",
+        "Vijayawada",
         "Chargesheet Filed"
       ],
       [
         "1456/2025",
         "30 Aug 2025",
         "8(c) NDPS + 420 IPC",
-        "Jubilee Hills",
-        "Hyderabad",
+        "MVP Colony",
+        "Visakhapatnam",
         "Under Trial"
       ],
       [
         "876/2025",
         "12 Jul 2025",
         "20, 22 NDPS Act",
-        "Toli Chowki",
-        "Hyderabad",
+        "Seethammadhara",
+        "Visakhapatnam",
         "Convicted"
       ]
     ]
   },
   "2": {
     "system": "Garuda",
-    "description": "Drug Offenders Profiling, Analysis and Monitoring System — Telangana Police's dedicated drug offender database with 360° profiling and interrogation reports.",
+    "description": "Drug Offenders Profiling, Analysis and Monitoring System — Andhra Pradesh Police's dedicated drug offender database with 360° profiling and interrogation reports.",
     "columns": [
       "Person ID",
       "Name",
@@ -82,7 +82,7 @@
     ],
     "records": [
       [
-        "PER-HYD-00142",
+        "PER-VSP-00142",
         "Mohammed Sharif",
         "Sharfu",
         "GANJA, MDMA",
@@ -90,7 +90,7 @@
         "Arrested"
       ],
       [
-        "PER-HYD-00234",
+        "PER-VSP-00234",
         "Sameer Khan",
         "Party King",
         "MDMA, COCAINE, LSD",
@@ -98,7 +98,7 @@
         "Arrested"
       ],
       [
-        "PER-HYD-00345",
+        "PER-VSP-00345",
         "Ravi Kumar",
         "Ravi",
         "GANJA",
@@ -106,7 +106,7 @@
         "Arrested"
       ],
       [
-        "PER-CYB-00456",
+        "PER-VJA-00456",
         "Anil Deshmukh",
         "Anil Bhai",
         "HEROIN, MDMA",
@@ -114,7 +114,7 @@
         "Arrested"
       ],
       [
-        "PER-RCK-00567",
+        "PER-GNT-00567",
         "Lakshman Rao",
         "Laxman Anna",
         "GANJA",
@@ -122,7 +122,7 @@
         "Absconding"
       ],
       [
-        "PER-HYD-00678",
+        "PER-VSP-00678",
         "Venkat Reddy",
         "—",
         "GANJA",
@@ -130,7 +130,7 @@
         "Absconding"
       ],
       [
-        "PER-HYD-00789",
+        "PER-VSP-00789",
         "Rajendra Prasad",
         "Raju",
         "—",
@@ -153,7 +153,7 @@
     "records": [
       [
         "CC 234/2026",
-        "Metropolitan Magistrate, Nampally",
+        "Metropolitan Magistrate, Visakhapatnam",
         "Anil Deshmukh",
         "8(c) NDPS",
         "15 Apr 2026",
@@ -161,7 +161,7 @@
       ],
       [
         "CC 876/2025",
-        "Sessions Court, Hyderabad",
+        "Sessions Court, Visakhapatnam",
         "Mohammed Sharif",
         "20 NDPS",
         "22 Mar 2026",
@@ -169,7 +169,7 @@
       ],
       [
         "CC 1234/2025",
-        "NDPS Special Court, Hyderabad",
+        "NDPS Special Court, Visakhapatnam",
         "Sameer Khan",
         "21, 27A NDPS",
         "05 Apr 2026",
@@ -177,7 +177,7 @@
       ],
       [
         "CC 456/2024",
-        "Dist. Court, Rachakonda",
+        "Dist. Court, Guntur",
         "Lakshman Rao",
         "8(c), 20, 22 NDPS",
         "10 May 2026",
@@ -185,7 +185,7 @@
       ],
       [
         "CC 789/2024",
-        "Sessions Court, Cyberabad",
+        "Sessions Court, Vijayawada",
         "Rajendra Prasad",
         "379, 392 IPC",
         "28 Mar 2026",
@@ -206,7 +206,7 @@
     ],
     "records": [
       [
-        "TS 09 HZ 4521",
+        "AP 31 HZ 4521",
         "Mohammed Sharif",
         "Bajaj Auto RE",
         "MD2AAAZZZ7N14521",
@@ -214,7 +214,7 @@
         "142/2026"
       ],
       [
-        "TS 07 EF 8876",
+        "AP 21 EF 8876",
         "Sameer Khan",
         "BMW X5 xDrive",
         "WBAJB0C55JB48876",
@@ -230,7 +230,7 @@
         "67/2026"
       ],
       [
-        "TS 08 GH 5567",
+        "AP 37 GH 5567",
         "Anil Deshmukh",
         "Mercedes GLE",
         "WDC0G4KB5JF05567",
@@ -238,7 +238,7 @@
         "234/2026"
       ],
       [
-        "TS 09 JK 3345",
+        "AP 31 JK 3345",
         "Ravi Kumar",
         "TVS Apache 200",
         "MD634KKAA7B03345",
@@ -272,7 +272,7 @@
         "Mohammed Sharif",
         "14 May 2038",
         "MCWG, LMV",
-        "Telangana",
+        "Andhra Pradesh",
         "Active"
       ],
       [
@@ -280,7 +280,7 @@
         "Sameer Khan",
         "22 Jan 2040",
         "MCWG, LMV, HMV",
-        "Telangana",
+        "Andhra Pradesh",
         "Active"
       ],
       [
@@ -304,7 +304,7 @@
         "Ravi Kumar",
         "10 Aug 2042",
         "MCWG",
-        "Telangana",
+        "Andhra Pradesh",
         "Active"
       ]
     ]
@@ -325,7 +325,7 @@
         "9876543210",
         "9988776655",
         "4m 32s",
-        "Banjara Hills Tower-3",
+        "Dwaraka Nagar Tower-3",
         "23 Mar 2026 14:23",
         "Outgoing"
       ],
@@ -333,7 +333,7 @@
         "9988776655",
         "9876543210",
         "2m 18s",
-        "Jubilee Hills Tower-1",
+        "MVP Colony Tower-1",
         "23 Mar 2026 11:45",
         "Incoming"
       ],
@@ -341,7 +341,7 @@
         "9876543210",
         "8877665544",
         "6m 45s",
-        "Toli Chowki Tower-2",
+        "Seethammadhara Tower-2",
         "22 Mar 2026 22:10",
         "Outgoing"
       ],
@@ -349,7 +349,7 @@
         "9000112233",
         "9876543210",
         "1m 05s",
-        "Hayathnagar Tower-1",
+        "Tenali Tower-1",
         "22 Mar 2026 19:30",
         "Incoming"
       ],
@@ -357,7 +357,7 @@
         "9876543210",
         "7766554433",
         "12m 22s",
-        "Golconda Tower-1",
+        "Simhachalam Tower-1",
         "22 Mar 2026 16:15",
         "Outgoing"
       ],
@@ -365,7 +365,7 @@
         "9112233445",
         "9988776655",
         "3m 40s",
-        "Kondapur Tower-4",
+        "Kanuru Tower-4",
         "21 Mar 2026 20:55",
         "Outgoing"
       ],
@@ -373,7 +373,7 @@
         "9876543210",
         "9000112233",
         "8m 15s",
-        "Banjara Hills Tower-1",
+        "Dwaraka Nagar Tower-1",
         "21 Mar 2026 08:20",
         "Outgoing"
       ]
@@ -396,7 +396,7 @@
         "17.4123",
         "78.4567",
         "23 Mar 2026 14:23:45",
-        "TS-HYD-BJH-003",
+        "AP-VSP-BJH-003",
         "15m"
       ],
       [
@@ -404,7 +404,7 @@
         "17.4156",
         "78.4589",
         "23 Mar 2026 12:10:22",
-        "TS-HYD-BJH-001",
+        "AP-VSP-BJH-001",
         "22m"
       ],
       [
@@ -412,7 +412,7 @@
         "17.4401",
         "78.3987",
         "23 Mar 2026 11:45:33",
-        "TS-HYD-JBH-001",
+        "AP-VSP-JBH-001",
         "18m"
       ],
       [
@@ -420,7 +420,7 @@
         "17.3234",
         "78.5012",
         "22 Mar 2026 22:10:11",
-        "TS-RCK-HNR-001",
+        "AP-GNT-HNR-001",
         "35m"
       ],
       [
@@ -428,7 +428,7 @@
         "17.4089",
         "78.4612",
         "22 Mar 2026 19:30:55",
-        "TS-HYD-TCK-002",
+        "AP-VSP-TCK-002",
         "12m"
       ],
       [
@@ -436,7 +436,7 @@
         "17.4478",
         "78.3821",
         "22 Mar 2026 16:15:40",
-        "TS-CYB-KDP-004",
+        "AP-VJA-KDP-004",
         "20m"
       ]
     ]
@@ -455,7 +455,7 @@
     "records": [
       [
         "XXXX4521",
-        "SBI, Banjara Hills",
+        "SBI, Dwaraka Nagar",
         "Mohammed Sharif",
         "Cash Deposit",
         "₹4,50,000",
@@ -463,7 +463,7 @@
       ],
       [
         "XXXX8876",
-        "HDFC, Jubilee Hills",
+        "HDFC, MVP Colony",
         "Sameer Khan",
         "NEFT Received",
         "₹12,30,000",
@@ -471,7 +471,7 @@
       ],
       [
         "XXXX1234",
-        "Indian Bank, Hayathnagar",
+        "Indian Bank, Tenali",
         "Lakshman Rao",
         "Cash Withdrawal",
         "₹8,00,000",
@@ -479,7 +479,7 @@
       ],
       [
         "XXXX9876",
-        "Axis Bank, Kondapur",
+        "Axis Bank, Kanuru",
         "Anil Deshmukh",
         "UPI Transfer Out",
         "₹2,75,000",
@@ -487,7 +487,7 @@
       ],
       [
         "XXXX5567",
-        "BOB, Toli Chowki",
+        "BOB, Seethammadhara",
         "Ravi Kumar",
         "Cash Deposit",
         "₹1,20,000",
@@ -495,7 +495,7 @@
       ],
       [
         "XXXX8876",
-        "HDFC, Jubilee Hills",
+        "HDFC, MVP Colony",
         "Sameer Khan",
         "UPI Transfer In",
         "₹5,60,000",
@@ -505,7 +505,7 @@
   },
   "9": {
     "system": "ePetty Cases",
-    "description": "Petty offence tracking system used by Telangana Police for minor offences, preventive actions, and history sheet entries.",
+    "description": "Petty offence tracking system used by Andhra Pradesh Police for minor offences, preventive actions, and history sheet entries.",
     "columns": [
       "Case No.",
       "Offence Type",
@@ -516,50 +516,50 @@
     ],
     "records": [
       [
-        "EP-HYD-2026-0456",
+        "EP-VSP-2026-0456",
         "Drunk & Disorderly",
         "Ravi Kumar",
         "₹2,000",
-        "Kukatpally",
+        "Mangalagiri",
         "12 Mar 2026"
       ],
       [
-        "EP-HYD-2026-0321",
+        "EP-VSP-2026-0321",
         "Suspicious Loitering",
         "Mohammed Sharif",
         "Warning",
-        "Toli Chowki",
+        "Seethammadhara",
         "08 Mar 2026"
       ],
       [
-        "EP-CYB-2026-0187",
+        "EP-VJA-2026-0187",
         "Traffic Violation",
         "Anil Deshmukh",
         "₹5,000",
-        "Madhapur",
+        "Governorpet",
         "01 Mar 2026"
       ],
       [
-        "EP-HYD-2025-1234",
+        "EP-VSP-2025-1234",
         "Public Nuisance",
         "Venkat Reddy",
         "₹1,000",
-        "Banjara Hills",
+        "Dwaraka Nagar",
         "20 Dec 2025"
       ],
       [
-        "EP-RCK-2025-0987",
+        "EP-GNT-2025-0987",
         "Preventive Entry 110 CrPC",
         "Lakshman Rao",
         "Detained 24h",
-        "Hayathnagar",
+        "Tenali",
         "15 Nov 2025"
       ]
     ]
   },
   "10": {
-    "system": "SHE Teams Data",
-    "description": "Telangana SHE Teams data — gender-based safety enforcement, harassment complaints, and connected offender profiles.",
+    "system": "Disha Teams Data",
+    "description": "AP Disha Teams data — gender-based safety enforcement, harassment complaints, and connected offender profiles.",
     "columns": [
       "Complaint No.",
       "Type",
@@ -570,34 +570,34 @@
     ],
     "records": [
       [
-        "SHE-HYD-2026-0089",
+        "DISHA-VSP-2026-0089",
         "Eve Teasing",
         "Venkat Reddy",
-        "Tank Bund",
+        "Beach Road",
         "Counseled & Warning",
         "10 Mar 2026"
       ],
       [
-        "SHE-HYD-2026-0045",
+        "DISHA-VSP-2026-0045",
         "Stalking",
         "Unknown Male",
-        "Jubilee Hills",
+        "MVP Colony",
         "FIR Registered",
         "25 Feb 2026"
       ],
       [
-        "SHE-CYB-2026-0023",
+        "DISHA-VJA-2026-0023",
         "Online Harassment",
         "Rajendra Prasad",
-        "Gachibowli",
+        "Poranki",
         "Booked u/s 354D IPC",
         "14 Feb 2026"
       ],
       [
-        "SHE-HYD-2025-0567",
+        "DISHA-VSP-2025-0567",
         "Harassment",
         "Sameer Khan",
-        "Banjara Hills",
+        "Dwaraka Nagar",
         "Counseled",
         "30 Nov 2025"
       ]
@@ -612,7 +612,7 @@
   },
   "12": {
     "system": "Prison / Parole Records",
-    "description": "Telangana Prisons Department data — inmate records, conviction details, parole status, and release dates for incarcerated offenders.",
+    "description": "AP Prisons Department data — inmate records, conviction details, parole status, and release dates for incarcerated offenders.",
     "columns": [
       "Prisoner ID",
       "Name",
@@ -623,34 +623,34 @@
     ],
     "records": [
       [
-        "CH-HYD-2024-0123",
+        "CH-VSP-2024-0123",
         "Mohammed Sharif",
         "NDPS 20 (Ganja 5Kg)",
-        "Chanchalguda Central Jail",
+        "Visakhapatnam Central Jail",
         "3 Years RI",
         "Parole Granted (Apr 2025)"
       ],
       [
-        "CH-WGL-2023-0456",
+        "CH-TPT-2023-0456",
         "Rajendra Prasad",
         "IPC 379, 392",
-        "Warangal District Jail",
+        "Tirupati District Jail",
         "2 Years RI",
         "Released on Bail"
       ],
       [
-        "CH-HYD-2023-0789",
+        "CH-VSP-2023-0789",
         "Sameer Khan",
         "NDPS 21 (MDMA 200g)",
-        "Chanchalguda Central Jail",
+        "Visakhapatnam Central Jail",
         "5 Years RI",
         "Not Eligible"
       ],
       [
-        "CH-RCK-2022-0234",
+        "CH-GNT-2022-0234",
         "Lakshman Rao",
         "NDPS 20, 22 (Ganja 450Kg)",
-        "Cherlapally Central Jail",
+        "Rajahmundry Central Jail",
         "10 Years RI",
         "Application Pending"
       ]
