@@ -1610,6 +1610,82 @@ window.MOCK_DATA = {
       "columns": [],
       "records": [],
       "pendingMessage": "LPG data integration is pending. API specifications being finalized with oil companies. Expected go-live: Q3 2026."
+    },
+    "15": {
+      "system": "TRAI / DOT SIM Database",
+      "description": "Telecom Regulatory Authority of India / Department of Telecommunications subscriber database. Used to verify SIM ownership, Aadhar linkage, and track burner phones.",
+      "columns": [
+        "Mobile Number",
+        "Subscriber Name",
+        "Provider",
+        "Aadhar Linked",
+        "Activation Date",
+        "Status"
+      ],
+      "records": [
+        [
+          "9876543210",
+          "Mohammed Sharif",
+          "Jio",
+          "Yes",
+          "12 Jan 2024",
+          "Active"
+        ],
+        [
+          "9988776655",
+          "Sameer Khan",
+          "Airtel",
+          "Yes",
+          "05 Mar 2025",
+          "Active"
+        ],
+        [
+          "8877665544",
+          "Lakshman Rao",
+          "Vi",
+          "No (Fake ID)",
+          "22 Nov 2025",
+          "Suspended"
+        ]
+      ]
+    },
+    "16": {
+      "system": "FRRO / Passport System",
+      "description": "Foreigners Regional Registration Office and National Passport Database. Used to track international travel, visa status of foreign nationals, and prevent accused from fleeing.",
+      "columns": [
+        "Passport No",
+        "Name",
+        "Nationality",
+        "Visa Type",
+        "Expiry Date",
+        "Lookout Notice"
+      ],
+      "records": [
+        [
+          "Z1234567",
+          "John Doe",
+          "Nigerian",
+          "Tourist (Overstay)",
+          "15 Aug 2025",
+          "Active (LOC)"
+        ],
+        [
+          "P9876543",
+          "Sameer Khan",
+          "Indian",
+          "N/A",
+          "10 May 2030",
+          "Impounded"
+        ],
+        [
+          "L5544332",
+          "Anil Deshmukh",
+          "Indian",
+          "N/A",
+          "22 Dec 2028",
+          "Active (LOC)"
+        ]
+      ]
     }
   },
   "integrations": [
@@ -1780,6 +1856,30 @@ window.MOCK_DATA = {
       "priority": "Medium",
       "mode": "API / Batch",
       "health": 0
+    },
+    {
+      "id": 15,
+      "system": "TRAI / DOT SIM Database",
+      "department": "Dept. of Telecommunications",
+      "type": "National",
+      "status": "connected",
+      "lastSync": "2026-03-24T09:15:00",
+      "recordsIngested": 1542389,
+      "priority": "Critical",
+      "mode": "Secure API",
+      "health": 99.8
+    },
+    {
+      "id": 16,
+      "system": "FRRO / Passport System",
+      "department": "Ministry of External Affairs",
+      "type": "National",
+      "status": "connected",
+      "lastSync": "2026-03-24T08:30:00",
+      "recordsIngested": 89452,
+      "priority": "High",
+      "mode": "Secure API",
+      "health": 98.5
     }
   ],
   "interrogations": [

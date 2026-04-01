@@ -166,5 +166,29 @@
     "priority": "Medium",
     "mode": "API / Batch",
     "health": 0
+  },
+  {
+    "id": 15,
+    "system": "TRAI / DOT SIM Database",
+    "department": "Dept. of Telecommunications",
+    "type": "National",
+    "status": "connected",
+    "lastSync": "2026-03-24T09:15:00",
+    "recordsIngested": 1542389,
+    "priority": "Critical",
+    "mode": "Secure API",
+    "health": 99.8
+  },
+  {
+    "id": 16,
+    "system": "FRRO / Passport System",
+    "department": "Ministry of External Affairs",
+    "type": "National",
+    "status": "connected",
+    "lastSync": "2026-03-24T08:30:00",
+    "recordsIngested": 89452,
+    "priority": "High",
+    "mode": "Secure API",
+    "health": 98.5
   }
 ]
