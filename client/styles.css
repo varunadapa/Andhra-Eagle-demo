@@ -405,7 +405,8 @@ body::before {
 /* ---- Main Content ---- */
 .main-content {
   flex: 1;
-  min-width: 0; /* Prevents flex blowout */
+  min-width: 0;
+  /* Prevents flex blowout */
   margin-left: var(--sidebar-width);
   min-height: 100vh;
 }
@@ -570,6 +571,8 @@ body::before {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   /* Subtle shadow */
   transition: all var(--transition-normal);
+  min-width: 0;
+  /* Prevents grid blowout from inner charts */
 }
 
 .card:hover {
@@ -760,7 +763,8 @@ body::before {
   font-size: 0.85rem;
   font-weight: 600;
   display: flex;
-  min-width: 0; /* Prevents flex blowout */
+  min-width: 0;
+  /* Prevents flex blowout */
   white-space: nowrap;
   box-shadow: var(--shadow-md);
 }
@@ -788,11 +792,7 @@ body::before {
   margin-bottom: 24px;
 }
 
-.grid-sidebar {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 24px;
-}
+/* Grid Sidebar moved to helpers */
 
 .stat-card2 {
   padding: 20px;
@@ -874,7 +874,7 @@ body::before {
 
 .district-grid-mini {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
 
@@ -1134,7 +1134,7 @@ body::before {
 
 .grid-sidebar {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
   gap: 20px;
 }
 

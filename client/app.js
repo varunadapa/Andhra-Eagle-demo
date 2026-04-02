@@ -357,14 +357,70 @@ function renderFIRs() {
   const crimes = DATA.crimes || [];
   const content = $('#page-content');
 
+  // Compute Stats
+  const totalFIRs = crimes.length;
+  const underInvestigation = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('investigation')).length;
+  const commercialQty = crimes.filter(c => c.class_classification === 'Commercial Quantity').length;
+  const convicted = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('convict')).length;
+
+  let html = '<div class="dashboard-container">'; // Keep layout constrained nicely
+
+  // Intro
+  html += `<div class="dash-intro">
+    <div>
+      <h1>FIR Management</h1>
+      <p>Comprehensive overview of registered cases and real-time status</p>
+    </div>
+  </div>`;
+
+  // Stats Grid
+  html += `<div class="stats-grid">
+    <div class="stat-card2">
+      <div class="stat-icon-wrapper neutral"><i class="fas fa-file-alt"></i></div>
+      <div class="stat-value-large">${totalFIRs}</div>
+      <div class="stat-label-bold">Total FIRs</div>
+    </div>
+    <div class="stat-card2">
+      <div class="stat-icon-wrapper neutral"><i class="fas fa-search"></i></div>
+      <div class="stat-value-large" style="color: var(--accent-amber)">${underInvestigation}</div>
+      <div class="stat-label-bold">Under Investigation</div>
+    </div>
+    <div class="stat-card2">
+      <div class="stat-icon-wrapper neutral"><i class="fas fa-box"></i></div>
+      <div class="stat-value-large" style="color: var(--accent-red)">${commercialQty}</div>
+      <div class="stat-label-bold">Commercial Quantity</div>
+    </div>
+    <div class="stat-card2">
+      <div class="stat-icon-wrapper neutral"><i class="fas fa-gavel"></i></div>
+      <div class="stat-value-large" style="color: var(--accent-green)">${convicted}</div>
+      <div class="stat-label-bold">Convictions</div>
+    </div>
+  </div>`;
+
+  // Charts
+  html += `<div class="grid-2 gap-24 mb-24">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">FIR Status Breakdown</div>
+      </div>
+      <div class="chart-container" style="height:250px"><canvas id="chart-fir-status"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Classification Analysis</div>
+      </div>
+      <div class="chart-container" style="height:250px"><canvas id="chart-fir-class"></canvas></div>
+    </div>
+  </div>`;
+
   // Filter Bar
-  let html = '<div class="filter-bar"><input class="filter-input" placeholder="Search FIR number, crime ID..." id="fir-search" />'
+  html += '<div class="filter-bar" style="margin-bottom: 20px;"><input class="filter-input" placeholder="Search FIR number, crime ID..." id="fir-search" />'
     + '<select class="filter-select" id="fir-status-filter"><option value="">All Status</option><option value="Under Investigation">Under Investigation</option><option value="Chargesheet Filed">Chargesheet Filed</option><option value="Convicted">Convicted</option><option value="Under Trial">Under Trial</option></select>'
     + '<select class="filter-select" id="fir-class-filter"><option value="">All Classification</option><option value="Commercial Quantity">Commercial</option><option value="Non-Commercial Quantity">Non-Commercial</option><option value="Heinous">Heinous</option></select>'
     + '<button class="btn btn-primary btn-sm" id="fir-apply"><i class="fas fa-filter"></i> Filter</button></div>';
 
   // Table inside a card
-  html += '<div class="card mt-24"><div class="card-header"><div class="card-title"><i class="fas fa-file-alt" style="color:var(--accent-green);margin-right:8px"></i>FIR Management</div><div class="card-subtitle">Showing all FIR records and statuses</div></div>'
+  html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-list" style="color:var(--accent-green);margin-right:8px"></i>FIR Records</div></div>'
     + '<div class="data-table-wrapper"><table class="data-table" id="fir-table"><thead><tr>'
     + '<th>FIR Number</th><th>Police Station</th><th>Date</th><th>Acts & Sections</th><th>Classification</th><th>Accused</th><th>Drug Type</th><th>Status</th><th></th></tr></thead><tbody>';
 
@@ -382,12 +438,75 @@ function renderFIRs() {
       <td>${statusBadgeFIR(c.case_status)}</td>
       <td><i class="fas fa-chevron-right" style="color:var(--text-muted)"></i></td></tr>`;
   });
-  html += '</tbody></table></div></div>';
+  html += '</tbody></table></div></div></div>';
   content.innerHTML = html;
 
   // Filter logic
   $('#fir-apply').onclick = () => filterFIRs();
   $('#fir-search').addEventListener('keyup', filterFIRs);
+
+  // Render Charts
+  requestAnimationFrame(() => {
+    renderFIRPageStatusChart(crimes);
+    renderFIRPageClassChart(crimes);
+  });
+}
+
+function renderFIRPageStatusChart(crimes) {
+  const ctx = document.getElementById('chart-fir-status');
+  if (!ctx || !crimes || crimes.length === 0) return;
+
+  const statusCounts = {};
+  crimes.forEach(c => {
+    const s = c.case_status || 'Unknown';
+    statusCounts[s] = (statusCounts[s] || 0) + 1;
+  });
+
+  const colors = ['#f59e0b', '#3b82f6', '#10b981', '#6366f1', '#94a3b8'];
+  chartInstances.firStatus = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: Object.keys(statusCounts),
+      datasets: [{ data: Object.values(statusCounts), backgroundColor: colors, borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      plugins: { legend: { position: 'right', labels: { color: '#8892b0', padding: 10, font: { size: 11 } } } }
+    }
+  });
+}
+
+function renderFIRPageClassChart(crimes) {
+  const ctx = document.getElementById('chart-fir-class');
+  if (!ctx || !crimes || crimes.length === 0) return;
+
+  const classCounts = {};
+  crimes.forEach(c => {
+    const cl = c.class_classification || 'Unknown';
+    classCounts[cl] = (classCounts[cl] || 0) + 1;
+  });
+
+  chartInstances.firClass = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Object.keys(classCounts),
+      datasets: [{
+        label: 'Number of Cases',
+        data: Object.values(classCounts),
+        backgroundColor: 'rgba(189, 157, 30, 0.7)',
+        borderColor: '#bd9d1e',
+        borderWidth: 2, borderRadius: 4, barPercentage: 0.5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { ticks: { color: '#64748b', font: { weight: '600' }, stepSize: 1 }, grid: { color: 'rgba(0,0,0,0.05)' } },
+        x: { ticks: { color: '#64748b', font: { weight: '600' } }, grid: { display: false } }
+      }
+    }
+  });
 }
 
 function statusBadgeFIR(status) {
