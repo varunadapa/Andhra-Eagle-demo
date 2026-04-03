@@ -375,25 +375,33 @@ function renderFIRs() {
 
   // Stats Grid
   html += `<div class="stats-grid">
-    <div class="stat-card2">
-      <div class="stat-icon-wrapper neutral"><i class="fas fa-file-alt"></i></div>
-      <div class="stat-value-large">${totalFIRs}</div>
-      <div class="stat-label-bold">Total FIRs</div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(33, 150, 243, 0.1); color: var(--accent-blue)"><i class="fas fa-file-alt"></i></div>
+      <div class="info">
+        <div class="value">${totalFIRs}</div>
+        <div class="label">Total FIRs</div>
+      </div>
     </div>
-    <div class="stat-card2">
-      <div class="stat-icon-wrapper neutral"><i class="fas fa-search"></i></div>
-      <div class="stat-value-large" style="color: var(--accent-amber)">${underInvestigation}</div>
-      <div class="stat-label-bold">Under Investigation</div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-amber)"><i class="fas fa-search"></i></div>
+      <div class="info">
+        <div class="value" style="color: var(--accent-amber)">${underInvestigation}</div>
+        <div class="label">Under Investigation</div>
+      </div>
     </div>
-    <div class="stat-card2">
-      <div class="stat-icon-wrapper neutral"><i class="fas fa-box"></i></div>
-      <div class="stat-value-large" style="color: var(--accent-red)">${commercialQty}</div>
-      <div class="stat-label-bold">Commercial Quantity</div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(239, 68, 68, 0.1); color: var(--accent-red)"><i class="fas fa-box-open"></i></div>
+      <div class="info">
+        <div class="value" style="color: var(--accent-red)">${commercialQty}</div>
+        <div class="label">Commercial Quantity</div>
+      </div>
     </div>
-    <div class="stat-card2">
-      <div class="stat-icon-wrapper neutral"><i class="fas fa-gavel"></i></div>
-      <div class="stat-value-large" style="color: var(--accent-green)">${convicted}</div>
-      <div class="stat-label-bold">Convictions</div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green)"><i class="fas fa-gavel"></i></div>
+      <div class="info">
+        <div class="value" style="color: var(--accent-green)">${convicted}</div>
+        <div class="label">Convictions</div>
+      </div>
     </div>
   </div>`;
 
@@ -414,10 +422,11 @@ function renderFIRs() {
   </div>`;
 
   // Filter Bar
-  html += '<div class="filter-bar" style="margin-bottom: 20px;"><input class="filter-input" placeholder="Search FIR number, crime ID..." id="fir-search" />'
-    + '<select class="filter-select" id="fir-status-filter"><option value="">All Status</option><option value="Under Investigation">Under Investigation</option><option value="Chargesheet Filed">Chargesheet Filed</option><option value="Convicted">Convicted</option><option value="Under Trial">Under Trial</option></select>'
-    + '<select class="filter-select" id="fir-class-filter"><option value="">All Classification</option><option value="Commercial Quantity">Commercial</option><option value="Non-Commercial Quantity">Non-Commercial</option><option value="Heinous">Heinous</option></select>'
-    + '<button class="btn btn-primary btn-sm" id="fir-apply"><i class="fas fa-filter"></i> Filter</button></div>';
+  html += '<div class="card mb-24" style="padding: 16px;"><div class="filter-bar" style="margin: 0; padding: 0;">'
+    + '<div class="header-search" style="flex:1; min-width:250px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:var(--radius-sm);"><i class="fas fa-search"></i><input type="text" placeholder="Search FIR number, crime ID..." id="fir-search" style="width:100%; border:none; background:transparent; outline:none; padding:8px; color:var(--text-primary);"/></div>'
+    + '<select class="filter-select" id="fir-status-filter" style="background:var(--bg-glass); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:8px 14px; color:var(--text-primary);"><option value="">All Status</option><option value="Under Investigation">Under Investigation</option><option value="Chargesheet Filed">Chargesheet Filed</option><option value="Convicted">Convicted</option><option value="Under Trial">Under Trial</option></select>'
+    + '<select class="filter-select" id="fir-class-filter" style="background:var(--bg-glass); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:8px 14px; color:var(--text-primary);"><option value="">All Classification</option><option value="Commercial Quantity">Commercial</option><option value="Non-Commercial Quantity">Non-Commercial</option><option value="Heinous">Heinous</option></select>'
+    + '<button class="btn btn-primary" id="fir-apply" style="padding:8px 20px;"><i class="fas fa-filter"></i> Apply Filters</button></div></div>';
 
   // Table inside a card
   html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-list" style="color:var(--accent-green);margin-right:8px"></i>FIR Records</div></div>'
