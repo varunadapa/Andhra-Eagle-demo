@@ -357,6 +357,13 @@ function renderFIRs() {
   const crimes = DATA.crimes || [];
   const content = $('#page-content');
 
+  // Filter Bar (Final Integrated Version)
+  let html = `<div class="reports-filter-bar">
+    <div class="reports-controls" style="flex: 1; justify-content: flex-start; gap: 8px; padding: 0 5px;">
+      <!-- Search & Filters (Left) -->
+      <div class="pro-search" style="width: 200px; height: 28px;">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search FIR number..." id="fir-search" />
   // Compute Stats
   const totalFIRs = crimes.length;
   const underInvestigation = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('investigation')).length;
@@ -411,16 +418,39 @@ function renderFIRs() {
       <div class="card-header">
         <div class="card-title">FIR Status Breakdown</div>
       </div>
-      <div class="chart-container" style="height:250px"><canvas id="chart-fir-status"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">Classification Analysis</div>
+      <select class="reports-date-input" id="fir-status-filter" style="width: 120px; height: 28px; appearance: auto; padding: 0 8px;">
+        <option value="">All Status</option>
+        <option>Under Investigation</option>
+        <option>Chargesheet Filed</option>
+        <option>Convicted</option>
+      </select>
+      <select class="reports-date-input" id="fir-class-filter" style="width: 150px; height: 28px; appearance: auto; padding: 0 8px;">
+        <option value="">All Classification</option>
+        <option>Commercial Quantity</option>
+        <option>Non-Commercial Quantity</option>
+        <option>Heinous</option>
+      </select>
+      
+      <!-- Primary Search Button -->
+      <button class="btn-report" id="fir-main-filter" style="background:#01300d; color:white; border:none; padding: 0 12px; height: 28px; border-radius: 4px; font-weight: 600; cursor: pointer;">
+        <i class="fas fa-search" style="font-size: 0.7rem; margin-right: 4px;"></i> Search
+      </button>
+
+      <div style="flex: 1;"></div>
+
+      <!-- Unified Date Range Picker (Right Side) -->
+      <div class="date-picker-group" style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 6px; padding: 0 10px; height: 28px; display: flex; align-items: center; gap: 8px;">
+        <i class="far fa-calendar-alt" style="color: var(--text-muted); font-size: 0.8rem;"></i>
+        <input type="text" id="fir-date-range" placeholder="Select Date Range" style="width: 170px; background: transparent; border: none; padding: 0; color: var(--text-primary); font-size: 0.75rem; font-weight: 600; outline: none; cursor: pointer;" />
       </div>
-      <div class="chart-container" style="height:250px"><canvas id="chart-fir-class"></canvas></div>
+
+      <!-- Actions -->
+      <button class="btn-report" id="fir-apply" style="background:#01300d; color:white; border:none; padding: 0 15px;">Apply</button>
+      <button class="btn-report btn-clear" id="fir-clear">Clear</button>
     </div>
   </div>`;
 
+  // ... rest of the table rendering code ...
   // Filter Bar
   html += '<div class="card mb-24" style="padding: 16px;"><div class="filter-bar" style="margin: 0; padding: 0;">'
     + '<div class="header-search" style="flex:1; min-width:250px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:var(--radius-sm);"><i class="fas fa-search"></i><input type="text" placeholder="Search FIR number, crime ID..." id="fir-search" style="width:100%; border:none; background:transparent; outline:none; padding:8px; color:var(--text-primary);"/></div>'
@@ -429,14 +459,19 @@ function renderFIRs() {
     + '<button class="btn btn-primary" id="fir-apply" style="padding:8px 20px;"><i class="fas fa-filter"></i> Apply Filters</button></div></div>';
 
   // Table inside a card
-  html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-list" style="color:var(--accent-green);margin-right:8px"></i>FIR Records</div></div>'
+  html += '<div class="card mt-24"><div class="card-header"><div class="card-title"><i class="fas fa-file-alt" style="color:var(--accent-green);margin-right:8px"></i>FIR Management</div><div class="card-subtitle">Showing all FIR records and statuses</div></div>'
     + '<div class="data-table-wrapper"><table class="data-table" id="fir-table"><thead><tr>'
     + '<th>FIR Number</th><th>Police Station</th><th>Date</th><th>Acts & Sections</th><th>Classification</th><th>Accused</th><th>Drug Type</th><th>Status</th><th></th></tr></thead><tbody>';
 
   crimes.forEach(c => {
     const drugs = (c.drug_details || []).map(d => d.name).join(', ') || '—';
     const classBadge = c.class_classification === 'Commercial Quantity' ? 'badge-commercial' : c.class_classification === 'Heinous' ? 'badge-absconding' : 'badge-non-commercial';
-    html += `<tr onclick="navigate('firDetail','${c.crime_id}')">
+    // Add data attributes for more precise filtering
+    html += `<tr onclick="navigate('firDetail','${c.crime_id}')" 
+                 data-fir="${c.fir_num.toLowerCase()}" 
+                 data-status="${(c.case_status || '').toLowerCase()}" 
+                 data-class="${(c.class_classification || '').toLowerCase()}"
+                 data-date="${c.fir_date}">
       <td style="color:var(--accent-cyan);font-weight:600">${c.fir_num}</td>
       <td>${c.ps_name}<br><span style="font-size:0.7rem;color:var(--text-muted)">${c.dist_name}</span></td>
       <td>${fmtDate(c.fir_date)}</td>
@@ -447,75 +482,86 @@ function renderFIRs() {
       <td>${statusBadgeFIR(c.case_status)}</td>
       <td><i class="fas fa-chevron-right" style="color:var(--text-muted)"></i></td></tr>`;
   });
-  html += '</tbody></table></div></div></div>';
+  html += '</tbody></table></div></div>';
   content.innerHTML = html;
+  
+  // Initialize Unified Calendar (Flatpickr Range Mode)
+  flatpickr("#fir-date-range", {
+    mode: "range",
+    dateFormat: "d-m-Y",
+    theme: "dark"
+  });
 
-  // Filter logic
-  $('#fir-apply').onclick = () => filterFIRs();
-  $('#fir-search').addEventListener('keyup', filterFIRs);
+  // Initial filter call
+  filterFIRs();
 
-  // Render Charts
-  requestAnimationFrame(() => {
-    renderFIRPageStatusChart(crimes);
-    renderFIRPageClassChart(crimes);
+  // Wire Buttons & Real-time Search
+  const searchInput = $('#fir-search');
+  if (searchInput) searchInput.onkeyup = filterFIRs;
+  
+  $('#fir-status-filter').onchange = filterFIRs;
+  $('#fir-class-filter').onchange = filterFIRs;
+
+  $('#fir-main-filter').onclick = filterFIRs;
+  $('#fir-apply').onclick = filterFIRs;
+
+  $('#fir-clear').onclick = () => {
+    $('#fir-search').value = '';
+    $('#fir-status-filter').selectedIndex = 0;
+    $('#fir-class-filter').selectedIndex = 0;
+    const fp = document.querySelector("#fir-date-range");
+    if (fp && fp._flatpickr) fp._flatpickr.clear();
+    filterFIRs();
+  };
+}
+
+function filterFIRs() {
+  const search = ($('#fir-search') || {}).value?.toLowerCase() || '';
+  const status = ($('#fir-status-filter') || {}).value?.toLowerCase() || '';
+  const classification = ($('#fir-class-filter') || {}).value?.toLowerCase() || '';
+  const dateRangeStr = ($('#fir-date-range') || {}).value || '';
+  
+  let fromDate = null, toDate = null;
+  if (dateRangeStr.includes(' to ')) {
+    const [f, t] = dateRangeStr.split(' to ');
+    fromDate = parseFlatpickrDate(f);
+    toDate = parseFlatpickrDate(t);
+    if (toDate) toDate.setHours(23, 59, 59, 999);
+  } else if (dateRangeStr) {
+    fromDate = parseFlatpickrDate(dateRangeStr);
+    toDate = new Date(fromDate);
+    toDate.setHours(23, 59, 59, 999);
+  }
+
+  const table = document.getElementById('fir-table');
+  if (!table) return;
+  const rows = table.querySelectorAll('tbody tr');
+
+  rows.forEach(row => {
+    const rowFir = row.dataset.fir || '';
+    const rowStatus = row.dataset.status || '';
+    const rowClass = row.dataset.class || '';
+    const rowDateRaw = row.dataset.date; // Original ISO or Date string
+    const rowDate = new Date(rowDateRaw);
+
+    const matchesSearch = !search || rowFir.includes(search);
+    const matchesStatus = !status || rowStatus.includes(status);
+    const matchesClass = !classification || rowClass.includes(classification);
+    
+    let matchesDate = true;
+    if (fromDate && toDate) {
+      matchesDate = rowDate >= fromDate && rowDate <= toDate;
+    }
+
+    row.style.display = (matchesSearch && matchesStatus && matchesClass && matchesDate) ? '' : 'none';
   });
 }
 
-function renderFIRPageStatusChart(crimes) {
-  const ctx = document.getElementById('chart-fir-status');
-  if (!ctx || !crimes || crimes.length === 0) return;
-
-  const statusCounts = {};
-  crimes.forEach(c => {
-    const s = c.case_status || 'Unknown';
-    statusCounts[s] = (statusCounts[s] || 0) + 1;
-  });
-
-  const colors = ['#f59e0b', '#3b82f6', '#10b981', '#6366f1', '#94a3b8'];
-  chartInstances.firStatus = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: Object.keys(statusCounts),
-      datasets: [{ data: Object.values(statusCounts), backgroundColor: colors, borderWidth: 0 }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false, cutout: '65%',
-      plugins: { legend: { position: 'right', labels: { color: '#8892b0', padding: 10, font: { size: 11 } } } }
-    }
-  });
-}
-
-function renderFIRPageClassChart(crimes) {
-  const ctx = document.getElementById('chart-fir-class');
-  if (!ctx || !crimes || crimes.length === 0) return;
-
-  const classCounts = {};
-  crimes.forEach(c => {
-    const cl = c.class_classification || 'Unknown';
-    classCounts[cl] = (classCounts[cl] || 0) + 1;
-  });
-
-  chartInstances.firClass = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: Object.keys(classCounts),
-      datasets: [{
-        label: 'Number of Cases',
-        data: Object.values(classCounts),
-        backgroundColor: 'rgba(189, 157, 30, 0.7)',
-        borderColor: '#bd9d1e',
-        borderWidth: 2, borderRadius: 4, barPercentage: 0.5
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { ticks: { color: '#64748b', font: { weight: '600' }, stepSize: 1 }, grid: { color: 'rgba(0,0,0,0.05)' } },
-        x: { ticks: { color: '#64748b', font: { weight: '600' } }, grid: { display: false } }
-      }
-    }
-  });
+function parseFlatpickrDate(dStr) {
+  if (!dStr) return null;
+  // expects dd-mm-yyyy
+  const [d, m, y] = dStr.split('-').map(Number);
+  return new Date(y, m - 1, d);
 }
 
 function statusBadgeFIR(status) {
@@ -619,12 +665,51 @@ function renderAccuseds() {
   const content = $('#page-content');
   const acc = DATA.accuseds || [];
 
-  let html = '<div class="filter-bar">'
-    + '<input class="filter-input" placeholder="Search name, alias..." id="acc-search" />'
-    + '<select class="filter-select" id="acc-status"><option value="">All Status</option><option value="Arrested">Arrested</option><option value="Absconding">Absconding</option><option value="Issued Notice">Issued Notice</option></select>'
-    + '<select class="filter-select" id="acc-drug"><option value="">All Drug Types</option><option value="GANJA">Ganja</option><option value="MDMA">MDMA</option><option value="COCAINE">Cocaine</option><option value="HEROIN">Heroin</option></select>'
-    + '<select class="filter-select" id="acc-role"><option value="">All Roles</option><option value="organizer_kingpin">Kingpin</option><option value="peddler">Peddler</option><option value="supplier">Supplier</option><option value="transporter">Transporter</option><option value="consumer">Consumer</option></select>'
-    + '<button class="btn btn-primary btn-sm" id="acc-apply"><i class="fas fa-search"></i> Search</button></div>';
+  // Filter Bar (Customized for Accused Search - Streamlined Pro Style)
+  let html = `<div class="reports-filter-bar">
+    <div class="reports-controls" style="flex: 1; justify-content: flex-start; gap: 10px; padding: 0 5px;">
+      <!-- Search & Filters (Left) -->
+      <div class="pro-search" style="width: 180px; height: 28px;">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search name, alias..." id="acc-search" />
+      </div>
+      <select class="reports-date-input" id="acc-status-filter" style="width: 110px; height: 28px; appearance: auto; padding: 0 5px;">
+        <option value="">All Status</option>
+        <option>Arrested</option>
+        <option>Absconding</option>
+      </select>
+      <select class="reports-date-input" id="acc-drug-filter" style="width: 130px; height: 28px; appearance: auto; padding: 0 5px;">
+        <option value="">All Drug Types</option>
+        <option>Ganja</option>
+        <option>MDMA</option>
+        <option>Cocaine</option>
+        <option>Heroin</option>
+      </select>
+      <select class="reports-date-input" id="acc-role-filter" style="width: 110px; height: 28px; appearance: auto; padding: 0 5px;">
+        <option value="">All Roles</option>
+        <option>Peddler</option>
+        <option>Supplier</option>
+        <option>Transporter</option>
+        <option>Kingpin</option>
+      </select>
+
+      <!-- Search Button (Beside Roles) -->
+      <button class="btn-report" id="acc-search-btn" style="background:#01300d; color:white; border:none; padding: 0 12px; height: 28px; border-radius: 4px; font-weight: 600; cursor: pointer;">
+        <i class="fas fa-search" style="font-size: 0.7rem; margin-right: 4px;"></i> Search
+      </button>
+
+      <div style="flex: 1;"></div>
+
+      <!-- Unified Date Range Picker (Right Side) -->
+      <div class="date-picker-group" style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 6px; padding: 0 10px; height: 28px; display: flex; align-items: center; gap: 8px;">
+        <i class="far fa-calendar-alt" style="color: var(--text-muted); font-size: 0.8rem;"></i>
+        <input type="text" id="acc-date-range" placeholder="Select Date Range" style="width: 170px; background: transparent; border: none; padding: 0; color: var(--text-primary); font-size: 0.75rem; font-weight: 600; outline: none; cursor: pointer;" />
+      </div>
+
+      <button class="btn-report" id="acc-apply" style="background:#01300d; color:white; border:none; padding: 0 15px;">Apply</button>
+      <button class="btn-report btn-clear" id="acc-clear">Clear</button>
+    </div>
+  </div>`;
 
   html += '<div class="card mt-24"><div class="card-header"><div class="card-title"><i class="fas fa-users" style="color:var(--accent-green);margin-right:8px"></i>Accused Search</div><div class="card-subtitle">Search and filter across the unified accused database</div></div>'
     + '<div class="data-table-wrapper"><table class="data-table" id="acc-table"><thead><tr>'
@@ -645,16 +730,50 @@ function renderAccuseds() {
   });
   html += '</tbody></table></div></div>';
   content.innerHTML = html;
+  
+  // Initialize Unified Calendar (Flatpickr Range Mode)
+  flatpickr("#acc-date-range", {
+    mode: "range",
+    dateFormat: "d-m-Y",
+    theme: "dark"
+  });
 
-  $('#acc-apply').onclick = () => filterAccuseds();
-  $('#acc-search').addEventListener('keyup', filterAccuseds);
+  // Initial filter call
+  filterAccuseds();
+
+  // Wire Buttons & Real-time Search
+  const searchInput = $('#acc-search');
+  if (searchInput) searchInput.onkeyup = filterAccuseds;
+  
+  $('#acc-status-filter').onchange = filterAccuseds;
+  $('#acc-drug-filter').onchange = filterAccuseds;
+  $('#acc-role-filter').onchange = filterAccuseds;
+
+  const searchBtn = $('#acc-search-btn');
+  if (searchBtn) searchBtn.onclick = filterAccuseds;
+
+  const applyBtn = $('#acc-apply');
+  if (applyBtn) applyBtn.onclick = filterAccuseds;
+
+  const clearBtn = $('#acc-clear');
+  if (clearBtn) {
+    clearBtn.onclick = () => {
+      $('#acc-search').value = '';
+      $('#acc-status-filter').selectedIndex = 0;
+      $('#acc-drug-filter').selectedIndex = 0;
+      $('#acc-role-filter').selectedIndex = 0;
+      const fp = document.querySelector("#acc-date-range");
+      if (fp && fp._flatpickr) fp._flatpickr.clear();
+      filterAccuseds();
+    };
+  }
 }
 
 function filterAccuseds() {
   const search = ($('#acc-search') || {}).value?.toLowerCase() || '';
-  const statusF = ($('#acc-status') || {}).value || '';
-  const drugF = ($('#acc-drug') || {}).value || '';
-  const roleF = ($('#acc-role') || {}).value || '';
+  const statusF = ($('#acc-status-filter') || {}).value || '';
+  const drugF = ($('#acc-drug-filter') || {}).value || '';
+  const roleF = ($('#acc-role-filter') || {}).value || '';
   const rows = $$('#acc-table tbody tr');
   rows.forEach(row => {
     const text = row.textContent.toLowerCase();
@@ -672,7 +791,15 @@ function renderProfiles() {
   const persons = DATA.persons || [];
   const content = $('#page-content');
 
-  let html = '<div class="filter-bar"><input class="filter-input" placeholder="Search by name, alias, district..." id="prof-search" style="width:300px" /><button class="btn btn-primary btn-sm" onclick="filterProfiles()"><i class="fas fa-search"></i> Search</button></div>';
+  let html = `<div class="reports-filter-bar" style="justify-content: center;">
+    <div class="reports-controls" style="width: 100%; max-width: 650px; justify-content: center;">
+      <div class="pro-search" style="flex: 1; height: 32px;">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search by name, alias, district..." id="prof-search" />
+      </div>
+      <button class="btn-report btn-pro-search" onclick="filterProfiles()" style="height: 32px; background: #01300d;">Search</button>
+    </div>
+  </div>`;
 
   html += '<div class="integration-grid">';
   persons.forEach(p => {
@@ -695,7 +822,12 @@ function renderProfiles() {
   });
   html += '</div>';
   content.innerHTML = html;
-  $('#prof-search').addEventListener('keyup', filterProfiles);
+
+  // Add event listener for real-time search
+  const searchInput = $('#prof-search');
+  if (searchInput) {
+    searchInput.addEventListener('keyup', filterProfiles);
+  }
 }
 
 function filterProfiles() {
@@ -1219,10 +1351,32 @@ async function init() {
   await loadData();
   setupEvents();
   initTheme();
+  updateHeaderClock();
   navigate('dashboard');
 }
 
-// ---- Features ----
+// Global Header Clock
+function updateHeaderClock() {
+  const el = $('#header-clock');
+  if (!el) return;
+  const update = () => {
+    const now = new Date();
+    // Format: M/D/YYYY, HH:MM:SS AM/PM (Matches provided image)
+    const clockStr = now.toLocaleString('en-US', { 
+      month: 'numeric', 
+      day: 'numeric', 
+      year: 'numeric', 
+      hour: 'numeric', 
+      minute: '2-digit', 
+      second: '2-digit', 
+      hour12: true 
+    });
+    el.textContent = clockStr;
+  };
+  update();
+  setInterval(update, 1000);
+}
+
 function initTheme() {
   const themeBtn = $('#btn-theme-toggle');
   const themeIcon = $('#theme-icon');
