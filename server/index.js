@@ -10,11 +10,16 @@ app.use(express.json());
 // serve static client
 app.use('/', express.static(path.join(__dirname, '..', 'client')));
 
-// helper
+// helpers
 function readJSON(name) {
   const p = path.join(__dirname, 'data', name + '.json');
   if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, 'utf8'));
   return [];
+}
+
+function writeJSON(name, data) {
+  const p = path.join(__dirname, 'data', name + '.json');
+  fs.writeFileSync(p, JSON.stringify(data, null, 2), 'utf8');
 }
 
 // API endpoints
@@ -49,6 +54,85 @@ app.get('/api/interrogations', (req, res) => res.json(readJSON('interrogations')
 app.get('/api/chargesheets', (req, res) => res.json(readJSON('chargesheets')));
 app.get('/api/seizures', (req, res) => res.json(readJSON('seizures')));
 app.get('/api/integrations', (req, res) => res.json(readJSON('integrations')));
+
+// POST: Create a new integration card
+app.post('/api/integrations', (req, res) => {
+  const integrations = readJSON('integrations');
+  const { system, department, type, status, mode, priority, health, recordsIngested, description, columns } = req.body;
+  if (!system || !department) return res.status(400).json({ error: 'system and department are required' });
+
+  // Generate next ID
+  const maxId = integrations.reduce((max, i) => Math.max(max, i.id || 0), 0);
+  const newId = maxId + 1;
+
+  const newIntegration = {
+    id: newId,
+    system: system,
+    department: department,
+    type: type || 'Custom',
+    status: status || 'pending',
+    lastSync: status === 'connected' ? new Date().toISOString() : null,
+    recordsIngested: recordsIngested || 0,
+    priority: priority || 'Medium',
+    mode: mode || 'API',
+    health: health || 0,
+    isCustom: true
+  };
+
+  integrations.push(newIntegration);
+  writeJSON('integrations', integrations);
+
+  // Also create the integration detail entry
+  const details = readJSON('integration_details');
+  details[String(newId)] = {
+    system: system,
+    description: description || `${system} — Custom integration created via NOTS.`,
+    columns: columns || [],
+    records: [],
+    isCustom: true
+  };
+  writeJSON('integration_details', details);
+
+  res.json({ success: true, integration: newIntegration, id: newId });
+});
+
+// POST: Add a record to an integration detail
+app.post('/api/integration-details/:id/records', (req, res) => {
+  const { record } = req.body;
+  if (!record || !Array.isArray(record)) return res.status(400).json({ error: 'record must be an array' });
+
+  const details = readJSON('integration_details');
+  const id = req.params.id;
+  if (!details[id]) return res.status(404).json({ error: 'integration not found' });
+
+  details[id].records.push(record);
+  writeJSON('integration_details', details);
+
+  // Also update recordsIngested count in integrations.json
+  const integrations = readJSON('integrations');
+  const intg = integrations.find(i => i.id == id);
+  if (intg) {
+    intg.recordsIngested = details[id].records.length;
+    writeJSON('integrations', integrations);
+  }
+
+  res.json({ success: true, totalRecords: details[id].records.length });
+});
+
+// PUT: Update integration detail columns
+app.put('/api/integration-details/:id/columns', (req, res) => {
+  const { columns } = req.body;
+  if (!columns || !Array.isArray(columns)) return res.status(400).json({ error: 'columns must be an array' });
+
+  const details = readJSON('integration_details');
+  const id = req.params.id;
+  if (!details[id]) return res.status(404).json({ error: 'integration not found' });
+
+  details[id].columns = columns;
+  writeJSON('integration_details', details);
+
+  res.json({ success: true });
+});
 
 app.get('/api/networks', (req, res) => res.json(readJSON('networks')));
 app.get('/api/integration-details', (req, res) => res.json(readJSON('integration_details')));

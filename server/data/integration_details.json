@@ -745,5 +745,52 @@
         "Active (LOC)"
       ]
     ]
+  },
+  "17": {
+    "system": "Test Intel System",
+    "description": "Test integration for intelligence data",
+    "columns": [
+      "Agent Name",
+      "Location",
+      "Status"
+    ],
+    "records": [
+      [
+        "Agent Alpha",
+        "Hyderabad",
+        "Active"
+      ],
+      [
+        "Agent Beta",
+        "Vizag",
+        "Deployed"
+      ]
+    ],
+    "isCustom": true
+  },
+  "18": {
+    "system": "test BCSS",
+    "description": "Bcsss Employee list",
+    "columns": [
+      "Name",
+      "Employee ID",
+      "Role",
+      "employee pay"
+    ],
+    "records": [
+      [
+        "ram",
+        "BCSS-001",
+        "developer",
+        "50000.00"
+      ],
+      [
+        "siddu",
+        "BCSS-003",
+        "developer",
+        "50000.00"
+      ]
+    ],
+    "isCustom": true
   }
 }

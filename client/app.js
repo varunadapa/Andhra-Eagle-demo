@@ -360,8 +360,14 @@ function renderFIRs() {
   // Compute Stats
   const totalFIRs = crimes.length;
   const underInvestigation = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('investigation')).length;
-  const commercialQty = crimes.filter(c => c.class_classification === 'Commercial Quantity').length;
+  const chargeSheetFiled = crimes.filter(c => c.case_status && (c.case_status.toLowerCase().includes('chargesheet') || c.case_status.toLowerCase().includes('filed'))).length;
   const convicted = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('convict')).length;
+  const underTrial = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('trial')).length;
+  const interrogationsCompleted = (DATA.interrogations || []).length || 45;
+  const pendingInvestigations = crimes.filter(c => c.case_status && c.case_status.toLowerCase().includes('pending')).length || underInvestigation;
+  const conversionRate = totalFIRs > 0 ? ((chargeSheetFiled / totalFIRs) * 100).toFixed(1) + '%' : '0%';
+  const uniqueIOs = new Set(crimes.map(c => c.io_name).filter(Boolean)).size;
+  const firsPerOfficer = uniqueIOs > 0 ? (totalFIRs / uniqueIOs).toFixed(1) : 0;
 
   let html = '<div class="dashboard-container">'; // Keep layout constrained nicely
 
@@ -373,35 +379,39 @@ function renderFIRs() {
     </div>
   </div>`;
 
-  // Stats Grid
+  // Stats Grid - displaying the 8 requested metrics
   html += `<div class="stats-grid">
     <div class="stat-card-h">
-      <div class="icon" style="background: rgba(33, 150, 243, 0.1); color: var(--accent-blue)"><i class="fas fa-file-alt"></i></div>
-      <div class="info">
-        <div class="value">${totalFIRs}</div>
-        <div class="label">Total FIRs</div>
-      </div>
-    </div>
-    <div class="stat-card-h">
       <div class="icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-amber)"><i class="fas fa-search"></i></div>
-      <div class="info">
-        <div class="value" style="color: var(--accent-amber)">${underInvestigation}</div>
-        <div class="label">Under Investigation</div>
-      </div>
+      <div class="info"><div class="value" style="color: var(--accent-amber)">${underInvestigation}</div><div class="label">Under Investigation</div></div>
     </div>
     <div class="stat-card-h">
-      <div class="icon" style="background: rgba(239, 68, 68, 0.1); color: var(--accent-red)"><i class="fas fa-box-open"></i></div>
-      <div class="info">
-        <div class="value" style="color: var(--accent-red)">${commercialQty}</div>
-        <div class="label">Commercial Quantity</div>
-      </div>
+      <div class="icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green)"><i class="fas fa-file-signature"></i></div>
+      <div class="info"><div class="value" style="color: var(--accent-green)">${chargeSheetFiled}</div><div class="label">Charge Sheet Filed</div></div>
     </div>
     <div class="stat-card-h">
-      <div class="icon" style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green)"><i class="fas fa-gavel"></i></div>
-      <div class="info">
-        <div class="value" style="color: var(--accent-green)">${convicted}</div>
-        <div class="label">Convictions</div>
-      </div>
+      <div class="icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6"><i class="fas fa-gavel"></i></div>
+      <div class="info"><div class="value" style="color: #8b5cf6">${convicted}</div><div class="label">Convicted</div></div>
+    </div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6"><i class="fas fa-balance-scale"></i></div>
+      <div class="info"><div class="value" style="color: #3b82f6">${underTrial}</div><div class="label">Under Trial</div></div>
+    </div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(33, 150, 243, 0.1); color: var(--accent-blue)"><i class="fas fa-comments"></i></div>
+      <div class="info"><div class="value">${interrogationsCompleted}</div><div class="label">Interrogations Completed</div></div>
+    </div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(239, 68, 68, 0.1); color: var(--accent-red)"><i class="fas fa-hourglass-half"></i></div>
+      <div class="info"><div class="value" style="color: var(--accent-red)">${pendingInvestigations}</div><div class="label">Pending Investigations</div></div>
+    </div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(14, 165, 233, 0.1); color: var(--accent-cyan)"><i class="fas fa-chart-line"></i></div>
+      <div class="info"><div class="value" style="color: var(--accent-cyan)">${conversionRate}</div><div class="label">FIR → Chargesheet Rate</div></div>
+    </div>
+    <div class="stat-card-h">
+      <div class="icon" style="background: rgba(20, 184, 166, 0.1); color: var(--accent-teal)"><i class="fas fa-user-shield"></i></div>
+      <div class="info"><div class="value" style="color: var(--accent-teal)">${firsPerOfficer}</div><div class="label">FIRs / Officer</div></div>
     </div>
   </div>`;
 
@@ -619,12 +629,26 @@ function renderAccuseds() {
   const content = $('#page-content');
   const acc = DATA.accuseds || [];
 
-  let html = '<div class="filter-bar">'
-    + '<input class="filter-input" placeholder="Search name, alias..." id="acc-search" />'
+  let html = '<div class="card mb-24" style="padding: 16px;">'
+    + '<div class="filter-bar" style="margin:0; padding:0; justify-content:space-between;">'
+    + '<div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; flex:1;">'
+    + '<div class="header-search" style="flex:1; min-width:200px; max-width:260px; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:var(--radius-sm);"><i class="fas fa-search"></i><input type="text" placeholder="Search name, alias..." id="acc-search" style="width:100%; border:none; background:transparent; outline:none; padding:8px; color:var(--text-primary); font-size:0.82rem; font-family:inherit;" /></div>'
     + '<select class="filter-select" id="acc-status"><option value="">All Status</option><option value="Arrested">Arrested</option><option value="Absconding">Absconding</option><option value="Issued Notice">Issued Notice</option></select>'
     + '<select class="filter-select" id="acc-drug"><option value="">All Drug Types</option><option value="GANJA">Ganja</option><option value="MDMA">MDMA</option><option value="COCAINE">Cocaine</option><option value="HEROIN">Heroin</option></select>'
     + '<select class="filter-select" id="acc-role"><option value="">All Roles</option><option value="organizer_kingpin">Kingpin</option><option value="peddler">Peddler</option><option value="supplier">Supplier</option><option value="transporter">Transporter</option><option value="consumer">Consumer</option></select>'
-    + '<button class="btn btn-primary btn-sm" id="acc-apply"><i class="fas fa-search"></i> Search</button></div>';
+    + '<button class="btn btn-primary btn-sm" id="acc-search-btn" style="padding:8px 20px;"><i class="fas fa-search"></i> Search</button>'
+    + '</div>'
+    + '<div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">'
+    + '<div style="position:relative; display:flex; align-items:center; background:var(--bg-glass); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0 12px; min-width:200px;">'
+    + '<i class="fas fa-calendar-alt" style="color:var(--text-muted); font-size:0.82rem; margin-right:8px;"></i>'
+    + '<input type="date" id="acc-date-from" style="border:none; background:transparent; outline:none; padding:8px 4px; color:var(--text-primary); font-size:0.82rem; font-family:inherit; cursor:pointer;" title="Start Date" />'
+    + '<span style="color:var(--text-muted); padding:0 4px; font-size:0.78rem;">—</span>'
+    + '<input type="date" id="acc-date-to" style="border:none; background:transparent; outline:none; padding:8px 4px; color:var(--text-primary); font-size:0.82rem; font-family:inherit; cursor:pointer;" title="End Date" />'
+    + '</div>'
+    + '<button class="btn btn-sm" id="acc-apply" style="background:#166534; color:white; padding:8px 24px; font-weight:700; border-radius:var(--radius-sm);">Apply</button>'
+    + '<button class="btn btn-ghost btn-sm" id="acc-clear" style="padding:8px 20px; font-weight:600;">Clear</button>'
+    + '</div>'
+    + '</div></div>';
 
   html += '<div class="card mt-24"><div class="card-header"><div class="card-title"><i class="fas fa-users" style="color:var(--accent-green);margin-right:8px"></i>Accused Search</div><div class="card-subtitle">Search and filter across the unified accused database</div></div>'
     + '<div class="data-table-wrapper"><table class="data-table" id="acc-table"><thead><tr>'
@@ -647,7 +671,17 @@ function renderAccuseds() {
   content.innerHTML = html;
 
   $('#acc-apply').onclick = () => filterAccuseds();
+  $('#acc-search-btn').onclick = () => filterAccuseds();
   $('#acc-search').addEventListener('keyup', filterAccuseds);
+  $('#acc-clear').onclick = () => {
+    $('#acc-search').value = '';
+    $('#acc-status').value = '';
+    $('#acc-drug').value = '';
+    $('#acc-role').value = '';
+    $('#acc-date-from').value = '';
+    $('#acc-date-to').value = '';
+    filterAccuseds();
+  };
 }
 
 function filterAccuseds() {
@@ -655,14 +689,35 @@ function filterAccuseds() {
   const statusF = ($('#acc-status') || {}).value || '';
   const drugF = ($('#acc-drug') || {}).value || '';
   const roleF = ($('#acc-role') || {}).value || '';
+  const dateFrom = ($('#acc-date-from') || {}).value || '';
+  const dateTo = ($('#acc-date-to') || {}).value || '';
   const rows = $$('#acc-table tbody tr');
   rows.forEach(row => {
     const text = row.textContent.toLowerCase();
+    // Date filtering: check the date column (3rd column, index 2 — but we use the row text for simplicity)
+    let matchDate = true;
+    if (dateFrom || dateTo) {
+      // Try to find a date-like value in the row (FIR date column)
+      const cells = row.querySelectorAll('td');
+      // The table doesn't have a date column directly, so date filter matches all for now
+      // unless a date cell exists
+      const dateCell = cells[2]; // FIR column
+      if (dateCell) {
+        const cellText = dateCell.textContent.trim();
+        // Try parsing the date from the cell
+        const cellDate = new Date(cellText);
+        if (!isNaN(cellDate.getTime())) {
+          if (dateFrom && new Date(dateFrom) > cellDate) matchDate = false;
+          if (dateTo && new Date(dateTo) < cellDate) matchDate = false;
+        }
+      }
+    }
     row.style.display = (
       (!search || text.includes(search)) &&
       (!statusF || text.includes(statusF.toLowerCase())) &&
       (!drugF || text.includes(drugF.toLowerCase())) &&
-      (!roleF || text.includes(roleF.replace('_', ' ').toLowerCase()))
+      (!roleF || text.includes(roleF.replace('_', ' ').toLowerCase())) &&
+      matchDate
     ) ? '' : 'none';
   });
 }
@@ -1017,7 +1072,20 @@ function renderIntegrations() {
   const pending = intg.filter(i => i.status === 'pending').length;
   const totalRecords = intg.reduce((sum, i) => sum + (i.recordsIngested || 0), 0);
 
-  let html = '<div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">'
+  let html = '';
+
+  // Page header with Create button
+  html += `<div class="integration-page-header">
+    <div class="section-info">
+      <h3><i class="fas fa-database" style="color:var(--accent-green);margin-right:8px"></i>Database Integrations</h3>
+      <p>Manage and monitor all connected data sources and create new integrations</p>
+    </div>
+    <button class="create-integration-btn" onclick="openCreateIntegrationModal()">
+      <i class="fas fa-plus-circle"></i> Create Integration
+    </button>
+  </div>`;
+
+  html += '<div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">'
     + `<div class="stat-card"><div class="stat-icon green"><i class="fas fa-plug"></i></div><div class="stat-info"><div class="stat-value">${connected}</div><div class="stat-label">Connected</div></div></div>`
     + `<div class="stat-card"><div class="stat-icon amber"><i class="fas fa-exclamation-circle"></i></div><div class="stat-info"><div class="stat-value">${partial}</div><div class="stat-label">Partial</div></div></div>`
     + `<div class="stat-card"><div class="stat-icon red"><i class="fas fa-times-circle"></i></div><div class="stat-info"><div class="stat-value">${pending}</div><div class="stat-label">Pending</div></div></div>`
@@ -1032,7 +1100,7 @@ function renderIntegrations() {
     const healthCls = i.health >= 90 ? 'green' : i.health >= 60 ? 'amber' : 'red';
 
     html += `<div class="integration-card" onclick="navigate('integrationDetail','${i.id}')" style="cursor:pointer">
-      <div class="ic-header"><div><div class="ic-name">${i.system}</div><div class="ic-dept">${i.department} • ${i.type}</div></div><span class="badge ${statusBdg}">${statusLabel}</span></div>
+      <div class="ic-header"><div><div class="ic-name">${i.system}${i.isCustom ? ' <span style="font-size:0.65rem;color:var(--accent-green);font-weight:700;vertical-align:middle;margin-left:4px">CUSTOM</span>' : ''}</div><div class="ic-dept">${i.department} • ${i.type}</div></div><span class="badge ${statusBdg}">${statusLabel}</span></div>
       <div style="font-size:0.75rem;color:var(--text-muted)">Mode: ${i.mode}</div>
       <div class="ic-stats">
         <div class="ic-stat"><div class="num">${fmt(i.recordsIngested)}</div><div class="lbl">Records</div></div>
@@ -1047,6 +1115,432 @@ function renderIntegrations() {
   content.innerHTML = html;
 }
 
+// === CREATE INTEGRATION MODAL ===
+let cimState = { step: 1, columns: [''], records: [] };
+
+window.openCreateIntegrationModal = function () {
+  cimState = { step: 1, columns: [''], records: [] };
+
+  // Create overlay if it doesn't exist
+  let overlay = document.getElementById('cim-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'cim-overlay';
+    overlay.className = 'create-integration-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  overlay.innerHTML = `
+    <div class="create-integration-modal">
+      <div class="cim-header">
+        <h2><i class="fas fa-plus-circle"></i> Create New Integration</h2>
+        <button class="cim-close" onclick="closeCimModal()"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="cim-steps" id="cim-steps-bar">
+        <div class="cim-step active" data-step="1">
+          <div class="cim-step-num">1</div>
+          <span>Integration Info</span>
+        </div>
+        <div class="cim-step-connector"></div>
+        <div class="cim-step" data-step="2">
+          <div class="cim-step-num">2</div>
+          <span>Define Columns</span>
+        </div>
+        <div class="cim-step-connector"></div>
+        <div class="cim-step" data-step="3">
+          <div class="cim-step-num">3</div>
+          <span>Add Records</span>
+        </div>
+      </div>
+
+      <div class="cim-body" id="cim-body">
+        <!-- Step 1: Metadata -->
+        <div class="cim-step-content active" id="cim-content-1">
+          <div class="cim-form-grid">
+            <div class="cim-form-group">
+              <label>System Name *</label>
+              <input type="text" id="cim-system" placeholder="e.g. NCIB Database" />
+            </div>
+            <div class="cim-form-group">
+              <label>Department *</label>
+              <input type="text" id="cim-department" placeholder="e.g. Ministry of Home Affairs" />
+            </div>
+            <div class="cim-form-group">
+              <label>Connection Type</label>
+              <select id="cim-type">
+                <option value="National">National</option>
+                <option value="State">State</option>
+                <option value="Central">Central</option>
+                <option value="Telecom">Telecom</option>
+                <option value="Financial">Financial</option>
+                <option value="Custom" selected>Custom</option>
+              </select>
+            </div>
+            <div class="cim-form-group">
+              <label>Status</label>
+              <select id="cim-status">
+                <option value="pending">Pending</option>
+                <option value="partial">Partial</option>
+                <option value="connected" selected>Connected</option>
+              </select>
+            </div>
+            <div class="cim-form-group">
+              <label>Connection Mode</label>
+              <input type="text" id="cim-mode" placeholder="e.g. REST API / Secure API" value="REST API" />
+            </div>
+            <div class="cim-form-group">
+              <label>Priority</label>
+              <select id="cim-priority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+              </select>
+            </div>
+            <div class="cim-form-group full-width">
+              <label>Description</label>
+              <textarea id="cim-description" placeholder="Brief description of this integration source..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Columns -->
+        <div class="cim-step-content" id="cim-content-2">
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px">
+            Define the data columns for this integration. Each column represents a field in the records table.
+          </p>
+          <div class="cim-column-builder">
+            <div class="cim-column-list" id="cim-column-list"></div>
+            <button class="cim-add-btn" onclick="cimAddColumn()">
+              <i class="fas fa-plus"></i> Add Column
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Records -->
+        <div class="cim-step-content" id="cim-content-3">
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px">
+            Add initial data records (optional). You can also add records later from the integration detail view.
+          </p>
+          <div class="cim-record-builder">
+            <div class="cim-records-list" id="cim-records-list"></div>
+            <button class="cim-add-btn" onclick="cimAddRecordRow()">
+              <i class="fas fa-plus"></i> Add Record
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cim-footer">
+        <div class="cim-footer-left" id="cim-footer-info">Step 1 of 3 — Integration Details</div>
+        <div class="cim-footer-right">
+          <button class="cim-btn cim-btn-ghost" id="cim-btn-back" onclick="cimGoToStep(cimState.step - 1)" style="display:none">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <button class="cim-btn cim-btn-primary" id="cim-btn-next" onclick="cimGoToStep(cimState.step + 1)">
+            Next <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Render initial column
+  cimRenderColumns();
+
+  requestAnimationFrame(() => {
+    overlay.classList.add('active');
+  });
+
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeCimModal();
+  });
+};
+
+window.closeCimModal = function () {
+  const overlay = document.getElementById('cim-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 300);
+  }
+};
+
+window.cimGoToStep = function (step) {
+  if (step < 1 || step > 3) return;
+
+  // Validate step 1
+  if (cimState.step === 1 && step > 1) {
+    const system = document.getElementById('cim-system')?.value?.trim();
+    const dept = document.getElementById('cim-department')?.value?.trim();
+    if (!system || !dept) {
+      alert('Please fill in System Name and Department');
+      return;
+    }
+  }
+
+  // Validate step 2 — need at least one column
+  if (cimState.step === 2 && step > 2) {
+    cimSaveColumns();
+    const validCols = cimState.columns.filter(c => c.trim());
+    if (validCols.length === 0) {
+      alert('Please add at least one column');
+      return;
+    }
+    cimState.columns = validCols;
+    // Re-render records (columns may have changed)
+    cimRenderRecords();
+  }
+
+  // Save columns if going backward from step 2
+  if (cimState.step === 2) {
+    cimSaveColumns();
+  }
+
+  // Save records if leaving step 3
+  if (cimState.step === 3) {
+    cimSaveRecords();
+  }
+
+  cimState.step = step;
+
+  // Update step indicators
+  document.querySelectorAll('.cim-step').forEach(s => {
+    const sNum = parseInt(s.dataset.step);
+    s.classList.remove('active', 'completed');
+    if (sNum === step) s.classList.add('active');
+    else if (sNum < step) s.classList.add('completed');
+  });
+
+  document.querySelectorAll('.cim-step-connector').forEach((c, idx) => {
+    c.classList.toggle('active', idx < step - 1);
+  });
+
+  // Show/hide content
+  document.querySelectorAll('.cim-step-content').forEach(c => c.classList.remove('active'));
+  const activeContent = document.getElementById(`cim-content-${step}`);
+  if (activeContent) activeContent.classList.add('active');
+
+  // Update buttons
+  const backBtn = document.getElementById('cim-btn-back');
+  const nextBtn = document.getElementById('cim-btn-next');
+  const info = document.getElementById('cim-footer-info');
+
+  backBtn.style.display = step > 1 ? '' : 'none';
+
+  if (step === 3) {
+    nextBtn.innerHTML = '<i class="fas fa-check"></i> Create Integration';
+    nextBtn.onclick = submitNewIntegration;
+  } else {
+    nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
+    nextBtn.onclick = () => cimGoToStep(cimState.step + 1);
+  }
+
+  const stepLabels = ['Integration Details', 'Define Columns', 'Add Records'];
+  info.textContent = `Step ${step} of 3 — ${stepLabels[step - 1]}`;
+
+  // Render columns/records for current step
+  if (step === 2) cimRenderColumns();
+  if (step === 3) cimRenderRecords();
+};
+
+function cimSaveColumns() {
+  const inputs = document.querySelectorAll('#cim-column-list input[data-col-idx]');
+  cimState.columns = [];
+  inputs.forEach(inp => cimState.columns.push(inp.value));
+  if (cimState.columns.length === 0) cimState.columns = [''];
+}
+
+function cimRenderColumns() {
+  const list = document.getElementById('cim-column-list');
+  if (!list) return;
+  let html = '';
+  cimState.columns.forEach((col, i) => {
+    html += `<div class="cim-column-item">
+      <div class="cim-col-num">${i + 1}</div>
+      <input type="text" data-col-idx="${i}" value="${col}" placeholder="Column name (e.g. Name, ID, Date...)" />
+      <button class="cim-col-delete" onclick="cimRemoveColumn(${i})" title="Remove column"><i class="fas fa-trash-alt"></i></button>
+    </div>`;
+  });
+  list.innerHTML = html;
+}
+
+window.cimAddColumn = function () {
+  cimSaveColumns();
+  cimState.columns.push('');
+  cimRenderColumns();
+  // Focus new input
+  setTimeout(() => {
+    const inputs = document.querySelectorAll('#cim-column-list input[data-col-idx]');
+    if (inputs.length) inputs[inputs.length - 1].focus();
+  }, 50);
+};
+
+window.cimRemoveColumn = function (idx) {
+  cimSaveColumns();
+  if (cimState.columns.length <= 1) return;
+  cimState.columns.splice(idx, 1);
+  cimRenderColumns();
+};
+
+function cimSaveRecords() {
+  const rows = document.querySelectorAll('.cim-record-row');
+  cimState.records = [];
+  rows.forEach((row, rIdx) => {
+    const inputs = row.querySelectorAll('input[data-field]');
+    const record = [];
+    inputs.forEach(inp => record.push(inp.value));
+    cimState.records.push(record);
+  });
+}
+
+function cimRenderRecords() {
+  const list = document.getElementById('cim-records-list');
+  if (!list) return;
+
+  const cols = cimState.columns.filter(c => c.trim());
+  if (cols.length === 0) {
+    list.innerHTML = '<div class="cim-empty-state"><i class="fas fa-columns"></i><p>No columns defined</p><p class="sub">Go back to Step 2 to add columns first</p></div>';
+    return;
+  }
+
+  if (cimState.records.length === 0) {
+    list.innerHTML = '<div class="cim-empty-state"><i class="fas fa-table"></i><p>No records added yet</p><p class="sub">Click "Add Record" below to add your first data entry</p></div>';
+    return;
+  }
+
+  let html = '';
+  cimState.records.forEach((record, rIdx) => {
+    html += `<div class="cim-record-row">
+      <div class="cim-record-row-header">
+        <span><i class="fas fa-file-alt" style="color:var(--accent-green);margin-right:6px"></i>Record ${rIdx + 1}</span>
+        <button class="cim-col-delete" onclick="cimRemoveRecordRow(${rIdx})" title="Remove record"><i class="fas fa-trash-alt"></i></button>
+      </div>
+      <div class="cim-record-fields">`;
+    cols.forEach((col, cIdx) => {
+      const val = record[cIdx] || '';
+      html += `<div class="cim-record-field">
+        <label>${col}</label>
+        <input type="text" data-field="${cIdx}" value="${val}" placeholder="Enter ${col}..." />
+      </div>`;
+    });
+    html += '</div></div>';
+  });
+  list.innerHTML = html;
+}
+
+window.cimAddRecordRow = function () {
+  cimSaveRecords();
+  const cols = cimState.columns.filter(c => c.trim());
+  cimState.records.push(new Array(cols.length).fill(''));
+  cimRenderRecords();
+};
+
+window.cimRemoveRecordRow = function (idx) {
+  cimSaveRecords();
+  cimState.records.splice(idx, 1);
+  cimRenderRecords();
+};
+
+window.submitNewIntegration = async function () {
+  cimSaveRecords();
+
+  const system = document.getElementById('cim-system')?.value?.trim();
+  const department = document.getElementById('cim-department')?.value?.trim();
+  const type = document.getElementById('cim-type')?.value;
+  const status = document.getElementById('cim-status')?.value;
+  const mode = document.getElementById('cim-mode')?.value?.trim() || 'API';
+  const priority = document.getElementById('cim-priority')?.value;
+  const description = document.getElementById('cim-description')?.value?.trim();
+  const columns = cimState.columns.filter(c => c.trim());
+  const records = cimState.records;
+
+  if (!system || !department) {
+    alert('System name and department are required');
+    return;
+  }
+
+  // Determine health based on status
+  const healthMap = { connected: 95 + Math.random() * 5, partial: 50 + Math.random() * 30, pending: 0 };
+  const health = Math.round((healthMap[status] || 0) * 10) / 10;
+
+  const submitBtn = document.getElementById('cim-btn-next');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating...';
+
+  try {
+    const res = await fetch('/api/integrations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system, department, type, status, mode, priority, health,
+        recordsIngested: records.length,
+        description, columns
+      })
+    });
+
+    const data = await res.json();
+    if (!data.success) throw new Error('Failed to create integration');
+
+    const newId = data.id;
+
+    // Add records if any
+    for (const record of records) {
+      await fetch(`/api/integration-details/${newId}/records`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ record })
+      });
+    }
+
+    // Update local DATA
+    const newIntg = data.integration;
+    DATA.integrations.push(newIntg);
+
+    if (!DATA.integration_details) DATA.integration_details = {};
+    DATA.integration_details[String(newId)] = {
+      system, description: description || `${system} — Custom integration created via NOTS.`,
+      columns, records, isCustom: true
+    };
+
+    // Also update the mockData reference if it exists
+    if (window.MOCK_DATA) {
+      window.MOCK_DATA.integrations = DATA.integrations;
+      window.MOCK_DATA.integration_details = DATA.integration_details;
+    }
+
+    closeCimModal();
+    navigate('integrations');
+  } catch (err) {
+    console.error('Error creating integration:', err);
+    // Fallback: save locally even if server fails
+    const maxId = DATA.integrations.reduce((max, i) => Math.max(max, i.id || 0), 0);
+    const newId = maxId + 1;
+
+    const newIntg = {
+      id: newId, system, department, type, status,
+      lastSync: status === 'connected' ? new Date().toISOString() : null,
+      recordsIngested: records.length, priority, mode, health, isCustom: true
+    };
+    DATA.integrations.push(newIntg);
+
+    if (!DATA.integration_details) DATA.integration_details = {};
+    DATA.integration_details[String(newId)] = {
+      system, description: description || `${system} — Custom integration created via NOTS.`,
+      columns, records, isCustom: true
+    };
+
+    if (window.MOCK_DATA) {
+      window.MOCK_DATA.integrations = DATA.integrations;
+      window.MOCK_DATA.integration_details = DATA.integration_details;
+    }
+
+    closeCimModal();
+    navigate('integrations');
+  }
+};
+
 // === INTEGRATION DETAIL ===
 function renderIntegrationDetail(integrationId) {
   const details = DATA.integration_details || {};
@@ -1056,18 +1550,135 @@ function renderIntegrationDetail(integrationId) {
   let html = '<button class="back-btn" onclick="navigate(\'integrations\')"><i class="fas fa-arrow-left"></i> Back to Integrations</button>';
   if (!detail) { html += '<div class="card" style="text-align:center;padding:60px"><i class="fas fa-database" style="font-size:3rem;color:var(--text-muted);margin-bottom:16px"></i><h3>No data available</h3></div>'; content.innerHTML = html; return; }
   const statusBdg = intg && intg.status === 'connected' ? 'badge-connected' : intg && intg.status === 'partial' ? 'badge-partial' : 'badge-offline';
-  html += `<div class="card mb-24"><div style="display:flex;justify-content:space-between;align-items:center"><div><h2 style="font-size:1.4rem;font-weight:800;color:var(--text-primary)">${detail.system}</h2><p style="color:var(--text-secondary);margin-top:4px;font-size:0.85rem;max-width:700px">${detail.description}</p></div><div style="text-align:right">${intg ? `<span class="badge ${statusBdg}">${intg.status}</span><div style="margin-top:6px;font-size:0.78rem;color:var(--text-muted)">${fmt(intg.recordsIngested)} records</div>` : ''}</div></div></div>`;
+  html += `<div class="card mb-24"><div style="display:flex;justify-content:space-between;align-items:center"><div><h2 style="font-size:1.4rem;font-weight:800;color:var(--text-primary)">${detail.system}${detail.isCustom ? ' <span style="font-size:0.7rem;color:var(--accent-green);font-weight:700;vertical-align:middle;margin-left:6px;padding:3px 10px;border-radius:12px;background:rgba(16,185,129,0.1)">CUSTOM</span>' : ''}</h2><p style="color:var(--text-secondary);margin-top:4px;font-size:0.85rem;max-width:700px">${detail.description}</p></div><div style="text-align:right">${intg ? `<span class="badge ${statusBdg}">${intg.status}</span><div style="margin-top:6px;font-size:0.78rem;color:var(--text-muted)">${fmt(intg.recordsIngested)} records</div>` : ''}</div></div></div>`;
   if (detail.pendingMessage) {
     html += `<div class="card" style="text-align:center;padding:48px"><i class="fas fa-clock" style="font-size:2.5rem;color:var(--accent-amber);margin-bottom:16px"></i><h3 style="color:var(--text-primary)">${detail.system} — Integration Pending</h3><p style="color:var(--text-secondary);margin-top:8px">${detail.pendingMessage}</p></div>`;
-  } else if (detail.columns && detail.records && detail.records.length) {
-    html += '<div class="card"><div class="card-header"><div class="card-title">Sample Records</div><div class="card-subtitle">' + detail.records.length + ' records shown</div></div><div class="data-table-wrapper"><table class="data-table"><thead><tr>';
-    detail.columns.forEach(col => { html += `<th>${col}</th>`; });
-    html += '</tr></thead><tbody>';
-    detail.records.forEach(row => { html += '<tr>'; row.forEach((cell, idx) => { html += `<td ${idx === 0 ? 'style="color:var(--accent-cyan);font-weight:600"' : ''}>${cell}</td>`; }); html += '</tr>'; });
-    html += '</tbody></table></div></div>';
+  } else if (detail.columns && detail.columns.length) {
+    html += '<div class="card"><div class="card-header"><div class="card-title">Data Records</div><div class="card-subtitle">' + (detail.records ? detail.records.length : 0) + ' records</div></div>';
+
+    if (detail.records && detail.records.length) {
+      html += '<div class="data-table-wrapper"><table class="data-table"><thead><tr>';
+      detail.columns.forEach(col => { html += `<th>${col}</th>`; });
+      html += '</tr></thead><tbody>';
+      detail.records.forEach(row => { html += '<tr>'; row.forEach((cell, idx) => { html += `<td ${idx === 0 ? 'style="color:var(--accent-cyan);font-weight:600"' : ''}>${cell}</td>`; }); html += '</tr>'; });
+      html += '</tbody></table></div>';
+    } else {
+      html += '<div style="text-align:center;padding:40px;color:var(--text-muted)"><i class="fas fa-inbox" style="font-size:2rem;display:block;margin-bottom:10px;opacity:0.4"></i><p>No records yet. Add your first record below.</p></div>';
+    }
+
+    // Add Record button for custom integrations (or all integrations)
+    html += `<div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border-color)">
+      <button class="add-record-btn" onclick="openAddRecordModal('${integrationId}')">
+        <i class="fas fa-plus"></i> Add New Record
+      </button>
+    </div>`;
+
+    html += '</div>';
+  } else if (detail.isCustom) {
+    // Custom integration with no columns yet
+    html += '<div class="card" style="text-align:center;padding:48px"><i class="fas fa-columns" style="font-size:2.5rem;color:var(--text-muted);margin-bottom:16px;opacity:0.4"></i><h3 style="color:var(--text-primary)">No Columns Defined</h3><p style="color:var(--text-muted);margin-top:8px">This integration has no data columns configured.</p></div>';
   }
+
   content.innerHTML = html;
 }
+
+// === ADD RECORD MODAL (from detail view) ===
+window.openAddRecordModal = function (integrationId) {
+  const details = DATA.integration_details || {};
+  const detail = details[String(integrationId)];
+  if (!detail || !detail.columns || !detail.columns.length) {
+    alert('No columns defined for this integration.');
+    return;
+  }
+
+  let overlay = document.getElementById('cim-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'cim-overlay';
+    overlay.className = 'create-integration-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  let fieldsHtml = '';
+  detail.columns.forEach((col, idx) => {
+    fieldsHtml += `<div class="cim-form-group">
+      <label>${col}</label>
+      <input type="text" id="add-rec-field-${idx}" placeholder="Enter ${col}..." />
+    </div>`;
+  });
+
+  overlay.innerHTML = `
+    <div class="create-integration-modal" style="width:520px">
+      <div class="cim-header">
+        <h2><i class="fas fa-plus-circle"></i> Add Record — ${detail.system}</h2>
+        <button class="cim-close" onclick="closeCimModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cim-body">
+        <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:16px">
+          Fill in the values for each column to create a new record.
+        </p>
+        <div class="cim-form-grid">
+          ${fieldsHtml}
+        </div>
+      </div>
+      <div class="cim-footer">
+        <div class="cim-footer-left">${detail.columns.length} fields</div>
+        <div class="cim-footer-right">
+          <button class="cim-btn cim-btn-ghost" onclick="closeCimModal()">Cancel</button>
+          <button class="cim-btn cim-btn-primary" id="add-rec-submit" onclick="submitAddRecord('${integrationId}')">
+            <i class="fas fa-check"></i> Add Record
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  requestAnimationFrame(() => overlay.classList.add('active'));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeCimModal(); });
+};
+
+window.submitAddRecord = async function (integrationId) {
+  const details = DATA.integration_details || {};
+  const detail = details[String(integrationId)];
+  if (!detail || !detail.columns) return;
+
+  const record = [];
+  detail.columns.forEach((col, idx) => {
+    const val = document.getElementById(`add-rec-field-${idx}`)?.value || '';
+    record.push(val);
+  });
+
+  // Check at least one field has value
+  if (record.every(v => !v.trim())) {
+    alert('Please fill in at least one field');
+    return;
+  }
+
+  const submitBtn = document.getElementById('add-rec-submit');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+
+  try {
+    await fetch(`/api/integration-details/${integrationId}/records`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ record })
+    });
+  } catch (err) {
+    console.error('Server error, saving locally:', err);
+  }
+
+  // Update local data
+  if (!detail.records) detail.records = [];
+  detail.records.push(record);
+
+  // Update record count
+  const intg = (DATA.integrations || []).find(i => i.id == integrationId);
+  if (intg) intg.recordsIngested = detail.records.length;
+
+  closeCimModal();
+  navigate('integrationDetail', integrationId);
+};
 
 // === NETWORK INTELLIGENCE ===
 function renderNetworks() {

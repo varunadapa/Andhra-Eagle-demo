@@ -2437,3 +2437,579 @@ body::before {
     opacity: 0.7;
   }
 }
+
+/* ==============================
+   Create Integration Modal
+   ============================== */
+
+.create-integration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.create-integration-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.create-integration-modal {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  width: 680px;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  animation: modalSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cim-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cim-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cim-header h2 i {
+  color: var(--accent-green);
+  font-size: 1.1rem;
+}
+
+.cim-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.cim-close:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--accent-red);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Step Indicator */
+.cim-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 28px;
+  gap: 0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cim-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cim-step.active {
+  color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.cim-step.completed {
+  color: var(--accent-green);
+}
+
+.cim-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cim-step.active .cim-step-num {
+  border-color: var(--accent-green);
+  background: var(--accent-green);
+  color: white;
+}
+
+.cim-step.completed .cim-step-num {
+  border-color: var(--accent-green);
+  background: var(--accent-green);
+  color: white;
+}
+
+.cim-step-connector {
+  width: 40px;
+  height: 2px;
+  background: var(--border-color);
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+.cim-step-connector.active {
+  background: var(--accent-green);
+}
+
+/* Modal Body */
+.cim-body {
+  padding: 24px 28px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 300px;
+  max-height: 50vh;
+}
+
+.cim-step-content {
+  display: none;
+  animation: stepFadeIn 0.3s ease;
+}
+
+.cim-step-content.active {
+  display: block;
+}
+
+@keyframes stepFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Form Groups */
+.cim-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cim-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cim-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.cim-form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cim-form-group input,
+.cim-form-group select,
+.cim-form-group textarea {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.cim-form-group input:focus,
+.cim-form-group select:focus,
+.cim-form-group textarea:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.cim-form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.cim-form-group textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.cim-form-group select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* Column Builder */
+.cim-column-builder {
+  margin-top: 8px;
+}
+
+.cim-column-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cim-column-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: columnSlideIn 0.25s ease;
+}
+
+@keyframes columnSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cim-column-item .cim-col-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cim-column-item input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.cim-column-item input:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.cim-col-delete {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.cim-col-delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--accent-red);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.cim-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--accent-green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cim-add-btn:hover {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--accent-green);
+}
+
+/* Record Builder */
+.cim-record-builder {
+  margin-top: 8px;
+}
+
+.cim-records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cim-record-row {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  position: relative;
+  animation: columnSlideIn 0.25s ease;
+}
+
+.cim-record-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.cim-record-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.cim-record-field label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.cim-record-field input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.cim-record-field input:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+}
+
+.cim-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.cim-empty-state i {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+  opacity: 0.4;
+}
+
+.cim-empty-state p {
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.cim-empty-state .sub {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* Modal Footer */
+.cim-footer {
+  padding: 18px 28px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+}
+
+.cim-footer-left {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.cim-footer-right {
+  display: flex;
+  gap: 10px;
+}
+
+.cim-btn {
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  border: 1px solid var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cim-btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.cim-btn-ghost:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.cim-btn-primary {
+  background: #166534;
+  color: white;
+  border-color: #166534;
+}
+
+.cim-btn-primary:hover {
+  background: #15803d;
+}
+
+.cim-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Create Integration Button on the page */
+.create-integration-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #166534, #15803d);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  box-shadow: 0 4px 14px rgba(22, 101, 52, 0.25);
+}
+
+.create-integration-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(22, 101, 52, 0.35);
+  background: linear-gradient(135deg, #15803d, #16a34a);
+}
+
+.create-integration-btn i {
+  font-size: 1rem;
+}
+
+/* Add Record Button in Detail View */
+.add-record-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  border: 1px dashed rgba(16, 185, 129, 0.4);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.add-record-btn:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--accent-green);
+}
+
+/* Integration page header bar */
+.integration-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.integration-page-header .section-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.integration-page-header .section-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

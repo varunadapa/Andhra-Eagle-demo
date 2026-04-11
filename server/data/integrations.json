@@ -190,5 +190,31 @@
     "priority": "High",
     "mode": "Secure API",
     "health": 98.5
+  },
+  {
+    "id": 17,
+    "system": "Test Intel System",
+    "department": "Intelligence Bureau",
+    "type": "Custom",
+    "status": "connected",
+    "lastSync": "2026-04-09T13:45:50.352Z",
+    "recordsIngested": 2,
+    "priority": "High",
+    "mode": "REST APISecure REST API",
+    "health": 100,
+    "isCustom": true
+  },
+  {
+    "id": 18,
+    "system": "test BCSS",
+    "department": "Employee names",
+    "type": "Custom",
+    "status": "pending",
+    "lastSync": null,
+    "recordsIngested": 2,
+    "priority": "High",
+    "mode": "REST API",
+    "health": 0,
+    "isCustom": true
   }
 ]
